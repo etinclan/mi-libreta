@@ -1,0 +1,166 @@
+---
+import Base from '../layouts/Base.astro';
+import Antetitulo from '../components/Antetitulo.astro';
+---
+
+<Base title="El nuevo juego del valor · Eduardo Toledo">
+  <div class="nuevo-juego">
+
+    <!-- HERO -->
+    <header class="hero">
+      <Antetitulo texto="EL NUEVO JUEGO" />
+      <h1>El nuevo juego del <em class="coral">valor</em></h1>
+      <p class="subtitulo"><em>[SUBTITULO_ITALIC]</em></p>
+    </header>
+
+    <!-- MANIFIESTO -->
+    <section class="manifiesto">
+      <p>[MANIFIESTO_PARRAFO_1]</p>
+      <p>[MANIFIESTO_PARRAFO_2]</p>
+      <p>[MANIFIESTO_PARRAFO_3]</p>
+    </section>
+
+    <!-- DOS CAMINOS -->
+    <section class="caminos-sec">
+      <h2>Dos caminos</h2>
+      <div class="caminos-cols">
+
+        <div class="camino-col">
+          <span class="camino-quien">PERSONAS</span>
+          <p class="camino-desc">[DESCRIPCION_PERSONAS]</p>
+          <a href="/personas" class="camino-link">Ver detalle →</a>
+        </div>
+
+        <div class="camino-col">
+          <span class="camino-quien">ORGANIZACIONES</span>
+          <p class="camino-desc">[DESCRIPCION_ORGANIZACIONES]</p>
+          <a href="/organizaciones" class="camino-link">Ver detalle →</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CIERRE -->
+    <section class="cierre">
+      <p>[CIERRE]</p>
+    </section>
+
+  </div>
+</Base>
+
+<style>
+  :root {
+    --mint:  #5EECC5;
+    --coral: #FF8F6B;
+  }
+
+  .nuevo-juego {
+    max-width: 72ch;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+  }
+
+  /* Hero */
+  h1 {
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-2xl);
+    font-weight: 400;
+    color: var(--color-text-bright);
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .coral {
+    font-style: italic;
+    color: var(--coral);
+  }
+  .subtitulo {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-md);
+    font-style: italic;
+    line-height: 1.5;
+    color: #A8A5A0;
+  }
+
+  /* Manifiesto */
+  .manifiesto p {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-base);
+    line-height: 2;
+    color: var(--color-text);
+    margin-bottom: 1.4em;
+  }
+  .manifiesto p:last-child { margin-bottom: 0; }
+
+  /* Dos caminos */
+  h2 {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-bright);
+    margin-bottom: 40px;
+  }
+  .caminos-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+  .camino-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 28px 32px 28px 0;
+    border-top: 1px solid var(--color-border);
+  }
+  .camino-col:last-child {
+    padding-left: 32px;
+    padding-right: 0;
+    border-left: 1px solid var(--color-border);
+  }
+  .camino-quien {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--etcom-smoke);
+  }
+  .camino-desc {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-base);
+    line-height: 1.9;
+    color: var(--color-text);
+  }
+  .camino-link {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-xs);
+    font-weight: 300;
+    color: var(--coral);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    margin-top: 4px;
+    transition: opacity 0.15s;
+  }
+  .camino-link:hover { opacity: 0.7; }
+
+  /* Cierre */
+  .cierre {
+    padding-top: 48px;
+    border-top: 1px solid var(--color-border);
+  }
+  .cierre p {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-base);
+    line-height: 2;
+    color: var(--color-text-dim);
+    font-style: italic;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .caminos-cols { grid-template-columns: 1fr; }
+    .camino-col:last-child { padding-left: 0; border-left: none; border-top: 1px solid var(--color-border); }
+  }
+</style>

@@ -8,24 +8,22 @@ const programas = [
     titulo: "Asomarse",
     subtitulo: "El nuevo juego, en 90 minutos.",
     desc: "Una sesión para ver el tablero antes de mover ficha: qué se está reordenando, qué se sostiene y qué desaparece. Pensada para comités de dirección, jornadas de líderes y eventos profesionales.",
-    href: "/profesionales/asomarse",
   },
   {
     tag: "Itinerario individual",
     titulo: "Reinventarse",
     subtitulo: "Para descubrir dónde sigue estando tu valor — y reclamarlo.",
     desc: "Cuatro semanas de trabajo guiado para entender qué de tu rol se está desarmando, dónde sigue estando tu valor real y cómo reposicionarte con criterio. Cohortes pequeñas, sesiones en vivo, trabajo aplicado a tu caso.",
-    href: "/profesionales/reinventarse",
   },
 ];
 ---
 
-<Base title="Estudio · Eduardo Toledo">
+<Base title="Personas · Eduardo Toledo">
   <div class="estudio">
 
     <header class="hero">
-      <Antetitulo texto="PROFESIONALES" />
-      <h1>Estudio</h1>
+      <Antetitulo texto="PERSONAS" />
+      <h1>Personas</h1>
       <p class="subtitulo"><em>Para reposicionarte cuando cambian las reglas del juego.</em></p>
     </header>
 
@@ -45,7 +43,6 @@ const programas = [
               <h3>{p.titulo}</h3>
               <p class="promesa"><em>{p.subtitulo}</em></p>
               <p class="desc">{p.desc}</p>
-              <a href={p.href} class="cta">Ver detalle →</a>
             </div>
           </div>
         ))}
