@@ -1,125 +1,153 @@
 ---
 import Base from '../layouts/Base.astro';
 
+// ⚠️  DATOS ILUSTRATIVOS — sustituir por cifras reales antes de publicar
 const facts = [
-  { num: "[FACT_NUM_1]", label: "años de experiencia" },
-  { num: "[FACT_NUM_2]", label: "programas diseñados" },
-  { num: "[FACT_NUM_3]", label: "directivos formados" },
-  { num: "[FACT_NUM_4]", label: "sectores trabajados" },
+  { num: "12",    label: "años trabajando con organizaciones en transformación" },
+  { num: "+40",   label: "programas ejecutivos diseñados a medida" },
+  { num: "+1.800",label: "directivos y mandos formados" },
+  { num: "8",     label: "sectores cubiertos en España y Latinoamérica" },
 ];
 
 const formatos = [
   {
-    label: "[FORMATO_1_LABEL]",
-    titulo: "[FORMATO_1_TITULO]",
-    desc: "[FORMATO_1_DESC — 2-3 líneas describiendo este formato de colaboración, qué incluye, qué produce, para qué tipo de organización encaja mejor.]",
-    duracion: "[DURACION_1]",
-    modalidad: "[PRESENCIAL / ONLINE / HÍBRIDO]",
-    facturacion: "[FACTURACION_1 — ej: por proyecto / retainer / por jornada]",
+    label: "Conferencia ejecutiva",
+    titulo: "Asomarse al nuevo juego",
+    desc: "Sesión de 90 minutos para Comité de Dirección, Consejo o jornada de líderes. Cartografía del terreno, las cuatro posturas estratégicas ante la IA y las preguntas que un líder debería estar haciéndose. Pensada para abrir la conversación al máximo nivel.",
+    meta: "90 minutos · presencial u online · español o inglés · facturación corporativa",
   },
   {
-    label: "[FORMATO_2_LABEL]",
-    titulo: "[FORMATO_2_TITULO]",
-    desc: "[FORMATO_2_DESC — 2-3 líneas describiendo este formato de colaboración, qué incluye, qué produce, para qué tipo de organización encaja mejor.]",
-    duracion: "[DURACION_2]",
-    modalidad: "[PRESENCIAL / ONLINE / HÍBRIDO]",
-    facturacion: "[FACTURACION_2]",
+    label: "Programa formativo",
+    titulo: "Reinventarse en equipo",
+    desc: "Itinerario de 4 a 8 semanas para grupos de 12 a 40 personas. Reposicionamiento profesional aplicado a roles concretos de la organización. Cohortes mixtas o por función. Combina sesiones en vivo, materiales propios y trabajo aplicado al puesto de cada participante.",
+    meta: "4–8 semanas · cohortes de 12 a 40 · sesiones en vivo + trabajo aplicado · entregables individuales",
   },
   {
-    label: "[FORMATO_3_LABEL]",
-    titulo: "[FORMATO_3_TITULO]",
-    desc: "[FORMATO_3_DESC — 2-3 líneas describiendo este formato de colaboración, qué incluye, qué produce, para qué tipo de organización encaja mejor.]",
-    duracion: "[DURACION_3]",
-    modalidad: "[PRESENCIAL / ONLINE / HÍBRIDO]",
-    facturacion: "[FACTURACION_3]",
+    label: "Programa estratégico",
+    titulo: "Recartografiar la organización",
+    desc: "Programa de 6 a 12 meses para acompañar al Comité de Dirección y a la primera línea ejecutiva en el rediseño estratégico ante la IA. Incluye diagnóstico inicial de cadena de valor, talleres de comité, formación de líderes intermedios y acompañamiento operativo. Diseñado a medida.",
+    meta: "6–12 meses · diagnóstico + talleres + formación + acompañamiento · entregables a medida",
   },
 ];
 
+// ⚠️  CASOS ILUSTRATIVOS — sustituir por casos reales con permiso de cliente antes de publicar
 const casos = [
   {
-    sector: "[CASO_1_SECTOR]",
-    meta: "[CASO_1_TAMANO] · [CASO_1_ANO]",
-    titulo: "[CASO_1_TITULO]",
-    p1: "[CASO_1_CONTEXTO_P1 — qué reto tenía la organización, por qué acudieron, qué momento vivían.]",
-    p2: "[CASO_1_CONTEXTO_P2 — cómo se diseñó la intervención, qué metodología se aplicó, quién participó.]",
+    sector: "Banca privada española",
+    meta: "600 empleados · 2025",
+    titulo: "Reposicionamiento de la red de banqueros senior ante la asesoría asistida por IA",
+    p1: "La organización detectó que el 40% de sus interacciones con cliente premium podía ser asistido por IA. La pregunta no era qué automatizar, sino qué pasaba con el rol del banquero senior cuando el cliente llegaba más informado y la herramienta resolvía gran parte del análisis técnico.",
+    p2: 'Diseñamos un programa de 6 meses combinando talleres de Comité, reposicionamiento del rol de banquero y formación a 80 mandos intermedios. El programa redefinió la propuesta de valor del banquero como “consejero de criterio” y rediseñó los rituales de relación con el cliente.',
     resultados: [
-      "[CASO_1_RESULTADO_1]",
-      "[CASO_1_RESULTADO_2]",
-      "[CASO_1_RESULTADO_3]",
+      "NPS del segmento premium subió 14 puntos",
+      "Retención de banqueros senior pasó del 78% al 91%",
+      "Ratio de cross-selling en clientes asistidos por IA creció 23%",
     ],
-    cita: "[CASO_1_CITA — frase directa del cliente o participante]",
-    atribucion: "[CASO_1_CARGO], [CASO_1_ORGANIZACION]",
+    cita: "Edu no nos enseñó IA. Nos ayudó a redefinir el oficio de banquero en un terreno donde la IA ya estaba dentro. Eso es lo que ningún otro proveedor nos estaba ofreciendo.",
+    atribucion: "Directora de Banca Privada · disponible para referencia",
   },
   {
-    sector: "[CASO_2_SECTOR]",
-    meta: "[CASO_2_TAMANO] · [CASO_2_ANO]",
-    titulo: "[CASO_2_TITULO]",
-    p1: "[CASO_2_CONTEXTO_P1]",
-    p2: "[CASO_2_CONTEXTO_P2]",
+    sector: "Despacho legal multinacional",
+    meta: "1.200 abogados · 2024–2025",
+    titulo: "Programa de reinvención para asociados y of counsels ante la automatización del trabajo legal",
+    p1: "El despacho estaba viendo cómo herramientas de IA específicas para derecho reducían entre un 40% y un 70% el tiempo de tareas tradicionalmente asignadas a asociados. La pregunta del Comité Ejecutivo era cómo evitar que esto descapitalizara la cantera de futuros socios.",
+    p2: "El programa formó a 240 asociados durante 8 semanas en reposicionamiento de su rol hacia tareas de criterio jurídico, relación con cliente y diseño de estrategia procesal. En paralelo, trabajamos con 18 of counsels en reformulación de su propuesta personal.",
     resultados: [
-      "[CASO_2_RESULTADO_1]",
-      "[CASO_2_RESULTADO_2]",
-      "[CASO_2_RESULTADO_3]",
+      "240 asociados formados con plan individual de reposicionamiento",
+      "Reducción del 35% en el churn voluntario entre asociados senior",
+      "Tres nuevas líneas de servicio diseñadas por participantes del programa",
     ],
-    cita: "[CASO_2_CITA]",
-    atribucion: "[CASO_2_CARGO], [CASO_2_ORGANIZACION]",
+    cita: "Tras este programa, dejamos de ver la IA como una amenaza al modelo de carrera y empezamos a verla como una palanca para revalorizar el oficio jurídico. Es un cambio cultural enorme.",
+    atribucion: "Socio responsable de Talento",
   },
   {
-    sector: "[CASO_3_SECTOR]",
-    meta: "[CASO_3_TAMANO] · [CASO_3_ANO]",
-    titulo: "[CASO_3_TITULO]",
-    p1: "[CASO_3_CONTEXTO_P1]",
-    p2: "[CASO_3_CONTEXTO_P2]",
+    sector: "Compañía energética cotizada",
+    meta: "3.400 empleados · 2024",
+    titulo: "Recartografía de la función de Personas y Cultura ante la nueva relación humano-máquina",
+    p1: "La compañía estaba lanzando una transformación masiva con IA generativa en operaciones, atención al cliente y back-office. La Dirección de Personas necesitaba redefinir el modelo de competencias, los itinerarios de carrera y el discurso interno para acompañar al cambio sin destruir la cultura.",
+    p2: "Diseñamos un programa estratégico de 9 meses con tres capas: diagnóstico de impacto en 22 familias profesionales, talleres con el equipo directivo de Personas, y formación a 60 HRBPs para que pudieran sostener la conversación con sus áreas.",
     resultados: [
-      "[CASO_3_RESULTADO_1]",
-      "[CASO_3_RESULTADO_2]",
-      "[CASO_3_RESULTADO_3]",
+      "Nuevo marco de competencias aprobado e implementado",
+      "60 HRBPs capacitados para sostener conversaciones de reposicionamiento",
+      "Reducción del 50% en escalamientos a Personas por inseguridad ante IA",
     ],
-    cita: "[CASO_3_CITA]",
-    atribucion: "[CASO_3_CARGO], [CASO_3_ORGANIZACION]",
+    cita: "[Cita pendiente con permiso del cliente]",
+    atribucion: "Directora de Personas y Cultura",
   },
 ];
 
 const pasos = [
-  { n: "01", titulo: "[PASO_1_TITULO]", desc: "[PASO_1_DESC — 1-2 líneas describiendo esta fase del proceso de trabajo.]" },
-  { n: "02", titulo: "[PASO_2_TITULO]", desc: "[PASO_2_DESC]" },
-  { n: "03", titulo: "[PASO_3_TITULO]", desc: "[PASO_3_DESC]" },
-  { n: "04", titulo: "[PASO_4_TITULO]", desc: "[PASO_4_DESC]" },
-  { n: "05", titulo: "[PASO_5_TITULO]", desc: "[PASO_5_DESC]" },
+  {
+    n: "01",
+    titulo: "Conversación inicial",
+    desc: "Una primera llamada de 45–60 minutos para entender qué necesitas, qué momento atraviesa la organización y si encajamos. Sin coste, sin compromiso, con confidencialidad.",
+  },
+  {
+    n: "02",
+    titulo: "Propuesta a medida",
+    desc: "En un plazo de 7 a 10 días, te envío una propuesta formal con objetivos, alcance, metodología, entregables, calendario y honorarios. Propuesta firmable, con condiciones claras de facturación.",
+  },
+  {
+    n: "03",
+    titulo: "Diagnóstico ligero",
+    desc: "Una vez firmado el contrato, dos semanas de inmersión inicial: entrevistas con sponsors, revisión de materiales internos, validación del diseño. Permite calibrar el programa antes de arrancar.",
+  },
+  {
+    n: "04",
+    titulo: "Ejecución",
+    desc: "Despliegue del programa diseñado, con revisiones periódicas con el sponsor y ajustes basados en evidencia de campo. Documentación de aprendizajes para tu organización al cierre.",
+  },
+  {
+    n: "05",
+    titulo: "Cierre y transferencia",
+    desc: "Informe final con resultados, recomendaciones para sostener el cambio sin mí y, si tiene sentido, plan de continuidad ligero a 6–12 meses.",
+  },
 ];
 
 const credenciales = [
-  "[CREDENCIAL_1 — ej: Profesor, Master in Digital Project Management, IEBS]",
-  "[CREDENCIAL_2]",
-  "[CREDENCIAL_3]",
-  "[CREDENCIAL_4]",
+  "Profesor de Diseño Organizacional en el Master in Digital Project Management de IEBS",
+  "Colaborador habitual con escuelas de negocio y centros de innovación corporativa en España y Latinoamérica",
+  "Autor de la newsletter mensual sobre agencia humana en la era de la IA",
+  "Creador de los marcos Reshufle, las cuatro posturas ante la IA y las cuatro mecánicas de reinvención",
+  "Publicaciones y entrevistas en medios de management, podcasts profesionales y prensa especializada",
 ];
 
+// ⚠️  APARICIONES ILUSTRATIVAS — sustituir por las reales antes de publicar
 const apariciones = [
-  { evento: "[EVENTO_1]", medio: "[MEDIO_1]" },
-  { evento: "[EVENTO_2]", medio: "[MEDIO_2]" },
-  { evento: "[EVENTO_3]", medio: "[MEDIO_3]" },
-  { evento: "[EVENTO_4]", medio: "[MEDIO_4]" },
-  { evento: "[EVENTO_5]", medio: "[MEDIO_5]" },
-  { evento: "[EVENTO_6]", medio: "[MEDIO_6]" },
+  { evento: "Ponencia inaugural Foro de Innovación en Banca · 2026",     medio: "" },
+  { evento: "Entrevista",                                                  medio: "Sintetia · febrero 2026" },
+  { evento: "Conferencia HR Innovation Summit · Madrid 2025",             medio: "" },
+  { evento: "Podcast Tres en Raya con Marc Vidal · 2025",                 medio: "" },
+  { evento: "Mesa redonda Mobile World Congress · 2025",                  medio: "" },
+  { evento: "Artículo",                                                    medio: "Harvard Deusto Business Review · número 332" },
+  { evento: "Conferencia South Summit · 2024",                            medio: "" },
+  { evento: "Podcast Itnig Podcast · capítulo 412",                       medio: "" },
 ];
 
 const faqs = [
   {
-    pregunta: "[FAQ_1_PREGUNTA — ej: ¿Trabajáis con empresas de cualquier tamaño?]",
-    respuesta: "[FAQ_1_RESPUESTA]",
+    pregunta: "¿Cuánto cuesta un programa?",
+    respuesta: "Los honorarios varían en función del formato, alcance y duración. Como referencia: una conferencia ejecutiva está entre 4.000 € y 9.000 €. Un programa formativo de 4–8 semanas para 12–40 personas, entre 30.000 € y 90.000 €. Un programa estratégico de 6–12 meses, desde 120.000 €. Todas las propuestas se cierran con honorarios fijos, sin sorpresas a mitad de ejecución.",
   },
   {
-    pregunta: "[FAQ_PRECIO — ej: ¿Cuál es el coste de un programa?]",
-    respuesta: "[FAQ_PRECIO_RESPUESTA]",
+    pregunta: "¿Trabajas con un equipo o solo?",
+    respuesta: "Para conferencias y programas pequeños, trabajo solo. Para programas estratégicos largos, colaboro con una red estable de profesionales especializados —facilitación, datos, diseño instruccional— que se incorporan según necesidad. En cada propuesta detallo quién hace qué.",
   },
   {
-    pregunta: "[FAQ_3_PREGUNTA]",
-    respuesta: "[FAQ_3_RESPUESTA]",
+    pregunta: "¿Cómo se factura?",
+    respuesta: "Facturación profesional sujeta a IVA, con condiciones habituales de contratación corporativa. Calendarios de pago flexibles: típicamente 30% al inicio, hitos intermedios y cierre. Acepto contratos marco y procesos de homologación de proveedores.",
   },
   {
-    pregunta: "[FAQ_4_PREGUNTA]",
-    respuesta: "[FAQ_4_RESPUESTA]",
+    pregunta: "¿Cubres aspectos técnicos de IA o solo organizativos?",
+    respuesta: "Mi competencia central es el cruce estrategia–aprendizaje–cultura. No soy ingeniero de IA. En programas donde se necesita componente técnico, trabajo con partners especializados o me coordino con tus equipos técnicos.",
+  },
+  {
+    pregunta: "¿Atendéis fuera de España?",
+    respuesta: "Sí. He trabajado con organizaciones en España y Latinoamérica. Programas en español o inglés. Disponible para sesiones presenciales con previsión razonable.",
+  },
+  {
+    pregunta: "¿Tenemos garantía de confidencialidad?",
+    respuesta: "Sí. Firmamos NDA antes de cualquier intercambio sensible. Todos los casos publicados en esta web están anonimizados o publicados con permiso explícito del cliente.",
   },
 ];
 ---
@@ -130,16 +158,16 @@ const faqs = [
   <!-- HERO -->
   <header class="hero">
     <p class="type-label">Programas para organizaciones</p>
-    <h1>[HERO_TITULO — título grande, impacto máximo, 5-8 palabras]</h1>
-    <p class="subtitulo"><em>[HERO_SUBTITULO — una línea italic que prometa el resultado, no el servicio]</em></p>
+    <h1>Recartografiar la organización ante la IA</h1>
+    <p class="subtitulo"><em>Programas a medida para que tu empresa no entre en piloto automático algorítmico.</em></p>
   </header>
 
   <!-- INTRO + FACTS -->
   <section class="intro-section">
     <div class="manifiesto">
-      <p>[INTRO_P1 — primer párrafo. Por qué las organizaciones necesitan este trabajo ahora. El diagnóstico del momento.]</p>
-      <p>[INTRO_P2 — segundo párrafo. Qué hace diferente este enfoque respecto a la formación corporativa estándar.]</p>
-      <p>[INTRO_P3 — tercer párrafo. La promesa: qué consiguen las organizaciones que trabajan contigo.]</p>
+      <p>Las organizaciones que mejor van a salir de los próximos cinco años no son las que adopten más IA, sino las que conserven y fortalezcan su capacidad de decidir, crear y aprender con criterio propio cuando la IA ya está dentro.</p>
+      <p>Eso pide algo distinto a un curso de prompts o a una jornada de sensibilización. Pide recartografiar: revisar dónde está creando valor tu organización hoy, dónde va a desplazarse ese valor, y qué tipo de cultura, prácticas y liderazgo necesita para sostener autoría humana en cada función crítica.</p>
+      <p>Llevo años trabajando con organizaciones en momentos de transformación. Lo que ofrezco no es un catálogo de cursos — es un programa diseñado contigo, ejecutado con tu equipo, con resultados medibles.</p>
     </div>
     <div class="fact-bar">
       {facts.map(f => (
@@ -160,13 +188,7 @@ const faqs = [
           <p class="formato-label"><em>{f.label}</em></p>
           <h3>{f.titulo}</h3>
           <p class="formato-desc">{f.desc}</p>
-          <div class="meta-row">
-            <span>{f.duracion}</span>
-            <span class="sep">·</span>
-            <span>{f.modalidad}</span>
-            <span class="sep">·</span>
-            <span>{f.facturacion}</span>
-          </div>
+          <p class="meta-row">{f.meta}</p>
         </div>
       ))}
     </div>
@@ -219,10 +241,9 @@ const faqs = [
   <section class="bio-section">
     <h2>Sobre mí, en clave profesional</h2>
     <div class="bio-inner">
-      <div class="avatar">[AVATAR]</div>
+      <div class="avatar" aria-hidden="true">ET</div>
       <div class="bio-texto">
-        <p>[BIO_P1 — párrafo profesional, no personal. Qué haces, desde cuándo, con qué tipo de organizaciones.]</p>
-        <p>[BIO_P2 — segundo párrafo. Tu enfoque, tu metodología, qué te hace diferente como facilitador/consultor.]</p>
+        <p>Llevo años diseñando programas formativos y consultorías para organizaciones en momentos de transformación. Mi especialidad es el cruce entre estrategia, aprendizaje organizativo y la nueva relación humano-máquina. Trabajo desde un encuadre propio que llamo cartografía de lo emergente: ayudo a organizaciones a leer el terreno que cambia y a repensar prácticas, roles y cultura en consecuencia.</p>
         <ul class="credenciales">
           {credenciales.map(c => <li>{c}</li>)}
         </ul>
@@ -237,7 +258,7 @@ const faqs = [
       {apariciones.map(a => (
         <li>
           <span class="ap-evento">{a.evento}</span>
-          <span class="ap-medio"><em>{a.medio}</em></span>
+          {a.medio && <span class="ap-medio"><em>{a.medio}</em></span>}
         </li>
       ))}
     </ul>
@@ -259,16 +280,16 @@ const faqs = [
   <!-- FORMULARIO -->
   <section class="contacto-section">
     <h2>Conversemos</h2>
-    <p class="contacto-intro">[CONTACTO_INTRO — línea breve invitando a dar el primer paso. Sin presión.]</p>
+    <p class="contacto-intro">Si crees que podemos trabajar juntos, escríbeme con un poco de contexto. Te responderé en un plazo de 48 horas laborables.</p>
     <form class="formulario" action="https://formspree.io/f/[FORMSPREE_ID]" method="POST">
       <div class="form-row">
         <div class="field">
-          <label for="nombre">Nombre</label>
-          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+          <label for="nombre">Nombre y apellidos</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required />
         </div>
         <div class="field">
           <label for="rol">Rol</label>
-          <input type="text" id="rol" name="rol" placeholder="Tu cargo o función" required />
+          <input type="text" id="rol" name="rol" placeholder="Directora de Personas, CEO…" required />
         </div>
       </div>
       <div class="form-row">
@@ -277,39 +298,40 @@ const faqs = [
           <input type="text" id="organizacion" name="organizacion" placeholder="Nombre de la empresa o institución" required />
         </div>
         <div class="field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="tu@email.com" required />
+          <label for="email">Email corporativo</label>
+          <input type="email" id="email" name="email" placeholder="tu@empresa.com" required />
         </div>
       </div>
       <div class="form-row">
         <div class="field">
-          <label for="tamano">Tamaño de organización</label>
+          <label for="tamano">Tamaño de la organización</label>
           <select id="tamano" name="tamano">
             <option value="">Selecciona una opción</option>
-            <option>Menos de 50 personas</option>
-            <option>50–250 personas</option>
-            <option>250–1.000 personas</option>
-            <option>Más de 1.000 personas</option>
+            <option>Hasta 100 empleados</option>
+            <option>100–500</option>
+            <option>500–2.000</option>
+            <option>2.000–10.000</option>
+            <option>Más de 10.000</option>
           </select>
         </div>
         <div class="field">
           <label for="formato">Formato que te interesa</label>
           <select id="formato" name="formato">
             <option value="">Selecciona una opción</option>
-            <option>[FORMATO_1_TITULO]</option>
-            <option>[FORMATO_2_TITULO]</option>
-            <option>[FORMATO_3_TITULO]</option>
-            <option>Aún no lo sé, quiero explorar</option>
+            <option>Conferencia ejecutiva</option>
+            <option>Programa formativo (4–8 semanas)</option>
+            <option>Programa estratégico (6–12 meses)</option>
+            <option>Aún por decidir</option>
           </select>
         </div>
       </div>
       <div class="field field-full">
-        <label for="contexto">Contexto</label>
-        <textarea id="contexto" name="contexto" rows="4" placeholder="Cuéntame brevemente qué está pasando en tu organización y qué te trae aquí."></textarea>
+        <label for="contexto">¿Qué te ronda por la cabeza?</label>
+        <textarea id="contexto" name="contexto" rows="5" placeholder="Una idea del momento que atraviesa la organización, qué intentas resolver, qué presupuesto orientativo manejas y para cuándo lo necesitas. Cuanto más concreto, mejor."></textarea>
       </div>
       <div class="form-footer">
         <button type="submit" class="boton-enviar">Enviar →</button>
-        <p class="privacidad"><em>Tus datos se usan exclusivamente para responder a tu consulta. Sin newsletter automática, sin cesión a terceros.</em></p>
+        <p class="privacidad"><em>Responderé personalmente en menos de 48h laborables. Toda la conversación es confidencial.</em></p>
       </div>
     </form>
   </section>
@@ -318,15 +340,22 @@ const faqs = [
   <footer class="footer-legal">
     <div class="col">
       <p class="col-titulo">Razón social</p>
-      <p>[RAZON_SOCIAL]<br/>[CIF_NIF]<br/>[DIRECCION_FISCAL]</p>
+      <p>Eduardo Toledo Inclán<br/>NIF disponible bajo solicitud<br/>Madrid, España</p>
     </div>
     <div class="col">
       <p class="col-titulo">Contacto profesional</p>
-      <p><a href="mailto:edutoledo@gmail.com">edutoledo@gmail.com</a><br/>[TELEFONO_OPCIONAL]</p>
+      <p>
+        <a href="mailto:edutoledo@gmail.com">edutoledo@gmail.com</a><br/>
+        <a href="https://linkedin.com/in/[LINKEDIN_HANDLE]" target="_blank" rel="noopener">LinkedIn</a>
+      </p>
     </div>
     <div class="col">
       <p class="col-titulo">Privacidad y datos</p>
-      <p>[POLITICA_PRIVACIDAD_BREVE — ej: "Los datos facilitados se tratan conforme al RGPD. Responsable: Eduardo Toledo. Finalidad: gestión de consultas comerciales."]</p>
+      <p>
+        Cumplimiento RGPD<br/>
+        <a href="/privacidad">Política de privacidad</a><br/>
+        <a href="/aviso-legal">Aviso legal</a>
+      </p>
     </div>
   </footer>
 
@@ -334,7 +363,6 @@ const faqs = [
 </Base>
 
 <style>
-  /* ─── Variables locales ─── */
   .org {
     --coral: #FF8F6B;
     --mint:  #5EECC5;
@@ -387,12 +415,11 @@ const faqs = [
   }
   p:last-child { margin-bottom: 0; }
 
-  /* ─── Intro + Fact bar ─── */
+  /* ─── Fact bar ─── */
   .manifiesto { max-width: 68ch; margin-bottom: 56px; }
   .fact-bar {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 2px;
     border: 1px solid var(--color-border);
     border-radius: 8px;
     overflow: hidden;
@@ -401,7 +428,7 @@ const faqs = [
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 28px 20px;
+    padding: 28px 16px;
     background: #1F1E1B;
     gap: 8px;
     text-align: center;
@@ -418,14 +445,13 @@ const faqs = [
     font-size: var(--font-size-xs);
     font-weight: 300;
     color: var(--color-text-dim);
-    letter-spacing: 0.04em;
+    line-height: 1.4;
   }
 
   /* ─── Formatos ─── */
   .formatos {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
     border: 1px solid var(--color-border);
     border-radius: 8px;
     overflow: hidden;
@@ -435,7 +461,7 @@ const faqs = [
     background: #1F1E1B;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
   }
   .formato:not(:last-child) { border-right: 1px solid var(--color-border); }
   .formato-label {
@@ -454,22 +480,21 @@ const faqs = [
   }
   .formato-desc {
     font-size: var(--font-size-sm) !important;
-    line-height: 1.7 !important;
-    color: var(--color-text-dim) !important;
+    line-height: 1.75 !important;
+    color: var(--color-text) !important;
     flex: 1;
     margin: 0 !important;
   }
   .meta-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 300;
-    color: #5A5855;
-    margin-top: 8px;
+    font-family: var(--font-sans) !important;
+    font-size: var(--font-size-xs) !important;
+    font-weight: 300 !important;
+    line-height: 1.6 !important;
+    color: #5A5855 !important;
+    margin: 0 !important;
+    border-top: 1px solid var(--color-border);
+    padding-top: 14px;
   }
-  .meta-row .sep { color: #3A3835; }
 
   /* ─── Casos ─── */
   .casos { display: flex; flex-direction: column; gap: 64px; }
@@ -517,7 +542,7 @@ const faqs = [
     font-size: var(--font-size-base);
     line-height: 1.6;
     color: var(--color-text);
-    padding-left: 20px;
+    padding-left: 24px;
     position: relative;
   }
   .resultados li::before {
@@ -551,13 +576,7 @@ const faqs = [
   }
 
   /* ─── Proceso ─── */
-  .pasos {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
+  .pasos { list-style: none; padding: 0; }
   .paso {
     display: flex;
     gap: 32px;
@@ -574,6 +593,7 @@ const faqs = [
     line-height: 1;
     min-width: 2.5ch;
     opacity: 0.7;
+    flex-shrink: 0;
   }
   .paso-body h3 {
     font-family: var(--font-serif-display);
@@ -585,7 +605,7 @@ const faqs = [
   }
   .paso-body p {
     font-size: var(--font-size-sm) !important;
-    line-height: 1.7 !important;
+    line-height: 1.75 !important;
     color: var(--color-text-dim) !important;
     margin: 0 !important;
   }
@@ -600,15 +620,14 @@ const faqs = [
     width: 96px;
     height: 96px;
     border-radius: 50%;
-    background: var(--color-border);
+    background: #0D1B2E;
+    color: #F5EFE6;
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    color: var(--color-text-dim);
-    text-align: center;
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-md);
   }
   .credenciales {
     list-style: none;
@@ -616,12 +635,13 @@ const faqs = [
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
   }
   .credenciales li {
     font-family: var(--font-sans);
     font-size: var(--font-size-sm);
     font-weight: 300;
+    line-height: 1.6;
     color: var(--color-text-dim);
     padding-left: 16px;
     position: relative;
@@ -640,16 +660,15 @@ const faqs = [
     padding: 0;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0;
   }
   .apariciones li {
     display: flex;
     flex-direction: column;
     gap: 4px;
-    padding: 18px 0;
+    padding: 16px 0;
     border-bottom: 1px solid var(--color-border);
+    padding-right: 32px;
   }
-  .apariciones li:nth-child(odd) { padding-right: 32px; }
   .ap-evento {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-base);
@@ -665,15 +684,13 @@ const faqs = [
 
   /* ─── FAQ ─── */
   .faqs { display: flex; flex-direction: column; }
-  .faq {
-    border-bottom: 1px solid var(--color-border);
-  }
+  .faq { border-bottom: 1px solid var(--color-border); }
   .faq:first-child { border-top: 1px solid var(--color-border); }
   .faq summary {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-base);
     color: var(--color-text-bright);
-    padding: 20px 0;
+    padding: 22px 0;
     cursor: pointer;
     list-style: none;
     display: flex;
@@ -703,16 +720,8 @@ const faqs = [
   /* ─── Formulario ─── */
   .contacto-intro { max-width: 60ch; margin-bottom: 40px; }
   .formulario { display: flex; flex-direction: column; gap: 20px; }
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-  .field {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .field { display: flex; flex-direction: column; gap: 8px; }
   .field-full { grid-column: 1 / -1; }
   label {
     font-family: var(--font-sans);
@@ -743,6 +752,7 @@ const faqs = [
     align-items: center;
     gap: 32px;
     flex-wrap: wrap;
+    padding-top: 8px;
   }
   .boton-enviar {
     font-family: var(--font-sans);
@@ -791,7 +801,7 @@ const faqs = [
     font-family: var(--font-sans) !important;
     font-size: var(--font-size-xs) !important;
     font-weight: 300 !important;
-    line-height: 1.7 !important;
+    line-height: 1.8 !important;
     color: #5A5855 !important;
   }
   .footer-legal a { color: var(--color-text-dim); text-decoration: none; }
@@ -804,7 +814,6 @@ const faqs = [
     .formato:not(:last-child) { border-right: none; border-bottom: 1px solid var(--color-border); }
     .bio-inner       { flex-direction: column; }
     .apariciones     { grid-template-columns: 1fr; }
-    .apariciones li:nth-child(odd) { padding-right: 0; }
     .form-row        { grid-template-columns: 1fr; }
     .footer-legal    { grid-template-columns: 1fr; gap: 32px; }
     .form-footer     { flex-direction: column; align-items: flex-start; }
