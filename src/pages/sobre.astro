@@ -1,32 +1,31 @@
 ---
 import Base from '../layouts/Base.astro';
 
-// DATOS A RELLENAR
-const tagline = "[TAGLINE — ej: Futurista, comunicador, curioso de lo siguiente]";
-const rolActual = "[ROL ACTUAL — ej: Futurista independiente y speaker internacional]";
-
-const contexto = `[PÁRRAFO CONTEXTO — ~150 palabras. Describe qué haces hoy, cómo se conectan tus disciplinas,
-en qué proyectos estás. Tono conversacional, primera persona.]`;
-
-const historia = `[PÁRRAFO HISTORIA — ~150 palabras. De dónde eres, qué estudiaste, cómo llegaste aquí.
-Puedes incluir giros inesperados o humor.]`;
-
 const roles = [
-  { empresa: "[EMPRESA O PROYECTO]", rol: "[ROL]", periodo: "[AÑO–AÑO]" },
-  { empresa: "[EMPRESA O PROYECTO]", rol: "[ROL]", periodo: "[AÑO–AÑO]" },
-  { empresa: "[EMPRESA O PROYECTO]", rol: "[ROL]", periodo: "[AÑO–AÑO]" },
+  { empresa: "Reinventarse",   rol: "Programa formativo para profesionales en la era de la IA", periodo: "2023–hoy" },
+  { empresa: "IEBS",           rol: "Profesor · Diseño Organizacional, Master in Digital Project Management", periodo: "2022–hoy" },
+  { empresa: "La Carta",       rol: "Newsletter mensual sobre agencia humana en la era de la IA", periodo: "2023–hoy" },
 ];
 
 const obsesiones = [
-  { titulo: "[TEMA 1]", desc: "[Una línea sobre por qué te importa]" },
-  { titulo: "[TEMA 2]", desc: "[Una línea sobre por qué te importa]" },
-  { titulo: "[TEMA 3]", desc: "[Una línea sobre por qué te importa]" },
+  {
+    titulo: "Agencia humana en la era de la IA",
+    desc: "La pregunta no es qué pueden hacer las máquinas, sino qué dejamos de hacer cuando ellas pueden. Estoy convencido de que la próxima década se decide aquí.",
+  },
+  {
+    titulo: "Aprender y enseñar cuando las máquinas saben",
+    desc: "Si la IA da las respuestas, ¿qué hacemos con el músculo de pensar? Diseñar pedagogías adultas que no atrofien la inteligencia humana es el frente que más me interesa.",
+  },
+  {
+    titulo: "Voz propia frente a la abundancia sintética",
+    desc: "Cuando la mitad del texto que circula va a ser generado, comunicar como humano se vuelve un acto identitario. Escribir con sello, sostener una postura, no homogeneizarse.",
+  },
 ];
 
 const links = [
-  { label: "LinkedIn", url: "#" },
+  { label: "LinkedIn",    url: "#" },
   { label: "Twitter / X", url: "#" },
-  { label: "Email", url: "mailto:TU@EMAIL.COM" },
+  { label: "Email",       url: "mailto:hola@eduardotoledo.com" },
 ];
 ---
 
@@ -35,12 +34,14 @@ const links = [
 
     <header class="hero">
       <h1>Eduardo Toledo</h1>
-      <p class="tagline">{tagline}</p>
+      <p class="tagline">Cartógrafo de lo emergente. Diseño mapas y formaciones para profesionales que se niegan al piloto automático.</p>
     </header>
 
     <section>
       <h2>Un poco de contexto</h2>
-      <p>{contexto}</p>
+      <p>Llevo años trabajando en el cruce entre estrategia, aprendizaje y la nueva relación humano‑máquina. Mi trabajo, en una frase, es ayudar a profesionales y organizaciones a reposicionarse cuando las reglas del juego cambian más rápido de lo que se leen.</p>
+      <p>Diseño y facilito programas formativos — el más maduro es <em>Reinventarse</em>, un itinerario de cuatro semanas para profesionales que quieren seguir siendo relevantes en la era de la IA. Trabajo también con organizaciones en programas más largos de anticipación estratégica. Soy profesor del módulo de Diseño Organizacional en el Master in Digital Project Management de IEBS y autor de <em>La Carta</em>, una newsletter mensual sobre agencia humana en la era de la IA.</p>
+      <p>Esta web es mi cuaderno de campo: aquí publico ideas en distintos estados de madurez. Algunas son intuiciones a medio cocinar. Otras llevan años destilándose. Prefiero mostrar el levantamiento del mapa que solo el mapa terminado.</p>
 
       <div class="roles">
         {roles.map(r => (
@@ -56,7 +57,7 @@ const links = [
 
     <section>
       <h2>Un poco de historia</h2>
-      <p>{historia}</p>
+      <p class="placeholder">Pendiente de escribir — de dónde vienes, qué estudiaste, el giro que te trajo hasta aquí.</p>
     </section>
 
     <section>
@@ -72,10 +73,10 @@ const links = [
     </section>
 
     <footer class="contacto">
-      <p>¿Quieres hablar?</p>
+      <p>¿Hablamos?</p>
       <div class="links">
         {links.map(l => (
-          <a href={l.url} target="_blank" rel="noopener">{l.label}</a>
+          <a href={l.url} target={l.url.startsWith('mailto') ? undefined : '_blank'} rel="noopener">{l.label}</a>
         ))}
       </div>
     </footer>
@@ -84,32 +85,24 @@ const links = [
 </Base>
 
 <style>
-  .sobre {
-    max-width: 680px;
-  }
+  .sobre { max-width: 680px; }
 
-  /* Hero */
-  .hero {
-    margin-bottom: 72px;
-  }
+  .hero { margin-bottom: 72px; }
   h1 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(36px, 5vw, 56px);
     font-weight: 400;
     color: #E8E5DF;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
   .tagline {
     font-size: 18px;
     font-weight: 300;
-    color: #7A7773;
-    font-style: italic;
+    line-height: 1.6;
+    color: #A8A5A0;
   }
 
-  /* Sections */
-  section {
-    margin-bottom: 64px;
-  }
+  section { margin-bottom: 64px; }
   h2 {
     font-size: 13px;
     font-weight: 700;
@@ -123,40 +116,51 @@ const links = [
     font-weight: 300;
     line-height: 1.8;
     color: #C2BFB2;
-    margin-bottom: 24px;
-    white-space: pre-line;
+    margin-bottom: 20px;
+  }
+  p em {
+    font-style: italic;
+    color: #E8E5DF;
+  }
+  .placeholder {
+    color: #3A3835;
+    font-style: italic;
   }
 
   /* Roles */
   .roles {
-    margin-top: 32px;
+    margin-top: 36px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
   }
   .rol {
     display: flex;
     align-items: baseline;
-    gap: 10px;
-    font-size: 15px;
-    padding: 12px 0;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 14px 0;
     border-bottom: 1px solid #2A2927;
   }
+  .rol:first-child { border-top: 1px solid #2A2927; }
   .empresa {
     font-family: 'Playfair Display', serif;
     font-size: 16px;
     color: #E8E5DF;
+    white-space: nowrap;
   }
   .sep { color: #3A3835; }
   .cargo {
+    font-size: 14px;
     font-weight: 300;
     color: #A8A5A0;
     flex: 1;
+    min-width: 160px;
   }
   .periodo {
     font-size: 13px;
     font-weight: 300;
     color: #5A5855;
+    white-space: nowrap;
   }
 
   /* Obsesiones */
@@ -165,24 +169,25 @@ const links = [
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 28px;
   }
   .obsesiones li {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    padding-left: 16px;
+    gap: 6px;
+    padding-left: 20px;
     border-left: 2px solid #2A2927;
   }
   .obsesiones strong {
     font-family: 'Playfair Display', serif;
     font-weight: 500;
-    font-size: 17px;
+    font-size: 18px;
     color: #E8E5DF;
   }
   .obsesiones span {
     font-size: 15px;
     font-weight: 300;
+    line-height: 1.7;
     color: #7A7773;
   }
 
@@ -193,14 +198,10 @@ const links = [
   }
   .contacto p {
     font-size: 14px;
-    font-weight: 300;
     color: #7A7773;
     margin-bottom: 16px;
   }
-  .links {
-    display: flex;
-    gap: 24px;
-  }
+  .links { display: flex; gap: 24px; }
   .links a {
     font-size: 14px;
     font-weight: 300;
@@ -208,7 +209,5 @@ const links = [
     text-decoration: none;
     letter-spacing: 0.5px;
   }
-  .links a:hover {
-    text-decoration: underline;
-  }
+  .links a:hover { text-decoration: underline; }
 </style>
