@@ -1,0 +1,174 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Colofón · Eduardo Toledo">
+  <div class="colofon">
+
+    <header class="hero">
+      <h1>Colofón</h1>
+      <p class="subtitulo"><em>Cómo está hecha esta web — y por qué.</em></p>
+    </header>
+
+    <section>
+      <h2>Tecnología</h2>
+      <p>Esta web está construida con Astro, un generador de sitios estáticos pensado para webs con mucho contenido. Es rápido, ligero, sin JavaScript innecesario. El contenido vive en archivos MDX que edito directamente en mi editor de código — no hay CMS, no hay base de datos, no hay panel de administración. Solo texto plano organizado en carpetas, versionado en Git.</p>
+      <ul>
+        <li><a href="https://astro.build" target="_blank" rel="noopener">Astro</a> — el motor del sitio</li>
+        <li><a href="https://mdxjs.com" target="_blank" rel="noopener">MDX</a> — para escribir entradas con componentes editoriales personalizados</li>
+        <li><a href="https://vercel.com" target="_blank" rel="noopener">Vercel</a> — hosting</li>
+        <li><a href="https://github.com/etinclan/mi-libreta" target="_blank" rel="noopener">GitHub</a> — código abierto, el repositorio se puede consultar</li>
+        <li><a href="https://eduardotoledo.substack.com" target="_blank" rel="noopener">Substack</a> — la newsletter vive ahí, no aquí</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Tipografía y diseño</h2>
+      <p>El sistema visual viene de mi marca personal — un proyecto continuo que he ido afinando estos años. Tres tipografías, una paleta de cinco colores, mucha disciplina.</p>
+      <ul>
+        <li><a href="https://fonts.google.com/specimen/DM+Serif+Display" target="_blank" rel="noopener">DM Serif Display</a> — para titulares y firma editorial</li>
+        <li><a href="https://fonts.google.com/specimen/DM+Serif+Text" target="_blank" rel="noopener">DM Serif Text</a> — variante para textos destacados largos</li>
+        <li><a href="https://fonts.google.com/specimen/Lato" target="_blank" rel="noopener">Lato</a> — sans-serif de apoyo para etiquetas y elementos de interfaz</li>
+      </ul>
+      <div class="paleta">
+        <div class="chip" style="background:#FF8F6B" title="#FF8F6B"><span>Coral</span></div>
+        <div class="chip" style="background:#5EECC5" title="#5EECC5"><span>Mint</span></div>
+        <div class="chip" style="background:#0D1B2E; color:#C2BFB2" title="#0D1B2E"><span>Midnight</span></div>
+        <div class="chip" style="background:#F5EFE6; color:#0D1B2E" title="#F5EFE6"><span>Cream</span></div>
+        <div class="chip" style="background:#6B6560" title="#6B6560"><span>Smoke</span></div>
+      </div>
+      <p>Sin animaciones decorativas, sin pop-ups, sin trackers invasivos. La idea es que el medio respete al lector tanto como aspira a hacerlo el contenido.</p>
+    </section>
+
+    <section>
+      <h2>Filosofía editorial</h2>
+      <p>Esto no es un blog. Es un jardín — un sistema editorial donde las ideas se publican en distintos estados de madurez. Cada nota lleva etiquetado su estado para que sepas qué estás leyendo: una intuición a medio cocinar pesa distinto a un ensayo asentado.</p>
+      <p>Las notas se organizan en seis territorios — aprender y enseñar, pensar, crear, comunicarse, relacionarnos y trabajar — que son seis frentes de la misma pregunta: cómo seguimos fortaleciendo la agencia humana cuando las máquinas piensan por nosotros.</p>
+      <p>La inspiración estructural viene de <a href="https://maggieappleton.com" target="_blank" rel="noopener">Maggie Appleton</a>, <a href="https://andymatuschak.org" target="_blank" rel="noopener">Andy Matuschak</a> y <a href="https://craigmod.com" target="_blank" rel="noopener">Craig Mod</a>. El sistema visual es propio. Los errores también.</p>
+    </section>
+
+    <footer class="pie">
+      <p>El código fuente está disponible en <a href="https://github.com/etinclan/mi-libreta" target="_blank" rel="noopener">GitHub</a>.</p>
+      <p class="fecha">Última actualización: mayo de 2026.</p>
+    </footer>
+
+  </div>
+</Base>
+
+<style>
+  .colofon { max-width: 72ch; }
+
+  .hero { margin-bottom: 72px; }
+  h1 {
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-2xl);
+    font-weight: 400;
+    color: var(--color-text-bright);
+    margin-bottom: 16px;
+  }
+  .subtitulo {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-md);
+    line-height: 1.4;
+    color: #A8A5A0;
+  }
+  .subtitulo em { font-style: italic; }
+
+  section {
+    margin-bottom: 64px;
+    padding-bottom: 64px;
+    border-bottom: 1px solid var(--color-border);
+  }
+  section:last-of-type { border-bottom: none; }
+
+  h2 {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    margin-bottom: 24px;
+  }
+
+  p {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-base);
+    line-height: 2;
+    color: var(--color-text);
+    margin-bottom: 1.5em;
+  }
+  p:last-child { margin-bottom: 0; }
+
+  p a, li a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  p a:hover, li a:hover { text-decoration: underline; }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  li {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--color-text);
+    padding-left: 20px;
+    border-left: 2px solid var(--color-border);
+  }
+  li a {
+    font-family: var(--font-serif-display);
+    font-size: inherit;
+  }
+
+  /* Paleta de color */
+  .paleta {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 0 0 1.5em;
+  }
+  .chip {
+    display: flex;
+    align-items: flex-end;
+    width: 80px;
+    height: 80px;
+    border-radius: 6px;
+    padding: 8px;
+    position: relative;
+  }
+  .chip span {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: inherit;
+    opacity: 0.7;
+    line-height: 1;
+  }
+
+  /* Footer de página */
+  .pie {
+    padding-top: 48px;
+    border-top: 1px solid var(--color-border);
+  }
+  .pie p {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-sm);
+    font-weight: 300;
+    color: var(--color-text-dim);
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+  .fecha {
+    font-size: var(--font-size-xs) !important;
+    color: #5A5855 !important;
+  }
+</style>

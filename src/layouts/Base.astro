@@ -21,6 +21,16 @@ const { title = "Mi Libreta" } = Astro.props;
     <main>
       <slot />
     </main>
+    <footer>
+      <div class="footer-inner">
+        <span>© Eduardo Toledo</span>
+        <nav class="footer-links">
+          <a href="/colofon">Colofón</a>
+          <a href="https://github.com/etinclan/mi-libreta" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://eduardotoledo.substack.com" target="_blank" rel="noopener">Substack</a>
+        </nav>
+      </div>
+    </footer>
   </body>
 </html>
 
@@ -108,8 +118,41 @@ const { title = "Mi Libreta" } = Astro.props;
     margin: 0 auto;
   }
 
+  footer {
+    border-top: 1px solid var(--color-border);
+    margin-top: 80px;
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 80px;
+  }
+  footer span {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-xs);
+    font-weight: 300;
+    color: #5A5855;
+  }
+  .footer-links {
+    display: flex;
+    gap: 32px;
+  }
+  .footer-links a {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-xs);
+    font-weight: 300;
+    color: var(--color-text-dim);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .footer-links a:hover { color: var(--color-text); }
+
   @media (max-width: 700px) {
     nav { padding: 20px 24px; }
     main { padding: 40px 24px; }
+    .footer-inner { padding: 20px 24px; flex-direction: column; gap: 16px; align-items: flex-start; }
   }
 </style>
