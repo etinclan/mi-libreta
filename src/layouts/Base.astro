@@ -1,0 +1,61 @@
+---
+const { title = "Mi Libreta" } = Astro.props;
+---
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title} · Eduardo Toledo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <nav>
+      <a href="/" class="logo">Eduardo Toledo</a>
+      <div class="links">
+        <a href="/jardin">Mi Libreta</a>
+        <a href="/ahora">Ahora</a>
+        <a href="/sobre">Sobre mí</a>
+      </div>
+    </nav>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #1C1B18;
+    color: #C2BFB2;
+    font-family: 'Lato', sans-serif;
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 80px;
+    border-bottom: 1px solid #2E2D2A;
+  }
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: #C2BFB2;
+    text-decoration: none;
+  }
+  .links {
+    display: flex;
+    gap: 40px;
+  }
+  .links a {
+    font-size: 15px;
+    font-weight: 300;
+    color: #7A7773;
+    text-decoration: none;
+  }
+  .links a:hover { color: #C2BFB2; }
+  main {
+    padding: 80px;
+    max-width: 1100px;
+  }
+</style>

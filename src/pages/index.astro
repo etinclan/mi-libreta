@@ -1,34 +1,20 @@
 ---
+import Base from '../layouts/Base.astro';
 ---
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Mi Libreta</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <main>
-      <h1>Eduardo explora cómo fortalecer la agencia humana en la <em>Era de la IA</em>.</h1>
-      <p>Curioso de lo siguiente, amante de los mapas, comunicador y profesor.</p>
-    </main>
-  </body>
-</html>
+<Base title="Inicio">
+  <h1>Eduardo explora cómo fortalecer la agencia humana en la <em>Era de la IA</em>.</h1>
+  <p>Curioso de lo siguiente, amante de los mapas, comunicador y profesor.</p>
+</Base>
 
 <style>
-  body {
-    background: #1C1B18;
-    color: #C2BFB2;
-    font-family: 'Lato', sans-serif;
-    margin: 0;
-    padding: 80px;
-  }
   h1 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(40px, 6vw, 80px);
     font-weight: 400;
     line-height: 1.1;
     max-width: 800px;
+    color: #E8E5DF;
+    margin-bottom: 32px;
   }
   em {
     font-style: italic;
@@ -38,7 +24,6 @@
     font-size: 18px;
     font-weight: 300;
     color: #7A7773;
-    margin-top: 32px;
   }
 </style>
 
