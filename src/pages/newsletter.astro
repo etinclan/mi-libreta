@@ -1,0 +1,241 @@
+---
+import Base from '../layouts/Base.astro';
+
+const ediciones = [
+  { numero: 66, titulo: "[EDICION 66]", fecha: "[FECHA]", url: "https://eduardotoledo.substack.com" },
+  { numero: 65, titulo: "[EDICION 65]", fecha: "[FECHA]", url: "https://eduardotoledo.substack.com" },
+  { numero: 64, titulo: "[EDICION 64]", fecha: "[FECHA]", url: "https://eduardotoledo.substack.com" },
+  { numero: 63, titulo: "[EDICION 63]", fecha: "[FECHA]", url: "https://eduardotoledo.substack.com" },
+  { numero: 62, titulo: "[EDICION 62]", fecha: "[FECHA]", url: "https://eduardotoledo.substack.com" },
+];
+
+const bullets = [
+  "[BULLET_1 — tipo de contenido que van a encontrar]",
+  "[BULLET_2 — frecuencia, formato, extensión]",
+  "[BULLET_3 — a quién va dirigida]",
+  "[BULLET_4 — por qué es diferente a otro contenido tuyo]",
+];
+---
+
+<Base title="Newsletter · Eduardo Toledo">
+  <div class="newsletter">
+
+    <!-- HERO -->
+    <header class="hero">
+      <h1>Newsletter</h1>
+      <p class="subtitulo"><em>[MANIFIESTO_TITULAR — una línea italic que defina la newsletter en una frase]</em></p>
+    </header>
+
+    <!-- QUÉ ES -->
+    <section class="que-es">
+      <h2>Qué es</h2>
+      <div class="prose">
+        <p>[MANIFIESTO_P1 — primer párrafo del manifiesto. Por qué existe esta newsletter, qué problema resuelve o qué promesa hace al lector.]</p>
+        <p>[MANIFIESTO_P2 — segundo párrafo. Qué tipo de ideas, reflexiones o recursos comparte. Tono y frecuencia.]</p>
+        <p>[MANIFIESTO_P3 — tercer párrafo opcional. A quién va dirigida específicamente. Quién debería suscribirse y quién no.]</p>
+      </div>
+    </section>
+
+    <!-- SUSCRIPCIÓN -->
+    <section class="suscripcion">
+      <div class="suscripcion-inner">
+        <p class="suscripcion-copy">[SUSCRIPCION_COPY — línea breve de llamada a la acción, ej: "Cada mes en tu bandeja de entrada."]</p>
+        <a
+          href="https://eduardotoledo.substack.com"
+          target="_blank"
+          rel="noopener"
+          class="boton-suscribir"
+        >
+          Suscribirse →
+        </a>
+        <p class="suscripcion-nota">Gratis · Sin spam · Cancela cuando quieras</p>
+      </div>
+    </section>
+
+    <!-- LO QUE VAS A ENCONTRAR -->
+    <section class="contenido">
+      <h2>Lo que vas a encontrar</h2>
+      <ul>
+        {bullets.map(b => <li>{b}</li>)}
+      </ul>
+    </section>
+
+    <!-- ÚLTIMAS EDICIONES -->
+    <section class="ediciones">
+      <h2>Últimas ediciones</h2>
+      <ol>
+        {ediciones.map(e => (
+          <li>
+            <a href={e.url} target="_blank" rel="noopener">
+              <span class="num">#{e.numero}</span>
+              <span class="titulo">{e.titulo}</span>
+              <span class="fecha">{e.fecha}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+      <a href="https://eduardotoledo.substack.com/archive" target="_blank" rel="noopener" class="ver-todas">
+        Ver todas las ediciones →
+      </a>
+    </section>
+
+  </div>
+</Base>
+
+<style>
+  .newsletter { max-width: 72ch; }
+
+  /* Hero */
+  .hero {
+    margin-bottom: 72px;
+  }
+  h1 {
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-3xl);
+    font-weight: 400;
+    line-height: 1.05;
+    color: var(--color-text-bright);
+    margin-bottom: 20px;
+  }
+  .subtitulo {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-md);
+    line-height: 1.5;
+    color: #A8A5A0;
+  }
+  .subtitulo em { font-style: italic; }
+
+  /* Secciones */
+  section { margin-bottom: 72px; }
+  h2 {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    margin-bottom: 24px;
+  }
+
+  /* Qué es */
+  .prose p {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-base);
+    line-height: 2;
+    color: var(--color-text);
+    margin-bottom: 1.5em;
+  }
+
+  /* Suscripción */
+  .suscripcion-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    padding: 56px 40px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: #1F1E1B;
+  }
+  .suscripcion-copy {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-md);
+    line-height: 1.5;
+    color: var(--color-text-bright);
+  }
+  .boton-suscribir {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-bg);
+    background: var(--color-accent);
+    padding: 16px 40px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+  .boton-suscribir:hover { opacity: 0.85; }
+  .suscripcion-nota {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-xs);
+    font-weight: 300;
+    color: var(--color-text-dim);
+    letter-spacing: 0.04em;
+  }
+
+  /* Lo que vas a encontrar */
+  .contenido ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .contenido li {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-base);
+    line-height: 1.7;
+    color: var(--color-text);
+    padding-left: 24px;
+    border-left: 2px solid var(--color-border);
+  }
+
+  /* Últimas ediciones */
+  .ediciones ol {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 32px;
+  }
+  .ediciones li {
+    border-bottom: 1px solid var(--color-border);
+  }
+  .ediciones li:first-child { border-top: 1px solid var(--color-border); }
+  .ediciones a {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 18px 0;
+    text-decoration: none;
+    transition: background 0.1s;
+  }
+  .ediciones a:hover .titulo { color: var(--color-accent); }
+  .num {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    color: var(--color-text-dim);
+    white-space: nowrap;
+    min-width: 3ch;
+  }
+  .titulo {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    flex: 1;
+    line-height: 1.4;
+  }
+  .fecha {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-xs);
+    font-weight: 300;
+    color: #5A5855;
+    white-space: nowrap;
+  }
+  .ver-todas {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-sm);
+    font-weight: 300;
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  .ver-todas:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) {
+    .suscripcion-inner { padding: 40px 24px; }
+    .fecha { display: none; }
+  }
+</style>
