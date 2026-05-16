@@ -1,0 +1,42 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base title="Reinventarse · Estudio · Eduardo Toledo">
+  <div class="placeholder">
+    <p class="breadcrumb"><a href="/estudio">← Estudio</a></p>
+    <h1>Reinventarse</h1>
+    <p class="nota">Contenido en construcción — próximamente.</p>
+  </div>
+</Base>
+
+<style>
+  .placeholder { max-width: 72ch; }
+
+  .breadcrumb {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-xs);
+    font-weight: 300;
+    margin-bottom: 40px;
+  }
+  .breadcrumb a {
+    color: var(--color-text-dim);
+    text-decoration: none;
+  }
+  .breadcrumb a:hover { color: var(--color-text); }
+
+  h1 {
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-2xl);
+    font-weight: 400;
+    color: var(--color-text-bright);
+    margin-bottom: 24px;
+  }
+
+  .nota {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-base);
+    font-style: italic;
+    color: #3A3835;
+  }
+</style>

@@ -1,0 +1,203 @@
+---
+import Base from '../layouts/Base.astro';
+
+const programas = [
+  {
+    tag: "Taster",
+    titulo: "Asomarse",
+    subtitulo: "Una primera mirada honesta a lo que la IA cambia en tu oficio.",
+    desc1: "Un taller intensivo de medio día para profesionales que quieren entender qué está pasando realmente — sin hype ni catastrofismo — y salir con un diagnóstico propio.",
+    desc2: "Formato presencial o remoto, grupo reducido, sin materiales prefabricados.",
+    href: "/estudio/asomarse",
+  },
+  {
+    tag: "Itinerario individual",
+    titulo: "Reinventarse",
+    subtitulo: "Un proceso de cuatro semanas para redefinir tu posición profesional.",
+    desc1: "Trabajo uno a uno que combina diagnóstico, marcos de anticipación y práctica deliberada. Al final tienes un mapa claro de dónde estás, adónde vas y qué dejas de hacer.",
+    desc2: "Plazas muy limitadas. Selección previa por aplicación.",
+    href: "/estudio/reinventarse",
+  },
+];
+---
+
+<Base title="Estudio · Eduardo Toledo">
+  <div class="estudio">
+
+    <header class="hero">
+      <h1>Estudio</h1>
+      <p class="subtitulo"><em>Formación para profesionales que se toman en serio su próxima etapa.</em></p>
+    </header>
+
+    <section class="intro">
+      <p>Estudio es el espacio donde trabajo directamente con personas. No con departamentos de RRHH ni con presupuestos de formación corporativa: con individuos que han decidido que la transición que estamos viviendo merece algo más que un webinar.</p>
+      <p>Los programas son pequeños por diseño. La atención, real. El objetivo no es informar sino reposicionar — salir con claridad sobre qué hacer distinto la semana que viene.</p>
+    </section>
+
+    <section class="profundidades">
+      <h2>Dos profundidades</h2>
+      <div class="programas">
+        {programas.map(p => (
+          <div class="programa">
+            <span class="marcador" aria-hidden="true"></span>
+            <div class="programa-body">
+              <span class="tag">{p.tag}</span>
+              <h3>{p.titulo}</h3>
+              <p class="promesa"><em>{p.subtitulo}</em></p>
+              <p class="desc">{p.desc1}</p>
+              <p class="desc">{p.desc2}</p>
+              <a href={p.href} class="cta">Ver detalle →</a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="cierre">
+      <p>¿Buscas formación para un equipo u organización? Los programas colectivos viven en <a href="/organizaciones">/organizaciones</a>.</p>
+    </section>
+
+  </div>
+</Base>
+
+<style>
+  :root {
+    --mint:  #5EECC5;
+    --coral: #FF8F6B;
+  }
+
+  .estudio { max-width: 72ch; }
+
+  /* Hero */
+  .hero { margin-bottom: 64px; }
+
+  h1 {
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-2xl);
+    font-weight: 400;
+    color: var(--color-text-bright);
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+
+  .subtitulo {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-md);
+    line-height: 1.5;
+    color: #A8A5A0;
+  }
+
+  /* Intro */
+  .intro {
+    margin-bottom: 72px;
+  }
+  .intro p {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-base);
+    line-height: 2;
+    color: var(--color-text);
+    margin-bottom: 1.4em;
+  }
+
+  /* Profundidades */
+  .profundidades { margin-bottom: 64px; }
+
+  h2 {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-dim);
+    margin-bottom: 40px;
+  }
+
+  .programas {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .programa {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+  }
+
+  .marcador {
+    flex-shrink: 0;
+    width: 3px;
+    height: 100%;
+    min-height: 160px;
+    background: var(--mint);
+    border-radius: 2px;
+    margin-top: 6px;
+  }
+
+  .programa-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tag {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mint);
+  }
+
+  h3 {
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-xl);
+    font-weight: 400;
+    color: var(--color-text-bright);
+    line-height: 1.1;
+  }
+
+  .promesa {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-md);
+    font-style: italic;
+    line-height: 1.5;
+    color: #A8A5A0;
+  }
+
+  .desc {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-base);
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .cta {
+    display: inline-block;
+    margin-top: 6px;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-sm);
+    font-weight: 400;
+    color: var(--coral);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .cta:hover { text-decoration: underline; }
+
+  /* Cierre */
+  .cierre {
+    padding-top: 48px;
+    border-top: 1px solid var(--color-border);
+  }
+  .cierre p {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-base);
+    line-height: 2;
+    color: var(--color-text-dim);
+  }
+  .cierre a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  .cierre a:hover { text-decoration: underline; }
+</style>
