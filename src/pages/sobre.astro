@@ -73,7 +73,7 @@ const links = [
     </section>
 
     <footer class="contacto">
-      <p>¿Hablamos?</p>
+      <p class="cta">¿Hablamos?</p>
       <div class="links">
         {links.map(l => (
           <a href={l.url} target={l.url.startsWith('mailto') ? undefined : '_blank'} rel="noopener">{l.label}</a>
@@ -85,42 +85,43 @@ const links = [
 </Base>
 
 <style>
-  .sobre { max-width: 680px; }
+  .sobre { max-width: 720px; }
 
   .hero { margin-bottom: 72px; }
   h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(36px, 5vw, 56px);
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-2xl);
     font-weight: 400;
-    color: #E8E5DF;
+    color: var(--color-text-bright);
     margin-bottom: 16px;
   }
   .tagline {
-    font-size: 18px;
-    font-weight: 300;
-    line-height: 1.6;
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-md);
+    line-height: 1.5;
     color: #A8A5A0;
   }
 
   section { margin-bottom: 64px; }
   h2 {
-    font-size: 13px;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-xs);
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #7A7773;
+    color: var(--color-text-dim);
     margin-bottom: 20px;
   }
   p {
-    font-size: 17px;
-    font-weight: 300;
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-base);
     line-height: 1.8;
-    color: #C2BFB2;
+    color: var(--color-text);
     margin-bottom: 20px;
   }
   p em {
     font-style: italic;
-    color: #E8E5DF;
+    color: var(--color-text-bright);
   }
   .placeholder {
     color: #3A3835;
@@ -138,26 +139,27 @@ const links = [
     align-items: baseline;
     flex-wrap: wrap;
     gap: 8px;
-    padding: 14px 0;
-    border-bottom: 1px solid #2A2927;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--color-border);
   }
-  .rol:first-child { border-top: 1px solid #2A2927; }
+  .rol:first-child { border-top: 1px solid var(--color-border); }
   .empresa {
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-    color: #E8E5DF;
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-base);
+    color: var(--color-text-bright);
     white-space: nowrap;
   }
   .sep { color: #3A3835; }
   .cargo {
-    font-size: 14px;
-    font-weight: 300;
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-sm);
     color: #A8A5A0;
     flex: 1;
     min-width: 160px;
   }
   .periodo {
-    font-size: 13px;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-xs);
     font-weight: 300;
     color: #5A5855;
     white-space: nowrap;
@@ -169,45 +171,46 @@ const links = [
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 32px;
   }
   .obsesiones li {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
     padding-left: 20px;
-    border-left: 2px solid #2A2927;
+    border-left: 2px solid var(--color-border);
   }
   .obsesiones strong {
-    font-family: 'Playfair Display', serif;
-    font-weight: 500;
-    font-size: 18px;
-    color: #E8E5DF;
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-md);
+    font-weight: 400;
+    color: var(--color-text-bright);
   }
   .obsesiones span {
-    font-size: 15px;
-    font-weight: 300;
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-base);
     line-height: 1.7;
-    color: #7A7773;
+    color: var(--color-text-dim);
   }
 
   /* Contacto */
   .contacto {
     padding-top: 48px;
-    border-top: 1px solid #2A2927;
+    border-top: 1px solid var(--color-border);
   }
-  .contacto p {
-    font-size: 14px;
-    color: #7A7773;
+  .cta {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-dim);
     margin-bottom: 16px;
   }
   .links { display: flex; gap: 24px; }
   .links a {
-    font-size: 14px;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-sm);
     font-weight: 300;
-    color: #E85AAB;
+    color: var(--color-accent);
     text-decoration: none;
-    letter-spacing: 0.5px;
   }
   .links a:hover { text-decoration: underline; }
 </style>

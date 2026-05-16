@@ -61,48 +61,44 @@ const noHaciendo = "[Algo que dejaste ir / declinaste — da carácter y honesti
 </Base>
 
 <style>
-  .ahora {
-    max-width: 580px;
-  }
+  .ahora { max-width: 640px; }
 
-  header {
-    margin-bottom: 64px;
-  }
+  header { margin-bottom: 64px; }
   h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(36px, 5vw, 56px);
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-2xl);
     font-weight: 400;
-    color: #E8E5DF;
-    margin-bottom: 16px;
+    color: var(--color-text-bright);
+    margin-bottom: 20px;
   }
   .intro {
-    font-size: 17px;
-    font-weight: 300;
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-base);
     line-height: 1.7;
     color: #A8A5A0;
     margin-bottom: 12px;
   }
   .intro a {
-    color: #E85AAB;
+    color: var(--color-accent);
     text-decoration: none;
   }
   .intro a:hover { text-decoration: underline; }
   .fecha {
-    font-size: 13px;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-xs);
     font-weight: 300;
     color: #5A5855;
   }
 
-  section {
-    margin-bottom: 48px;
-  }
+  section { margin-bottom: 56px; }
   h2 {
-    font-size: 13px;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-xs);
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #7A7773;
-    margin-bottom: 16px;
+    color: var(--color-text-dim);
+    margin-bottom: 20px;
   }
 
   ul {
@@ -110,28 +106,27 @@ const noHaciendo = "[Algo que dejaste ir / declinaste — da carácter y honesti
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
   }
   li {
-    font-size: 17px;
-    font-weight: 300;
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-base);
     line-height: 1.6;
-    color: #C2BFB2;
-    padding-left: 16px;
-    border-left: 2px solid #2A2927;
+    color: var(--color-text);
+    padding-left: 20px;
+    border-left: 2px solid var(--color-border);
   }
 
   .lugar {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    font-weight: 400;
-    color: #E8E5DF;
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-md);
+    color: var(--color-text-bright);
   }
   .nodoing {
-    font-size: 16px;
-    font-weight: 300;
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-base);
     line-height: 1.7;
-    color: #7A7773;
+    color: var(--color-text-dim);
     font-style: italic;
   }
 </style>
