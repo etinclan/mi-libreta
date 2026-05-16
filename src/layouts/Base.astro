@@ -10,7 +10,7 @@ const { title = "La Libreta" } = Astro.props;
   </head>
   <body>
     <nav>
-      <a href="/" class="logo">Eduardo Toledo</a>
+      <a href="/" class="logo"><img src="/Logo-EduardoToledo.png" alt="Eduardo Toledo" class="logo-img" /></a>
       <div class="links">
         <a href="/jardin">La Libreta</a>
         <a href="/newsletter">Newsletter</a>
@@ -99,10 +99,14 @@ const { title = "La Libreta" } = Astro.props;
   }
 
   .logo {
-    font-family: var(--font-serif-display);
-    font-size: var(--font-size-md);
-    color: var(--color-text-bright);
     text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+  .logo-img {
+    height: 54px;
+    width: auto;
+    display: block;
   }
 
   .links {

@@ -34,7 +34,7 @@ function fmtDate(d: Date) {
 
     <!-- 1. HERO -->
     <section class="hero">
-      <h1>Eduardo ayuda a <em class="coral">fortalecer la agencia humana</em> en la Era de la IA</h1>
+      <h1>Eduardo ayuda a <em class="coral">fortalecer la agencia humana</em><br>en la Era de la IA</h1>
       <p class="subtitulo"><em>Exploro y comparto lo que descubro sobre cómo la IA cambia nuestra forma de aprender, pensar, crear, comunicarnos, relacionarnos y trabajar</em></p>
       <p class="descripcion">Conecto ideas para crear mis propios mapas, que comparto en artículos y formaciones</p>
     </section>
@@ -147,19 +147,19 @@ Aquí descubro, investigo, conecto y cartografío cómo la IA está cambiando nu
     <section class="trabajo-sec">
       <div class="type-label">
         <span class="marcador" aria-hidden="true"></span>
-        <span class="tag">Conmigo trabajan</span>
+        <span class="tag">CONMIGO TRABAJAN</span>
       </div>
-      <h2 class="sec-titulo"><em>[TRABAJO_TITULO]</em></h2>
+      <h2 class="sec-titulo">Cuando el mapa entra en <em class="coral">juego</em></h2>
       <div class="trabajo-cols">
         <a href="/profesionales" class="trabajo-col">
-          <span class="trabajo-quien">Profesionales</span>
-          <p class="trabajo-desc">[TRABAJO_PROFESIONALES_DESC]</p>
-          <span class="trabajo-link">Estudio →</span>
+          <span class="trabajo-quien">PROFESIONALES</span>
+          <p class="trabajo-desc">Para profesionales que no quieren otro curso de herramientas. Cohortes pequeñas e itinerarios individuales para descubrir dónde sigue estando tu valor — y reposicionarte antes de que el sistema lo haga por ti.</p>
+          <span class="trabajo-link">Ver formaciones →</span>
         </a>
         <a href="/organizaciones" class="trabajo-col">
-          <span class="trabajo-quien">Organizaciones</span>
-          <p class="trabajo-desc">[TRABAJO_ORGANIZACIONES_DESC]</p>
-          <span class="trabajo-link">Organizaciones →</span>
+          <span class="trabajo-quien">ORGANIZACIONES</span>
+          <p class="trabajo-desc">Para comités y equipos que entienden que la IA no se decide en el departamento de IT. Conferencias ejecutivas, formaciones a medida y programas estratégicos para leer cómo cambian las reglas del juego en tu sector y reposicionar la organización con criterio.</p>
+          <span class="trabajo-link">Ver propuesta B2B →</span>
         </a>
       </div>
     </section>
@@ -229,7 +229,7 @@ Aquí descubro, investigo, conecto y cartografío cómo la IA está cambiando nu
 
   h1 {
     font-family: var(--font-serif-display);
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-2xl);
     font-weight: 400;
     line-height: 1.1;
     color: var(--color-text-bright);
@@ -249,7 +249,7 @@ Aquí descubro, investigo, conecto y cartografío cómo la IA está cambiando nu
   }
   .descripcion {
     font-family: var(--font-sans);
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-base);
     font-weight: 300;
     color: var(--color-text-dim);
     letter-spacing: 0.02em;
@@ -485,19 +485,19 @@ Aquí descubro, investigo, conecto y cartografío cómo la IA está cambiando nu
     text-decoration: none;
   }
   .trabajo-col:last-child { padding-left: 32px; padding-right: 0; border-left: 1px solid var(--color-border); }
-  .trabajo-col:hover .trabajo-quien { color: var(--color-text-bright); }
   .trabajo-quien {
-    font-family: var(--font-serif-display);
-    font-size: var(--font-size-lg);
-    font-weight: 400;
-    color: var(--color-text);
-    transition: color 0.15s;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--etcom-smoke);
   }
   .trabajo-desc {
     font-family: var(--font-serif-text);
-    font-size: var(--font-size-sm);
-    line-height: 1.8;
-    color: var(--color-text-dim);
+    font-size: var(--font-size-base);
+    line-height: 1.9;
+    color: var(--color-text);
   }
   .trabajo-link {
     font-family: var(--font-sans);
@@ -505,8 +505,10 @@ Aquí descubro, investigo, conecto y cartografío cómo la IA está cambiando nu
     font-weight: 300;
     color: var(--coral);
     letter-spacing: 0.02em;
-    margin-top: 4px;
+    margin-top: 8px;
+    transition: opacity 0.15s;
   }
+  .trabajo-col:hover .trabajo-link { opacity: 0.7; }
 
   /* ── RESPONSIVE ─────────────────────────────── */
   @media (max-width: 767px) {

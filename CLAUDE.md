@@ -1,4 +1,4 @@
-# Mi Libreta — Contexto de proyecto para Claude Code
+# La Libreta — Contexto de proyecto para Claude Code
 
 ## Stack
 - **Astro v6.3.3** + MDX (`@astrojs/mdx`) + Vercel + GitHub (`etinclan/mi-libreta`)
@@ -7,23 +7,65 @@
 - Deploy automático desde `main` → Vercel → `eduardotoledo.com`
 
 ## Sistema de diseño
-- **Fuentes:** DM Serif Display (títulos) · Cormorant Garamond (cuerpo texto) · Lato (sans UI)
-- **Google Fonts link:** `Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500` + `Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500` + `Lato:wght@300;400;700`
-- **Paleta dark:** bg `#1C1B18` · text `#C2BFB2` · text-dim `#7A7773` · text-bright `#E8E5DF` · border `#2A2927` · accent `#E85AAB`
-- **Paleta ETCOM (tokens globales en `:root`):** `--etcom-coral #FF8F6B` · `--etcom-mint #5EECC5` · `--etcom-midnight #0D1B2E` · `--etcom-cream #F5EFE6` · `--etcom-smoke #6B6560`
-- **Tipografía fluida:** escala de 8 tamaños `--font-size-xs` → `--font-size-3xl`, mismos rangos que Maggie Appleton
-- **Line-height:** 2 (200%) en cuerpo · max-width 72ch en columnas de lectura
-- **No usar:** DM Serif Text (reemplazada), ni cambiar paleta dark
+
+### Fuentes
+- **DM Serif Display** — títulos `<h1>`, wordmark, cards destacadas. Siempre `font-weight: 400`.
+- **Cormorant Garamond** — cuerpo de texto, párrafos, subtítulos. `line-height: 2` en prosa.
+- **Lato** — UI sans: antetítulos, ladillos `<h2>`, etiquetas, metadatos, botones.
+
+### Paleta dark (base del sitio — no modificar)
+| Token | Valor | Uso |
+|---|---|---|
+| `--color-bg` | `#1C1B18` | Fondo de página |
+| `--color-text` | `#C2BFB2` | Texto de cuerpo |
+| `--color-text-dim` | `#7A7773` | Texto secundario / metadatos |
+| `--color-text-bright` | `#E8E5DF` | Títulos y elementos destacados |
+| `--color-border` | `#2A2927` | Bordes y separadores |
+| `--color-accent` | `#E85AAB` | Acento legacy (no usar en nuevos elementos) |
+
+### Paleta ETCOM (tokens globales en `:root`)
+| Token | Valor | Uso |
+|---|---|---|
+| `--etcom-coral` / `--coral` | `#FF8F6B` | CTAs, badges, puntos de lista, énfasis |
+| `--etcom-mint` / `--mint` | `#5EECC5` | Antetítulos, marcadores de sección |
+| `--etcom-cream` | `#F5EFE6` | Fondos de bloque destacado (ej: suscripción) |
+| `--etcom-smoke` | `#6B6560` | Subtítulos itálicos, texto terciario |
+| `--etcom-midnight` | `#0D1B2E` | Uso esporádico en fondos de contraste |
+
+### Tipografía fluida
+Escala de 8 pasos (`--font-size-xs` → `--font-size-3xl`), mismos rangos que Maggie Appleton.
+
+### Normas de estilo por elemento
+| Elemento | Fuente | Tamaño | Estilo | Color |
+|---|---|---|---|---|
+| `<h1>` de página | DM Serif Display | `--font-size-2xl` | normal | `--color-text-bright` |
+| Hero home `<h1>` | DM Serif Display | `--font-size-2xl` | normal | `--color-text-bright` |
+| Subtítulo tras `<h1>` | Cormorant Garamond | `--font-size-md` | **italic** | `#A8A5A0` |
+| `<h2>` ladillo de sección | Lato | `--font-size-xs` | uppercase, `letter-spacing: 0.12em` | `--color-text-bright` |
+| Antetítulo de sección | Lato | `--font-size-xs` | uppercase, `letter-spacing: 0.1em` | `--etcom-mint` |
+| Marcador de antetítulo | — | 24×2 px | barra horizontal | `--etcom-mint` |
+| Cuerpo de texto | Cormorant Garamond | `--font-size-base` | normal | `--color-text` |
+| Metadatos / fechas | Lato | `--font-size-xs` | `font-weight: 300` | `--color-text-dim` |
+| Enlace coral (CTA texto) | Lato | `--font-size-xs/sm` | `font-weight: 300` | `--etcom-coral` |
+| Botón coral primario | Lato | `--font-size-base` | `font-weight: 700` | bg `--etcom-coral`, texto `#fff` |
+
+### Componente compartido
+- `src/components/Antetitulo.astro` — antetítulo con marcador mint. Usar en todas las páginas excepto home (que gestiona sus propios antetítulos inline).
+
+### No usar
+- DM Serif Text (fuente eliminada del proyecto)
+- `--color-accent` (`#E85AAB`) en nuevos elementos
+- `--font-size-3xl` en `<h1>` de páginas interiores (reservado solo si se aprueba explícitamente)
 
 ## Páginas existentes
 | Ruta | Archivo | Estado |
 |---|---|---|
-| `/` | `src/pages/index.astro` | Estructura lista, copy en placeholders |
+| `/` | `src/pages/index.astro` | Sección libreta rediseñada (dos columnas asimétricas); copy parcial en placeholders |
 | `/jardin` | `src/pages/jardin.astro` | Funcional, lee `notas` dinámicamente |
 | `/notas/[id]` | `src/pages/notas/[id].astro` | Funcional con 8 componentes MDX registrados |
-| `/estudio` | `src/pages/estudio.astro` | Copy real |
-| `/estudio/asomarse` | `src/pages/estudio/asomarse.astro` | Estructura lista, copy en placeholders |
-| `/estudio/reinventarse` | `src/pages/estudio/reinventarse.astro` | Copy real, precio y fechas ilustrativas |
+| `/profesionales` | `src/pages/profesionales.astro` | Copy real (antes `/estudio`) |
+| `/profesionales/asomarse` | `src/pages/profesionales/asomarse.astro` | Estructura lista, copy en placeholders |
+| `/profesionales/reinventarse` | `src/pages/profesionales/reinventarse.astro` | Copy real, precio y fechas ilustrativas |
 | `/organizaciones` | `src/pages/organizaciones.astro` | Copy real, datos ⚠️ ilustrativos, Formspree ID pendiente |
 | `/newsletter` | `src/pages/newsletter.astro` | Copy real, URLs de ediciones individuales pendientes |
 | `/sobre` | `src/pages/sobre.astro` | Copy real, "Un poco de historia" placeholder |
