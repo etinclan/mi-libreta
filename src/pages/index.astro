@@ -1,19 +1,19 @@
 ---
 import Base from '../layouts/Base.astro';
 ---
-<Base title="Inicio">
+<Base title="Eduardo Toledo">
   <h1>Eduardo explora cómo fortalecer la agencia humana en la <em>Era de la IA</em>.</h1>
   <p>Curioso de lo siguiente, amante de los mapas, comunicador y profesor.</p>
 </Base>
 
 <style>
   h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(40px, 6vw, 80px);
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-3xl);
     font-weight: 400;
     line-height: 1.1;
-    max-width: 800px;
-    color: #E8E5DF;
+    max-width: 820px;
+    color: var(--color-text-bright);
     margin-bottom: 32px;
   }
   em {
@@ -21,9 +21,10 @@ import Base from '../layouts/Base.astro';
     color: #A8A5A0;
   }
   p {
-    font-size: 18px;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-sm);
     font-weight: 300;
-    color: #7A7773;
+    color: var(--color-text-dim);
+    letter-spacing: 0.02em;
   }
 </style>
-

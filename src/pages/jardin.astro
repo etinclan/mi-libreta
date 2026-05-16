@@ -28,9 +28,8 @@ function countByTerritorio(slug: string) {
       <p class="desc">Una colección de notas, ensayos e ideas creciendo lentamente.</p>
     </header>
 
-    <!-- TERRITORIOS -->
     <section class="territorios-section">
-      <h2>Territorios</h2>
+      <h2>Escribo sobre</h2>
       <div class="territorios">
         {territorios.map(t => (
           <a href={`/jardin/${t.slug}`} class="territorio">
@@ -41,7 +40,6 @@ function countByTerritorio(slug: string) {
       </div>
     </section>
 
-    <!-- TODAS LAS NOTAS -->
     <section>
       <h2>Todas las notas</h2>
       <ul>
@@ -59,28 +57,30 @@ function countByTerritorio(slug: string) {
 </Base>
 
 <style>
-  .jardin { max-width: 720px; }
+  .jardin { max-width: 760px; }
 
   header { margin-bottom: 64px; }
   h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 48px;
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-2xl);
     font-weight: 400;
-    color: #E8E5DF;
+    color: var(--color-text-bright);
     margin-bottom: 12px;
   }
   .desc {
-    font-size: 16px;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-sm);
     font-weight: 300;
-    color: #7A7773;
+    color: var(--color-text-dim);
   }
 
   h2 {
-    font-size: 13px;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-xs);
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #7A7773;
+    color: var(--color-text-dim);
     margin-bottom: 24px;
   }
 
@@ -95,29 +95,30 @@ function countByTerritorio(slug: string) {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 20px;
-    border: 1px solid #2A2927;
+    padding: 18px 22px;
+    border: 1px solid var(--color-border);
     border-radius: 6px;
     text-decoration: none;
     transition: border-color 0.15s, background 0.15s;
   }
   .territorio:hover {
-    border-color: #E85AAB;
+    border-color: var(--color-accent);
     background: #1F1E1B;
   }
   .nombre {
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-base);
     font-weight: 400;
-    color: #C2BFB2;
+    color: var(--color-text);
   }
-  .territorio:hover .nombre { color: #E8E5DF; }
+  .territorio:hover .nombre { color: var(--color-text-bright); }
   .count {
-    font-size: 13px;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-xs);
     font-weight: 300;
     color: #3A3835;
   }
-  .territorio:hover .count { color: #7A7773; }
+  .territorio:hover .count { color: var(--color-text-dim); }
 
   /* Lista de notas */
   section { margin-bottom: 56px; }
@@ -126,30 +127,31 @@ function countByTerritorio(slug: string) {
     display: flex;
     align-items: center;
     gap: 16px;
-    padding: 16px 0;
-    border-bottom: 1px solid #2A2927;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--color-border);
   }
-  li:first-child { border-top: 1px solid #2A2927; }
+  li:first-child { border-top: 1px solid var(--color-border); }
   li a {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    color: #C2BFB2;
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-md);
+    color: var(--color-text);
     text-decoration: none;
     flex: 1;
   }
-  li a:hover { color: #E85AAB; }
+  li a:hover { color: var(--color-accent); }
   .stage {
-    font-size: 11px;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-xs);
     font-weight: 700;
-    letter-spacing: 1.5px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    padding: 3px 8px;
+    padding: 4px 10px;
     border-radius: 3px;
-    background: #2A2927;
-    color: #7A7773;
+    background: var(--color-border);
+    color: var(--color-text-dim);
   }
   .vacio {
-    font-size: 15px;
+    font-size: var(--font-size-sm);
     font-weight: 300;
     color: #3A3835;
     border: none !important;
