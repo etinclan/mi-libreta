@@ -1,7 +1,137 @@
 ---
 import Base from '../layouts/Base.astro';
+
+const ultimaActualizacion = "mayo 2026";
+
+const trabajando = [
+  "[Proyecto o trabajo principal — ej: Preparando conferencia sobre IA y trabajo para X]",
+  "[Segundo proyecto activo]",
+  "[Tercer proyecto activo]",
+];
+
+const aprendiendo = [
+  "[Libro, curso o idea — ej: Leyendo The Coming Wave de Mustafa Suleyman]",
+  "[Otra cosa que estás explorando]",
+];
+
+const viviendo = "[Ciudad, país — ej: Entre Ciudad de México y Madrid]";
+
+const noHaciendo = "[Algo que dejaste ir / declinaste — da carácter y honestidad]";
 ---
-<Base title="Ahora">
-  <h1>Ahora</h1>
-  <p>Lo que estoy haciendo en este momento.</p>
+
+<Base title="Ahora · Eduardo Toledo">
+  <div class="ahora">
+
+    <header>
+      <h1>Ahora</h1>
+      <p class="intro">
+        Una instantánea de lo que ocupa mi atención en este momento.<br/>
+        Inspirado en el <a href="https://nownownow.com/about" target="_blank" rel="noopener">movimiento /now</a> de Derek Sivers.
+      </p>
+      <p class="fecha">Última actualización: {ultimaActualizacion}</p>
+    </header>
+
+    <section>
+      <h2>Trabajando en</h2>
+      <ul>
+        {trabajando.map(item => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    <section>
+      <h2>Aprendiendo</h2>
+      <ul>
+        {aprendiendo.map(item => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    <section>
+      <h2>Viviendo en</h2>
+      <p class="lugar">{viviendo}</p>
+    </section>
+
+    {noHaciendo && (
+      <section>
+        <h2>Lo que no estoy haciendo</h2>
+        <p class="nodoing">{noHaciendo}</p>
+      </section>
+    )}
+
+  </div>
 </Base>
+
+<style>
+  .ahora {
+    max-width: 580px;
+  }
+
+  header {
+    margin-bottom: 64px;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 400;
+    color: #E8E5DF;
+    margin-bottom: 16px;
+  }
+  .intro {
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: #A8A5A0;
+    margin-bottom: 12px;
+  }
+  .intro a {
+    color: #E85AAB;
+    text-decoration: none;
+  }
+  .intro a:hover { text-decoration: underline; }
+  .fecha {
+    font-size: 13px;
+    font-weight: 300;
+    color: #5A5855;
+  }
+
+  section {
+    margin-bottom: 48px;
+  }
+  h2 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #7A7773;
+    margin-bottom: 16px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  li {
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #C2BFB2;
+    padding-left: 16px;
+    border-left: 2px solid #2A2927;
+  }
+
+  .lugar {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #E8E5DF;
+  }
+  .nodoing {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: #7A7773;
+    font-style: italic;
+  }
+</style>

@@ -3,26 +3,65 @@ import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 
 const notas = await getCollection('notas');
+const ensayos = await getCollection('ensayos').catch(() => []);
+const todo = [...notas, ...ensayos];
+
+const territorios = [
+  { slug: 'aprender-ensenar', label: 'Aprender y enseñar' },
+  { slug: 'pensar',           label: 'Pensar' },
+  { slug: 'crear',            label: 'Crear' },
+  { slug: 'comunicarse',      label: 'Comunicarse' },
+  { slug: 'relacionarnos',    label: 'Relacionarnos' },
+  { slug: 'trabajar',         label: 'Trabajar' },
+];
+
+function countByTerritorio(slug: string) {
+  return todo.filter(e => (e.data.tags ?? []).includes(slug)).length;
+}
 ---
 
-<Base title="Mi Libreta">
-  <h1>Mi Libreta</h1>
-  <p class="desc">Una colección de notas, ensayos e ideas creciendo lentamente.</p>
+<Base title="Mi Libreta · Eduardo Toledo">
+  <div class="jardin">
 
-  <section>
-    <h2>Notas</h2>
-    <ul>
-      {notas.map(nota => (
-        <li>
-          <a href={`/notas/${nota.id}`}>{nota.data.title}</a>
-          <span class={`stage ${nota.data.stage}`}>{nota.data.stage}</span>
-        </li>
-      ))}
-    </ul>
-  </section>
+    <header>
+      <h1>Mi Libreta</h1>
+      <p class="desc">Una colección de notas, ensayos e ideas creciendo lentamente.</p>
+    </header>
+
+    <!-- TERRITORIOS -->
+    <section class="territorios-section">
+      <h2>Territorios</h2>
+      <div class="territorios">
+        {territorios.map(t => (
+          <a href={`/jardin/${t.slug}`} class="territorio">
+            <span class="nombre">{t.label}</span>
+            <span class="count">{countByTerritorio(t.slug)}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- TODAS LAS NOTAS -->
+    <section>
+      <h2>Todas las notas</h2>
+      <ul>
+        {notas.map(nota => (
+          <li>
+            <a href={`/notas/${nota.id}`}>{nota.data.title}</a>
+            <span class={`stage ${nota.data.stage}`}>{nota.data.stage}</span>
+          </li>
+        ))}
+        {notas.length === 0 && <li class="vacio">Aún no hay notas.</li>}
+      </ul>
+    </section>
+
+  </div>
 </Base>
 
 <style>
+  .jardin { max-width: 720px; }
+
+  header { margin-bottom: 64px; }
   h1 {
     font-family: 'Playfair Display', serif;
     font-size: 48px;
@@ -34,8 +73,8 @@ const notas = await getCollection('notas');
     font-size: 16px;
     font-weight: 300;
     color: #7A7773;
-    margin-bottom: 60px;
   }
+
   h2 {
     font-size: 13px;
     font-weight: 700;
@@ -44,6 +83,44 @@ const notas = await getCollection('notas');
     color: #7A7773;
     margin-bottom: 24px;
   }
+
+  /* Territorios */
+  .territorios-section { margin-bottom: 72px; }
+  .territorios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .territorio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border: 1px solid #2A2927;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .territorio:hover {
+    border-color: #E85AAB;
+    background: #1F1E1B;
+  }
+  .nombre {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #C2BFB2;
+  }
+  .territorio:hover .nombre { color: #E8E5DF; }
+  .count {
+    font-size: 13px;
+    font-weight: 300;
+    color: #3A3835;
+  }
+  .territorio:hover .count { color: #7A7773; }
+
+  /* Lista de notas */
+  section { margin-bottom: 56px; }
   ul { list-style: none; padding: 0; }
   li {
     display: flex;
@@ -53,13 +130,14 @@ const notas = await getCollection('notas');
     border-bottom: 1px solid #2A2927;
   }
   li:first-child { border-top: 1px solid #2A2927; }
-  a {
+  li a {
     font-family: 'Playfair Display', serif;
     font-size: 18px;
     color: #C2BFB2;
     text-decoration: none;
+    flex: 1;
   }
-  a:hover { color: #E85AAB; }
+  li a:hover { color: #E85AAB; }
   .stage {
     font-size: 11px;
     font-weight: 700;
@@ -69,5 +147,16 @@ const notas = await getCollection('notas');
     border-radius: 3px;
     background: #2A2927;
     color: #7A7773;
+  }
+  .vacio {
+    font-size: 15px;
+    font-weight: 300;
+    color: #3A3835;
+    border: none !important;
+    padding-top: 8px !important;
+  }
+
+  @media (max-width: 600px) {
+    .territorios { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
