@@ -1,0 +1,139 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const notas = await getCollection('notas');
+  return notas.map(nota => ({
+    params: { id: nota.id },
+    props: { nota },
+  }));
+}
+
+const { nota } = Astro.props;
+const { Content } = await render(nota);
+
+const stageLabels: Record<string, string> = {
+  intuicion: 'Intuición',
+  emergente: 'Emergente',
+  maduro: 'Maduro',
+};
+
+const dateStr = nota.data.date.toLocaleDateString('es-MX', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<Base title={`${nota.data.title} · Mi Libreta`}>
+  <article>
+    <header>
+      <p class="meta">
+        <span class={`stage ${nota.data.stage}`}>{stageLabels[nota.data.stage]}</span>
+        <span class="date">{dateStr}</span>
+      </p>
+      <h1>{nota.data.title}</h1>
+      {nota.data.tags && (
+        <p class="tags">
+          {nota.data.tags.map(tag => <span class="tag">#{tag}</span>)}
+        </p>
+      )}
+    </header>
+    <div class="body">
+      <Content />
+    </div>
+  </article>
+</Base>
+
+<style>
+  article {
+    max-width: 680px;
+  }
+  header {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #2A2927;
+  }
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .stage {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+    background: #2A2927;
+    color: #7A7773;
+  }
+  .stage.maduro { background: #1A2E1A; color: #5C9E5C; }
+  .stage.emergente { background: #2A2215; color: #B08A3E; }
+  .date {
+    font-size: 13px;
+    font-weight: 300;
+    color: #7A7773;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 400;
+    line-height: 1.2;
+    color: #E8E5DF;
+    margin-bottom: 16px;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .tag {
+    font-size: 12px;
+    font-weight: 300;
+    color: #7A7773;
+  }
+  .body {
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: #C2BFB2;
+  }
+  .body :global(h2) {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #E8E5DF;
+    margin: 40px 0 16px;
+  }
+  .body :global(h3) {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #7A7773;
+    margin: 32px 0 12px;
+  }
+  .body :global(p) { margin-bottom: 20px; }
+  .body :global(a) { color: #E85AAB; text-decoration: none; }
+  .body :global(a:hover) { text-decoration: underline; }
+  .body :global(blockquote) {
+    border-left: 2px solid #E85AAB;
+    margin: 24px 0;
+    padding-left: 20px;
+    color: #A8A5A0;
+    font-style: italic;
+  }
+  .body :global(code) {
+    font-family: monospace;
+    font-size: 14px;
+    background: #2A2927;
+    padding: 2px 6px;
+    border-radius: 3px;
+    color: #C2BFB2;
+  }
+</style>

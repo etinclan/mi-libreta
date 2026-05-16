@@ -1,7 +1,73 @@
 ---
 import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const notas = await getCollection('notas');
 ---
+
 <Base title="Mi Libreta">
   <h1>Mi Libreta</h1>
-  <p>Una colección de notas, ensayos e ideas creciendo lentamente.</p>
+  <p class="desc">Una colección de notas, ensayos e ideas creciendo lentamente.</p>
+
+  <section>
+    <h2>Notas</h2>
+    <ul>
+      {notas.map(nota => (
+        <li>
+          <a href={`/notas/${nota.id}`}>{nota.data.title}</a>
+          <span class={`stage ${nota.data.stage}`}>{nota.data.stage}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
 </Base>
+
+<style>
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 400;
+    color: #E8E5DF;
+    margin-bottom: 12px;
+  }
+  .desc {
+    font-size: 16px;
+    font-weight: 300;
+    color: #7A7773;
+    margin-bottom: 60px;
+  }
+  h2 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #7A7773;
+    margin-bottom: 24px;
+  }
+  ul { list-style: none; padding: 0; }
+  li {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid #2A2927;
+  }
+  li:first-child { border-top: 1px solid #2A2927; }
+  a {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: #C2BFB2;
+    text-decoration: none;
+  }
+  a:hover { color: #E85AAB; }
+  .stage {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+    background: #2A2927;
+    color: #7A7773;
+  }
+</style>
