@@ -47,7 +47,7 @@ const dateStr = nota.data.date.toLocaleDateString('es-MX', {
 </Base>
 
 <style>
-  article { max-width: 720px; }
+  article { max-width: 72ch; }
 
   header {
     margin-bottom: 56px;
@@ -100,19 +100,20 @@ const dateStr = nota.data.date.toLocaleDateString('es-MX', {
     color: var(--color-text-dim);
   }
 
-  /* Cuerpo del artículo */
+  /* Cuerpo del artículo — igual que ProseWrapper de Maggie */
   .body {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-base);
-    line-height: 1.85;
+    line-height: 2;
     color: var(--color-text);
   }
   .body :global(h2) {
     font-family: var(--font-serif-display);
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-xl);
     font-weight: 400;
     color: var(--color-text-bright);
-    margin: 48px 0 20px;
+    line-height: 1.2;
+    margin: 2.5em 0 0.8em;
   }
   .body :global(h3) {
     font-family: var(--font-sans);
@@ -121,17 +122,23 @@ const dateStr = nota.data.date.toLocaleDateString('es-MX', {
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--color-text-dim);
-    margin: 40px 0 16px;
+    margin: 2em 0 0.8em;
   }
-  .body :global(p)  { margin-bottom: 24px; }
+  .body :global(p)  { margin-bottom: 1.5em; }
   .body :global(a)  { color: var(--color-accent); text-decoration: none; }
   .body :global(a:hover) { text-decoration: underline; }
   .body :global(blockquote) {
-    border-left: 2px solid var(--color-accent);
-    margin: 32px 0;
-    padding-left: 24px;
-    color: #A8A5A0;
+    text-align: center;
+    padding: 2em 0;
+    margin: 1.5em 0;
+  }
+  .body :global(blockquote p) {
+    font-size: var(--font-size-lg);
+    line-height: 1.4;
+    max-width: 28ch;
+    margin: 0 auto 1.5em;
     font-style: italic;
+    color: #A8A5A0;
   }
   .body :global(code) {
     font-family: monospace;
@@ -142,8 +149,11 @@ const dateStr = nota.data.date.toLocaleDateString('es-MX', {
     color: var(--color-text);
   }
   .body :global(ul), .body :global(ol) {
-    padding-left: 24px;
-    margin-bottom: 24px;
+    padding-left: 1.5em;
+    margin-bottom: 1.5em;
   }
-  .body :global(li) { margin-bottom: 8px; }
+  .body :global(li) {
+    margin-bottom: 0.5em;
+    line-height: 2;
+  }
 </style>
