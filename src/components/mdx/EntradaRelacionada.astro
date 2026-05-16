@@ -1,0 +1,85 @@
+---
+import { getCollection } from 'astro:content';
+import EstadoBadge from './EstadoBadge.astro';
+
+interface Props {
+  id: string;
+}
+const { id } = Astro.props;
+
+const notas = await getCollection('notas');
+const entrada = notas.find(n => n.id === id);
+
+const stageToEstado: Record<string, 'intuicion' | 'borrador' | 'ensayo'> = {
+  intuicion: 'intuicion',
+  emergente: 'borrador',
+  maduro: 'ensayo',
+};
+
+const dateStr = entrada?.data.date.toLocaleDateString('es-ES', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+{entrada ? (
+  <a href={`/notas/${entrada.id}`} class="entrada-relacionada">
+    <div class="er-header">
+      <EstadoBadge estado={stageToEstado[entrada.data.stage] ?? 'intuicion'} />
+      <span class="er-fecha">{dateStr}</span>
+    </div>
+    <p class="er-titulo">{entrada.data.title}</p>
+    {entrada.data.description && (
+      <p class="er-desc">{entrada.data.description}</p>
+    )}
+  </a>
+) : (
+  <span class="er-missing">Entrada no encontrada: {id}</span>
+)}
+
+<style>
+  .entrada-relacionada {
+    display: block;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin: 1.5em 0;
+    text-decoration: none;
+    transition: border-color 0.15s ease;
+  }
+  .entrada-relacionada:hover {
+    border-color: var(--etcom-coral);
+  }
+  .er-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .er-fecha {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: var(--etcom-smoke);
+  }
+  .er-titulo {
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-base);
+    color: var(--color-text-bright);
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+  .er-desc {
+    font-family: var(--font-serif-text);
+    font-size: 0.875rem;
+    color: var(--color-text-dim);
+    line-height: 1.7;
+    margin: 0;
+  }
+  .er-missing {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: var(--etcom-coral);
+  }
+</style>

@@ -1,0 +1,38 @@
+---
+---
+<aside class="audiencia">
+  <span class="label">Asumo que…</span>
+  <div class="contenido">
+    <slot />
+  </div>
+</aside>
+
+<style>
+  .audiencia {
+    border-left: 2px solid var(--etcom-coral);
+    background: #221A14;
+    padding: 20px 24px;
+    margin: 2em 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--etcom-smoke);
+    margin-bottom: 10px;
+  }
+  .contenido {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-base);
+    font-style: italic;
+    line-height: 1.8;
+    color: var(--etcom-cream);
+  }
+  .contenido :global(p) {
+    margin: 0;
+  }
+</style>

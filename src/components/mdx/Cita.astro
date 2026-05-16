@@ -1,0 +1,52 @@
+---
+interface Props {
+  autor: string;
+  obra?: string;
+  año?: string;
+}
+const { autor, obra, año } = Astro.props;
+---
+<blockquote class="cita">
+  <div class="texto">
+    <slot />
+  </div>
+  <footer class="atribucion">
+    <span>— {autor}</span>
+    {obra && <span>, <em>{obra}</em></span>}
+    {año && <span>, {año}</span>}
+  </footer>
+</blockquote>
+
+<style>
+  .cita {
+    margin: 2.5em 0;
+    padding: 0;
+    border: none;
+  }
+  .texto {
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-md);
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--color-text-bright);
+    margin-bottom: 16px;
+  }
+  .texto :global(p) {
+    margin: 0;
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-md);
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--color-text-bright);
+  }
+  .atribucion {
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 300;
+    color: var(--etcom-smoke);
+    padding-left: 2px;
+  }
+  .atribucion em {
+    font-style: italic;
+  }
+</style>

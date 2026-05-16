@@ -1,0 +1,44 @@
+---
+interface Props {
+  lista: string[];
+}
+const { lista } = Astro.props;
+---
+<div class="territorios">
+  {lista.map((t, i) => (
+    <>
+      <a href="/jardin" class="territorio">{t}</a>
+      {i < lista.length - 1 && <span class="sep" aria-hidden="true">·</span>}
+    </>
+  ))}
+</div>
+
+<style>
+  .territorios {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin: 1em 0;
+  }
+  .territorio {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--etcom-coral);
+    text-decoration: none;
+    padding: 3px 8px;
+    border: 1px solid #3A1E14;
+    border-radius: 3px;
+  }
+  .territorio:hover {
+    background: #3A1E14;
+  }
+  .sep {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: #3A3835;
+  }
+</style>

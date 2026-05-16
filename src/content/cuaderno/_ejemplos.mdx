@@ -1,0 +1,168 @@
+{/* Este archivo es solo referencia — no genera ruta. Vive en /src/content/cuaderno/ que no está registrado como colección. */}
+
+# Referencia de componentes MDX
+
+Guía de uso de los ocho componentes disponibles en cualquier `.mdx` del jardín.
+No hay que importar nada: están registrados globalmente en el layout de notas.
+
+---
+
+## 1. EstadoBadge
+
+Indica el estadio de madurez de la entrada.
+
+```mdx
+<EstadoBadge estado="intuicion" />
+<EstadoBadge estado="borrador" />
+<EstadoBadge estado="ensayo" />
+```
+
+Valores: `intuicion` · `borrador` · `ensayo`
+
+---
+
+## 2. MetaEntrada
+
+Línea contextual completa antes del cuerpo de la entrada.
+
+```mdx
+<MetaEntrada
+  fecha="12 de mayo de 2026"
+  actualizado="15 de mayo de 2026"
+  estado="borrador"
+  territorios={["pensar", "trabajar"]}
+  lecturaMin={5}
+/>
+```
+
+Si `actualizado` es igual a `fecha` o está ausente, no aparece.
+Si no hay `territorios`, el bloque de territorios no aparece.
+
+---
+
+## 3. Audiencia
+
+Caja que explicita el lector asumido. Va al principio de la entrada.
+
+```mdx
+<Audiencia>
+  Ya tienes criterio propio sobre IA y no necesitas que te expliquen qué es un LLM.
+  Estás pensando en cómo esto cambia tu trabajo específico.
+</Audiencia>
+```
+
+---
+
+## 4. Duda
+
+Caja para preguntas abiertas o lagunas aún sin resolver.
+
+```mdx
+<Duda>
+  No tengo claro si el reposicionamiento funciona igual para roles técnicos que para roles
+  de gestión. Intuyo que los movimientos son distintos pero no he visto suficientes casos.
+</Duda>
+```
+
+---
+
+## 5. NotaAlMargen
+
+En desktop flota fuera de la columna de lectura (derecha). En mobile aparece como bloque inline.
+
+```mdx
+<NotaAlMargen>
+  Esto lo discutí con tres personas en cohortes distintas y las tres llegaron a la misma conclusión.
+</NotaAlMargen>
+
+Párrafo normal al que acompaña la nota lateral en desktop...
+```
+
+---
+
+## 6. Cita
+
+Blockquote estilizado con atribución.
+
+```mdx
+<Cita autor="Hannah Arendt" obra="La condición humana" año="1958">
+  La peligrosa irreversibilidad del pasado puede ser contrarrestada por la promesa.
+</Cita>
+```
+
+`obra` y `año` son opcionales.
+
+---
+
+## 7. EntradaRelacionada
+
+Card que enlaza a otra nota del jardín, cargando sus metadatos automáticamente.
+
+```mdx
+<EntradaRelacionada id="agencia-humana-ia" />
+```
+
+El `id` es el nombre del archivo `.mdx` sin extensión (tal como aparece en la URL).
+Si la entrada no existe, muestra un aviso en lugar de romper.
+
+---
+
+## 8. Territorios
+
+Badges de territorios con enlaces.
+
+```mdx
+<Territorios lista={["pensar", "trabajar", "crear"]} />
+```
+
+Territorios disponibles: `aprender`, `pensar`, `crear`, `comunicarse`, `relacionarnos`, `trabajar`
+
+---
+
+## Ejemplo de entrada completa
+
+```mdx
+---
+title: El músculo de pensar
+date: 2026-05-12
+stage: borrador
+tags: [pensar, ia, cognicion]
+description: Qué le pasa al pensamiento cuando hay una máquina que piensa mejor y más rápido.
+---
+
+<MetaEntrada
+  fecha="12 de mayo de 2026"
+  estado="borrador"
+  territorios={["pensar"]}
+  lecturaMin={6}
+/>
+
+<Audiencia>
+  Ya usas IA en tu trabajo y notas algo extraño: que cada vez delegas más decisiones pequeñas
+  y cada vez piensas menos por tu cuenta.
+</Audiencia>
+
+<Territorios lista={["pensar"]} />
+
+Cuando una herramienta hace el trabajo mejor que tú, la pregunta obvia es si seguir haciéndolo.
+
+<NotaAlMargen>
+  La misma pregunta surgió con las calculadoras y el cálculo mental. Pero la escala aquí es diferente.
+</NotaAlMargen>
+
+La respuesta menos obvia es que el ejercicio de hacerlo mal te hace más capaz de evaluar
+cuándo la herramienta lo hace bien.
+
+<Duda>
+  No sé si hay un umbral a partir del cual delegar el pensamiento se vuelve irreversible.
+  Si el músculo se atrofia de verdad o solo se va al fondo y puede recuperarse.
+</Duda>
+
+<Cita autor="Ivan Illich" obra="Tools for Conviviality" año="1973">
+  La herramienta es convivial en la medida en que le da al usuario más control sobre su propio proceso.
+</Cita>
+
+---
+
+<EntradaRelacionada id="agencia-humana-ia" />
+```

@@ -1,0 +1,64 @@
+---
+import EstadoBadge from './EstadoBadge.astro';
+
+interface Props {
+  fecha: string;
+  actualizado?: string;
+  estado: 'intuicion' | 'borrador' | 'ensayo';
+  territorios?: string[];
+  lecturaMin?: number;
+}
+
+const { fecha, actualizado, estado, territorios = [], lecturaMin } = Astro.props;
+const mostrarActualizado = actualizado && actualizado !== fecha;
+---
+
+<div class="meta-entrada">
+  <EstadoBadge estado={estado} />
+  <span class="sep">·</span>
+  <span>publicado el {fecha}</span>
+  {mostrarActualizado && (
+    <>
+      <span class="sep">·</span>
+      <span>última edición {actualizado}</span>
+    </>
+  )}
+  {territorios.length > 0 && (
+    <>
+      <span class="sep">·</span>
+      <span>
+        territorios: {territorios.map((t, i) => (
+          <><a href={`/jardin`} class="territorio">{t}</a>{i < territorios.length - 1 ? ', ' : ''}</>
+        ))}
+      </span>
+    </>
+  )}
+  {lecturaMin && (
+    <>
+      <span class="sep">·</span>
+      <span>{lecturaMin} min de lectura</span>
+    </>
+  )}
+</div>
+
+<style>
+  .meta-entrada {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: var(--etcom-smoke);
+    line-height: 1.6;
+    margin-bottom: 1.5em;
+  }
+  .sep { color: #3A3835; }
+  .territorio {
+    color: var(--etcom-smoke);
+    text-decoration: none;
+    border-bottom: 1px solid #3A3835;
+  }
+  .territorio:hover { color: var(--etcom-coral); border-color: var(--etcom-coral); }
+</style>

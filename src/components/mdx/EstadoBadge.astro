@@ -1,0 +1,35 @@
+---
+interface Props {
+  estado: 'intuicion' | 'borrador' | 'ensayo';
+}
+const { estado } = Astro.props;
+const labels = { intuicion: 'Intuición', borrador: 'Borrador', ensayo: 'Ensayo' };
+---
+<span class={`badge badge--${estado}`}>{labels[estado]}</span>
+
+<style>
+  .badge {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 3px;
+    line-height: 1.6;
+    white-space: nowrap;
+  }
+  .badge--intuicion {
+    background: #3A1E14;
+    color: var(--etcom-coral);
+  }
+  .badge--borrador {
+    background: #0E2E25;
+    color: var(--etcom-mint);
+  }
+  .badge--ensayo {
+    background: var(--etcom-midnight);
+    color: var(--etcom-cream);
+  }
+</style>

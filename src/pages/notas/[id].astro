@@ -1,6 +1,14 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { getCollection, render } from 'astro:content';
+import EstadoBadge from '../../components/mdx/EstadoBadge.astro';
+import MetaEntrada from '../../components/mdx/MetaEntrada.astro';
+import Audiencia from '../../components/mdx/Audiencia.astro';
+import Duda from '../../components/mdx/Duda.astro';
+import NotaAlMargen from '../../components/mdx/NotaAlMargen.astro';
+import Cita from '../../components/mdx/Cita.astro';
+import EntradaRelacionada from '../../components/mdx/EntradaRelacionada.astro';
+import Territorios from '../../components/mdx/Territorios.astro';
 
 export async function getStaticPaths() {
   const notas = await getCollection('notas');
@@ -41,7 +49,7 @@ const dateStr = nota.data.date.toLocaleDateString('es-MX', {
       )}
     </header>
     <div class="body">
-      <Content />
+      <Content components={{ EstadoBadge, MetaEntrada, Audiencia, Duda, NotaAlMargen, Cita, EntradaRelacionada, Territorios }} />
     </div>
   </article>
 </Base>
