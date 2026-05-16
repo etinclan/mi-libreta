@@ -2,38 +2,68 @@
 import Base from '../../layouts/Base.astro';
 
 const semanas = [
-  { label: "Semana 1", titulo: "[SEMANA_1_TITULO]", desc: "[SEMANA_1_DESC]" },
-  { label: "Semana 2", titulo: "[SEMANA_2_TITULO]", desc: "[SEMANA_2_DESC]" },
-  { label: "Semana 3", titulo: "[SEMANA_3_TITULO]", desc: "[SEMANA_3_DESC]" },
-  { label: "Semana 4", titulo: "[SEMANA_4_TITULO]", desc: "[SEMANA_4_DESC]" },
+  {
+    label: "Semana 1",
+    titulo: "Semana 1 — Diagnóstico",
+    desc: "Cartografiar dónde estás ahora: qué haces, qué te paga, qué te ilumina y qué la IA ya hace mejor. Trabajo con el marco Reshufle.",
+  },
+  {
+    label: "Semana 2",
+    titulo: "Semana 2 — Las cuatro posturas",
+    desc: "Identificar qué postura tomas ante la IA: evasiva, imitadora, integradora o insurgente. Trabajo de elección activa, no de descarte.",
+  },
+  {
+    label: "Semana 3",
+    titulo: "Semana 3 — Reinvención de la oferta",
+    desc: "Reformular qué vendes, a quién y por qué. Aplicación práctica de las cuatro mecánicas de reinvención.",
+  },
+  {
+    label: "Semana 4",
+    titulo: "Semana 4 — El siguiente movimiento",
+    desc: "Diseño del próximo paso: qué activas, qué sueltas, qué pruebas en los siguientes 90 días. Compromiso visible.",
+  },
 ];
 
 const metodo = [
-  { label: "Reshufle",           href: "/notas/reshufle" },
-  { label: "Las cuatro posturas ante la IA", href: "/notas/cuatro-posturas" },
-  { label: "Las cuatro mecánicas de reinvención", href: "/notas/cuatro-mecanicas" },
+  { label: "Reshufle: cómo se reordena el tablero", href: "/jardin" },
+  { label: "Las cuatro posturas ante la IA",         href: "/jardin" },
+  { label: "Las cuatro mecánicas de reinvención",    href: "/jardin" },
 ];
 
+// ⚠️ CASOS ILUSTRATIVOS — sustituir por casos reales antes de publicar
 const casos = [
-  { label: "Caso A", desc: "[CASO_A_DESC]", atribucion: "[CASO_A_ATRIBUCION]" },
-  { label: "Caso B", desc: "[CASO_B_DESC]", atribucion: "[CASO_B_ATRIBUCION]" },
-  { label: "Caso C", desc: "[CASO_C_DESC]", atribucion: "[CASO_C_ATRIBUCION]" },
-];
-
-const cohortes = [
   {
-    fecha: "[FECHA_COHORTE_1]",
-    estado: "Abierta",
-    estadoColor: "#5EECC5",
-    titulo: "[COHORTE_1_TITULO]",
-    meta: "[COHORTE_1_META — horario, plazas]",
+    label: "Caso A",
+    desc: "Una consultora freelance entró con la sensación de estar perdiendo encargos por la fricción de hablar de IA. Salió con una nueva oferta enmarcada como «estrategia de IA aplicada» y triplicó su tarifa-día.",
+    atribucion: "— Consultora independiente · cohorte de febrero 2026",
   },
   {
-    fecha: "[FECHA_COHORTE_2]",
+    label: "Caso B",
+    desc: "Un director de área en una multinacional estaba a punto de aceptar un puesto que sabía que no era suyo. Salió con un plan de salida, lanzó su práctica boutique seis meses después y ahora factura desde casa.",
+    atribucion: "— Dirección a partner independiente · cohorte de noviembre 2025",
+  },
+  {
+    label: "Caso C",
+    desc: "Una responsable de L&D corporativo veía cómo el presupuesto de formación se redirigía a herramientas IA. Salió con una propuesta interna de «currículum AI-augmented» que abrió un rol nuevo en la organización.",
+    atribucion: "— Learning leader corporativo · cohorte de marzo 2026",
+  },
+];
+
+// ⚠️ FECHAS ILUSTRATIVAS — sustituir por fechas reales de las cohortes
+const cohortes = [
+  {
+    fecha: "14 de junio · 2026",
+    estado: "Abierta · 4 plazas",
+    estadoColor: "#5EECC5",
+    titulo: "Cohorte de verano",
+    meta: "Online · jueves 18:00–20:00 CEST · cohorte de 12",
+  },
+  {
+    fecha: "22 de septiembre · 2026",
     estado: "Lista de espera",
-    estadoColor: "#FF8F6B",
-    titulo: "[COHORTE_2_TITULO]",
-    meta: "[COHORTE_2_META — horario, plazas]",
+    estadoColor: "#5A5855",
+    titulo: "Cohorte de otoño",
+    meta: "Online · jueves 18:00–20:00 CEST · cohorte cerrada",
   },
 ];
 ---
@@ -50,19 +80,19 @@ const cohortes = [
 
     <header class="hero">
       <h1>Reinventarse</h1>
-      <p class="subtitulo"><em>[SUBTITULO_HERO]</em></p>
+      <p class="subtitulo"><em>Seguir siendo relevante cuando las máquinas piensan.</em></p>
     </header>
 
     <section class="manifiesto">
-      <p>[MANIFIESTO_P1]</p>
-      <p>[MANIFIESTO_P2]</p>
-      <p>[MANIFIESTO_P3]</p>
+      <p>La pregunta ya no es si la IA va a transformar tu trabajo. Es qué parte de él seguirá siendo tuyo cuando lo haga. Y esa respuesta no se encuentra en un curso de prompts ni en una lista de herramientas.</p>
+      <p>Se encuentra trabajando hacia dentro: revisando qué haces, qué oferta sostiene tu valor, qué postura tomas ante un terreno que cambia más rápido de lo que se lee. Reinventarse no enseña IA — enseña a pensarte de nuevo cuando la IA ya está aquí.</p>
+      <p>Cuatro semanas, cohorte pequeña, sesiones en vivo. No es un curso: es un proceso de reposicionamiento personal con método y compañía.</p>
     </section>
 
     <section class="quien">
       <h2>Quién entra aquí</h2>
-      <p>[QUIEN_DESC]</p>
-      <p class="contraste"><em>[QUIEN_CONTRASTE — "No es para X. Es para Y."]</em></p>
+      <p>Profesionales seniors y consultores independientes que sienten que las reglas del juego acaban de cambiar y necesitan rehacer el mapa. Founders en fase de pivot revisando su propuesta de valor a la luz de lo que ahora puede hacer una máquina. Directivos decidiendo si seguir en la corporación o salir a montar lo propio.</p>
+      <p class="contraste"><em>No es para quien busca dominar herramientas. Es para quien necesita decidir su lugar.</em></p>
     </section>
 
     <section class="semanas">
@@ -80,7 +110,7 @@ const cohortes = [
 
     <section class="metodo">
       <h2>El método, en abierto</h2>
-      <p>[METODO_DESC]</p>
+      <p>Reinventarse aplica tres frameworks propios — Reshufle (anticipación), las cuatro posturas (decisión) y las cuatro mecánicas (reinvención) — que vengo publicando abiertamente en Mi Libreta. Puedes leerlos antes de entrar.</p>
       <ul class="metodo-links">
         {metodo.map(m => (
           <li><a href={m.href}>{m.label} →</a></li>
@@ -125,13 +155,13 @@ const cohortes = [
 
     <section class="inversion">
       <h2>Inversión</h2>
-      <p class="precio">[PRECIO]</p>
-      <p>[INVERSION_DESC — qué incluye]</p>
+      <p class="precio">[PRECIO] + IVA</p>
+      <p>Incluye las cuatro sesiones en vivo, materiales y plantillas, una sesión 1:1 de 60 minutos durante el proceso y acceso al canal privado de la cohorte de por vida. Pago en uno o dos plazos. Si paga tu organización, facturamos a la cuenta corporativa sin complicaciones.</p>
     </section>
 
     <section class="entrada">
       <h2>Cómo entrar</h2>
-      <p>[COMO_ENTRAR_DESC]</p>
+      <p>Reservas plaza con un primer 50%, confirmamos fechas y recibes los materiales preparatorios la semana anterior. Si dudas si es para ti, escríbeme: en un correo te ayudo a verlo.</p>
       <a href="mailto:edutoledo@gmail.com" class="cta">Reservar plaza →</a>
     </section>
 
@@ -157,7 +187,7 @@ const cohortes = [
   .breadcrumb a { color: var(--color-text-dim); text-decoration: none; }
   .breadcrumb a:hover { color: var(--color-text); }
 
-  /* Type label (horizontal) */
+  /* Type label */
   .type-label,
   .cohortes-header {
     display: flex;
@@ -229,11 +259,7 @@ const cohortes = [
   .contraste { color: #A8A5A0; }
 
   /* Semanas */
-  .semanas-lista {
-    display: flex;
-    flex-direction: column;
-    counter-reset: semana;
-  }
+  .semanas-lista { display: flex; flex-direction: column; }
   .semana {
     display: grid;
     grid-template-columns: 80px 1fr;
@@ -285,11 +311,7 @@ const cohortes = [
   .metodo-links a:hover { text-decoration: underline; }
 
   /* Casos */
-  .casos-lista {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-  }
+  .casos-lista { display: flex; flex-direction: column; gap: 40px; }
   .caso {
     padding-left: 20px;
     border-left: 2px solid var(--color-border);
@@ -303,10 +325,7 @@ const cohortes = [
     font-style: italic;
     color: var(--coral);
   }
-  .caso-desc {
-    color: var(--color-text);
-    margin-bottom: 0;
-  }
+  .caso-desc { color: var(--color-text); margin-bottom: 0; }
   .caso-atribucion {
     font-size: var(--font-size-sm);
     color: var(--color-text-dim);
@@ -315,11 +334,7 @@ const cohortes = [
   }
 
   /* Cohortes */
-  .cohortes-lista {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
+  .cohortes-lista { display: flex; flex-direction: column; }
   .cohorte {
     padding: 20px 0;
     border-bottom: 1px solid var(--color-border);
@@ -337,7 +352,6 @@ const cohortes = [
   .cohorte-fecha {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-sm);
-    font-style: italic;
     color: var(--color-text-dim);
   }
   .cohorte-estado {
@@ -397,4 +411,9 @@ const cohortes = [
     border-radius: 2px;
   }
   .cta:hover { opacity: 0.88; }
+
+  @media (max-width: 600px) {
+    .semana { grid-template-columns: 1fr; }
+    .semana-label { grid-row: auto; padding-top: 0; margin-bottom: 4px; }
+  }
 </style>
