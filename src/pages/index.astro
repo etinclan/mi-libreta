@@ -1,30 +1,365 @@
 ---
 import Base from '../layouts/Base.astro';
+import EstadoBadge from '../components/mdx/EstadoBadge.astro';
+import { getCollection } from 'astro:content';
+
+const territorios = [
+  { nombre: "Aprender y enseñar", slug: "aprender" },
+  { nombre: "Pensar",             slug: "pensar" },
+  { nombre: "Crear",              slug: "crear" },
+  { nombre: "Comunicarse",        slug: "comunicarse" },
+  { nombre: "Relacionarnos",      slug: "relacionarnos" },
+  { nombre: "Trabajar",           slug: "trabajar" },
+];
+
+const stageToEstado: Record<string, 'intuicion' | 'borrador' | 'ensayo'> = {
+  intuicion: 'intuicion',
+  emergente: 'borrador',
+  maduro:    'ensayo',
+};
+
+// Entradas más recientes — con fallback si no hay suficientes
+const todasLasNotas = await getCollection('notas').catch(() => []);
+const notasRecientes = todasLasNotas
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 4);
+
+const placeholderNotas = [
+  { id: '_p1', data: { title: '[TITULO_ENTRADA_1]', date: new Date(), stage: 'intuicion', description: '[EXTRACTO_ENTRADA_1]' } },
+  { id: '_p2', data: { title: '[TITULO_ENTRADA_2]', date: new Date(), stage: 'borrador',  description: '[EXTRACTO_ENTRADA_2]' } },
+  { id: '_p3', data: { title: '[TITULO_ENTRADA_3]', date: new Date(), stage: 'ensayo',    description: '[EXTRACTO_ENTRADA_3]' } },
+];
+
+const entradas = notasRecientes.length >= 2 ? notasRecientes : placeholderNotas;
+
+function fmtDate(d: Date) {
+  return d.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
+}
 ---
+
 <Base title="Eduardo Toledo">
-  <h1>Eduardo explora cómo fortalecer la agencia humana en la <em>Era de la IA</em>.</h1>
-  <p>Curioso de lo siguiente, amante de los mapas, comunicador y profesor.</p>
+  <div class="home">
+
+    <!-- 1. HERO -->
+    <section class="hero">
+      <h1>[HERO_TITULO — con <em class="coral">[PALABRA_EJE]</em> en coral italic]</h1>
+      <p class="subtitulo"><em>[HERO_SUBTITULO]</em></p>
+      <p class="descripcion">[HERO_DESCRIPCION_PERSONAL]</p>
+    </section>
+
+    <!-- 2. SEIS TERRITORIOS -->
+    <section class="territorios-sec">
+      <div class="type-label">
+        <span class="marcador" aria-hidden="true"></span>
+        <span class="tag">Seis territorios</span>
+      </div>
+      <h2 class="sec-titulo"><em>[TERRITORIOS_TITULO]</em></h2>
+      <p class="sec-intro">[TERRITORIOS_INTRO]</p>
+      <div class="territorios-grid">
+        {territorios.map(t => (
+          <a href={`/jardin`} class="territorio-item">
+            <span class="dot" aria-hidden="true">·</span>
+            <span class="territorio-nombre">{t.nombre}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- 3. EN LA LIBRETA ÚLTIMAMENTE -->
+    <section class="libreta-sec">
+      <div class="type-label">
+        <span class="marcador" aria-hidden="true"></span>
+        <span class="tag">En la libreta últimamente</span>
+      </div>
+      <h2 class="sec-titulo"><em>[LIBRETA_TITULO]</em></h2>
+      <div class="entradas-lista">
+        {entradas.map(nota => (
+          <a
+            href={nota.id.startsWith('_') ? '/jardin' : `/notas/${nota.id}`}
+            class={`entrada-item${nota.id.startsWith('_') ? ' placeholder' : ''}`}
+          >
+            <div class="entrada-header">
+              <EstadoBadge estado={stageToEstado[nota.data.stage] ?? 'intuicion'} />
+              <span class="entrada-fecha">{fmtDate(nota.data.date)}</span>
+            </div>
+            <p class="entrada-titulo">{nota.data.title}</p>
+            {nota.data.description && (
+              <p class="entrada-desc">{nota.data.description}</p>
+            )}
+          </a>
+        ))}
+      </div>
+      <a href="/jardin" class="ver-todo">Ver toda la libreta →</a>
+    </section>
+
+    <!-- 4. LA NEWSLETTER -->
+    <section class="newsletter-sec">
+      <div class="type-label">
+        <span class="marcador" aria-hidden="true"></span>
+        <span class="tag">La Newsletter</span>
+      </div>
+      <h2 class="sec-titulo"><em>[NEWSLETTER_TITULO]</em></h2>
+      <p class="sec-intro">[NEWSLETTER_DESC]</p>
+      <a href="/newsletter" class="cta-coral">Suscribirse →</a>
+    </section>
+
+    <!-- 5. CONMIGO TRABAJAN -->
+    <section class="trabajo-sec">
+      <div class="type-label">
+        <span class="marcador" aria-hidden="true"></span>
+        <span class="tag">Conmigo trabajan</span>
+      </div>
+      <h2 class="sec-titulo"><em>[TRABAJO_TITULO]</em></h2>
+      <div class="trabajo-cols">
+        <a href="/estudio" class="trabajo-col">
+          <span class="trabajo-quien">Profesionales</span>
+          <p class="trabajo-desc">[TRABAJO_PROFESIONALES_DESC]</p>
+          <span class="trabajo-link">Estudio →</span>
+        </a>
+        <a href="/organizaciones" class="trabajo-col">
+          <span class="trabajo-quien">Organizaciones</span>
+          <p class="trabajo-desc">[TRABAJO_ORGANIZACIONES_DESC]</p>
+          <span class="trabajo-link">Organizaciones →</span>
+        </a>
+      </div>
+    </section>
+
+  </div>
 </Base>
 
 <style>
+  :root {
+    --mint:  #5EECC5;
+    --coral: #FF8F6B;
+  }
+
+  .home {
+    display: flex;
+    flex-direction: column;
+    gap: 96px;
+  }
+
+  /* Shared type-label */
+  .type-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .marcador {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--mint);
+    border-radius: 1px;
+    flex-shrink: 0;
+  }
+  .tag {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mint);
+  }
+
+  /* Shared section title */
+  .sec-titulo {
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-lg);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-text-bright);
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  /* Shared intro paragraph */
+  .sec-intro {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-base);
+    line-height: 1.9;
+    color: var(--color-text);
+    max-width: 60ch;
+    margin-bottom: 36px;
+  }
+
+  /* ── 1. HERO ────────────────────────────────── */
+  .hero { max-width: 820px; }
+
   h1 {
     font-family: var(--font-serif-display);
     font-size: var(--font-size-3xl);
     font-weight: 400;
     line-height: 1.1;
-    max-width: 820px;
     color: var(--color-text-bright);
-    margin-bottom: 32px;
+    margin-bottom: 20px;
   }
-  em {
+  .coral {
     font-style: italic;
-    color: #A8A5A0;
+    color: var(--coral);
   }
-  p {
+  .subtitulo {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-md);
+    font-style: italic;
+    line-height: 1.5;
+    color: #A8A5A0;
+    margin-bottom: 20px;
+  }
+  .descripcion {
     font-family: var(--font-sans);
     font-size: var(--font-size-sm);
     font-weight: 300;
     color: var(--color-text-dim);
     letter-spacing: 0.02em;
+  }
+
+  /* ── 2. TERRITORIOS ─────────────────────────── */
+  .territorios-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px 0;
+  }
+  .territorio-item {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--color-border);
+    text-decoration: none;
+  }
+  .territorio-item:nth-child(-n+3) { border-top: 1px solid var(--color-border); }
+  .territorio-item:hover .territorio-nombre { color: var(--color-text-bright); }
+  .territorio-item:hover .dot { color: var(--coral); }
+  .dot {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    color: #3A3835;
+    line-height: 1;
+    flex-shrink: 0;
+    transition: color 0.15s;
+  }
+  .territorio-nombre {
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    transition: color 0.15s;
+  }
+
+  /* ── 3. LIBRETA ─────────────────────────────── */
+  .entradas-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 32px;
+  }
+  .entrada-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--color-border);
+    text-decoration: none;
+  }
+  .entrada-item:first-child { border-top: 1px solid var(--color-border); }
+  .entrada-item:hover .entrada-titulo { color: var(--color-text-bright); }
+  .entrada-item.placeholder { opacity: 0.35; pointer-events: none; }
+  .entrada-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .entrada-fecha {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: var(--color-text-dim);
+  }
+  .entrada-titulo {
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-md);
+    font-weight: 400;
+    color: var(--color-text);
+    line-height: 1.2;
+    transition: color 0.15s;
+  }
+  .entrada-desc {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-dim);
+    line-height: 1.8;
+  }
+  .ver-todo {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-sm);
+    font-weight: 300;
+    color: var(--color-text-dim);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .ver-todo:hover { color: var(--color-text); }
+
+  /* ── 4. NEWSLETTER ──────────────────────────── */
+  .cta-coral {
+    display: inline-block;
+    padding: 14px 32px;
+    background: var(--coral);
+    color: #1C1B18;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border-radius: 2px;
+  }
+  .cta-coral:hover { opacity: 0.88; }
+
+  /* ── 5. CONMIGO TRABAJAN ────────────────────── */
+  .trabajo-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+  .trabajo-col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 28px 32px 28px 0;
+    border-top: 1px solid var(--color-border);
+    text-decoration: none;
+  }
+  .trabajo-col:last-child { padding-left: 32px; padding-right: 0; border-left: 1px solid var(--color-border); }
+  .trabajo-col:hover .trabajo-quien { color: var(--color-text-bright); }
+  .trabajo-quien {
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-lg);
+    font-weight: 400;
+    color: var(--color-text);
+    transition: color 0.15s;
+  }
+  .trabajo-desc {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-sm);
+    line-height: 1.8;
+    color: var(--color-text-dim);
+  }
+  .trabajo-link {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-xs);
+    font-weight: 300;
+    color: var(--coral);
+    letter-spacing: 0.02em;
+    margin-top: 4px;
+  }
+
+  /* ── RESPONSIVE ─────────────────────────────── */
+  @media (max-width: 700px) {
+    .home { gap: 64px; }
+    .territorios-grid { grid-template-columns: 1fr 1fr; }
+    .territorio-item:nth-child(-n+3) { border-top: none; }
+    .territorio-item:nth-child(-n+2) { border-top: 1px solid var(--color-border); }
+    .trabajo-cols { grid-template-columns: 1fr; }
+    .trabajo-col:last-child { padding-left: 0; border-left: none; border-top: 1px solid var(--color-border); }
   }
 </style>
