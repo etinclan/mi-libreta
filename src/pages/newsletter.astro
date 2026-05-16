@@ -2,18 +2,17 @@
 import Base from '../layouts/Base.astro';
 
 const ediciones = [
-  { numero: 66, titulo: "[EDICION 66]", fecha: "[FECHA]", url: "https://eduardotoledo.substack.com" },
-  { numero: 65, titulo: "[EDICION 65]", fecha: "[FECHA]", url: "https://eduardotoledo.substack.com" },
-  { numero: 64, titulo: "[EDICION 64]", fecha: "[FECHA]", url: "https://eduardotoledo.substack.com" },
-  { numero: 63, titulo: "[EDICION 63]", fecha: "[FECHA]", url: "https://eduardotoledo.substack.com" },
-  { numero: 62, titulo: "[EDICION 62]", fecha: "[FECHA]", url: "https://eduardotoledo.substack.com" },
+  { numero: 66, titulo: "Más allá del segundo cerebro",          fecha: "abril 2026",   url: "https://eduardotoledo.substack.com" },
+  { numero: 65, titulo: "IA: Dónde estamos y hacia dónde va",    fecha: "abril 2026",   url: "https://eduardotoledo.substack.com" },
+  { numero: 64, titulo: "Cambiar el centro de gravedad",         fecha: "febrero 2026", url: "https://eduardotoledo.substack.com" },
+  { numero: 63, titulo: "De mentalidad digital a mentalidad de IA", fecha: "enero 2026", url: "https://eduardotoledo.substack.com" },
 ];
 
 const bullets = [
-  "[BULLET_1 — tipo de contenido que van a encontrar]",
-  "[BULLET_2 — frecuencia, formato, extensión]",
-  "[BULLET_3 — a quién va dirigida]",
-  "[BULLET_4 — por qué es diferente a otro contenido tuyo]",
+  "Análisis sectoriales. Cómo queda un sector concreto ante la IA: qué se reposiciona, qué se sostiene, qué desaparece. Banca, derecho, educación, salud, sector público.",
+  "Ideas en estado de cocción. Frameworks propios — Reshufle, las cuatro posturas, las cuatro mecánicas — aplicados a situaciones reales, no en abstracto.",
+  "Cartas más íntimas. A veces una edición no analiza nada — solo pregunta. Sobre qué estamos perdiendo, qué estamos ganando, qué deberíamos estar cuidando.",
+  "Sin algoritmo, sin publicidad, sin tracking invasivo. Llega a tu correo, la lees cuando quieras, te das de baja con un clic si deja de servirte.",
 ];
 ---
 
@@ -23,23 +22,23 @@ const bullets = [
     <!-- HERO -->
     <header class="hero">
       <h1>Newsletter</h1>
-      <p class="subtitulo"><em>[MANIFIESTO_TITULAR — una línea italic que defina la newsletter en una frase]</em></p>
+      <p class="subtitulo"><em>Una carta mensual sobre cómo fortalecer la agencia humana en la era de la IA.</em></p>
     </header>
 
     <!-- QUÉ ES -->
     <section class="que-es">
       <h2>Qué es</h2>
       <div class="prose">
-        <p>[MANIFIESTO_P1 — primer párrafo del manifiesto. Por qué existe esta newsletter, qué problema resuelve o qué promesa hace al lector.]</p>
-        <p>[MANIFIESTO_P2 — segundo párrafo. Qué tipo de ideas, reflexiones o recursos comparte. Tono y frecuencia.]</p>
-        <p>[MANIFIESTO_P3 — tercer párrafo opcional. A quién va dirigida específicamente. Quién debería suscribirse y quién no.]</p>
+        <p>Una vez al mes envío una carta larga. No un boletín de novedades ni un resumen de enlaces — un ensayo destilado sobre una pregunta concreta: cómo seguimos aprendiendo, pensando, creando, comunicándonos, relacionándonos y trabajando con criterio propio cuando las máquinas también pueden hacerlo.</p>
+        <p>Cada edición es el resultado de semanas de pensamiento — a veces de un sector entero leído con cuidado, a veces de una intuición que llevaba meses dándome vueltas. La escribo despacio porque la leen despacio. No hay descargas, no hay urgencia, no hay clickbait. Solo un correo al mes que merezca la pena abrir.</p>
+        <p>Si te interesa pensar en serio sobre lo que la IA está cambiando en nuestro trabajo y nuestra vida — sin hype y sin alarmismo — este es el sitio.</p>
       </div>
     </section>
 
     <!-- SUSCRIPCIÓN -->
     <section class="suscripcion">
       <div class="suscripcion-inner">
-        <p class="suscripcion-copy">[SUSCRIPCION_COPY — línea breve de llamada a la acción, ej: "Cada mes en tu bandeja de entrada."]</p>
+        <p class="suscripcion-copy">Un correo al mes que merezca la pena abrir.</p>
         <a
           href="https://eduardotoledo.substack.com"
           target="_blank"
