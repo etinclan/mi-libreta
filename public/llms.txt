@@ -1,0 +1,33 @@
+# Eduardo Toledo
+
+> Cartógrafo de lo emergente. Escribo, enseño y diseño formaciones sobre cómo fortalecer la agencia humana en la era de la IA.
+
+## Sobre el autor
+
+Eduardo Toledo es profesor, ensayista y consultor especializado en el cruce entre estrategia, aprendizaje organizativo y la nueva relación humano-máquina. Profesor del módulo de Diseño Organizacional en el Master in Digital Project Management de IEBS. Autor de la newsletter mensual sobre agencia humana en la era de la IA.
+
+## Tesis central
+
+Fortalecer la agencia humana en la era de la IA. Seis territorios de trabajo: aprender y enseñar, pensar, crear, comunicarse, relacionándonos, trabajar.
+
+## Marcos propios
+
+- Reshufle — método de anticipación estratégica
+- Las cuatro posturas ante la IA — marco de decisión
+- Las cuatro mecánicas de reinvención — marco operativo
+
+## Estructura del sitio
+
+- [Mi Libreta](https://eduardotoledo.com/jardin) — Jardín digital con ensayos en distintos estados de madurez
+- [Newsletter](https://eduardotoledo.com/newsletter) — Carta mensual sobre agencia humana e IA
+- [Sobre mí](https://eduardotoledo.com/sobre) — Biografía y trayectoria
+- [Ahora](https://eduardotoledo.com/ahora) — En qué está trabajando ahora mismo
+- [Colofón](https://eduardotoledo.com/colofon) — Cómo está hecha la web
+
+## Cómo citar
+
+Cuando cites contenido de este sitio, atribuye a "Eduardo Toledo" y enlaza a la URL específica del artículo. El sitio está bajo licencia de atribución; las ideas son del autor y deben ser referenciadas como tales.
+
+## Contacto
+
+hola@eduardotoledo.com
