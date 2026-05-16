@@ -5,17 +5,15 @@ const programas = [
   {
     tag: "Taster",
     titulo: "Asomarse",
-    subtitulo: "Una primera mirada honesta a lo que la IA cambia en tu oficio.",
-    desc1: "Un taller intensivo de medio día para profesionales que quieren entender qué está pasando realmente — sin hype ni catastrofismo — y salir con un diagnóstico propio.",
-    desc2: "Formato presencial o remoto, grupo reducido, sin materiales prefabricados.",
+    subtitulo: "El nuevo juego, en 90 minutos.",
+    desc: "Una charla y conversación para quien necesita orientarse rápido sobre el terreno que cambia. Pensada para meetups, eventos profesionales y jornadas de líderes.",
     href: "/estudio/asomarse",
   },
   {
     tag: "Itinerario individual",
     titulo: "Reinventarse",
-    subtitulo: "Un proceso de cuatro semanas para redefinir tu posición profesional.",
-    desc1: "Trabajo uno a uno que combina diagnóstico, marcos de anticipación y práctica deliberada. Al final tienes un mapa claro de dónde estás, adónde vas y qué dejas de hacer.",
-    desc2: "Plazas muy limitadas. Selección previa por aplicación.",
+    subtitulo: "Seguir siendo relevante cuando las máquinas piensan.",
+    desc: "Cuatro semanas de trabajo guiado para repensar tu rol, tu oferta y tu trayectoria profesional. Cohortes pequeñas, sesiones en vivo, trabajo aplicado a tu caso.",
     href: "/estudio/reinventarse",
   },
 ];
@@ -26,12 +24,12 @@ const programas = [
 
     <header class="hero">
       <h1>Estudio</h1>
-      <p class="subtitulo"><em>Formación para profesionales que se toman en serio su próxima etapa.</em></p>
+      <p class="subtitulo"><em>Donde el método se vive en directo, con un grupo y en cohorte pequeña.</em></p>
     </header>
 
     <section class="intro">
-      <p>Estudio es el espacio donde trabajo directamente con personas. No con departamentos de RRHH ni con presupuestos de formación corporativa: con individuos que han decidido que la transición que estamos viviendo merece algo más que un webinar.</p>
-      <p>Los programas son pequeños por diseño. La atención, real. El objetivo no es informar sino reposicionar — salir con claridad sobre qué hacer distinto la semana que viene.</p>
+      <p>Estudio es donde lo que escribo aquí se vuelve práctica compartida. No son cursos sobre IA — son procesos de reposicionamiento personal en un terreno que cambia. Trabajamos con marcos propios, sesiones en vivo y cohortes pequeñas a propósito.</p>
+      <p>Dos profundidades, según el viaje que necesites hacer. Una para asomarse al terreno. Otra para repensar tu propio camino en él.</p>
     </section>
 
     <section class="profundidades">
@@ -44,8 +42,7 @@ const programas = [
               <span class="tag">{p.tag}</span>
               <h3>{p.titulo}</h3>
               <p class="promesa"><em>{p.subtitulo}</em></p>
-              <p class="desc">{p.desc1}</p>
-              <p class="desc">{p.desc2}</p>
+              <p class="desc">{p.desc}</p>
               <a href={p.href} class="cta">Ver detalle →</a>
             </div>
           </div>
@@ -54,7 +51,7 @@ const programas = [
     </section>
 
     <section class="cierre">
-      <p>¿Buscas formación para un equipo u organización? Los programas colectivos viven en <a href="/organizaciones">/organizaciones</a>.</p>
+      <p>¿Buscas programas para tu organización? Encontrarás conferencias ejecutivas y programas estratégicos a medida en <a href="/organizaciones">Organizaciones</a>.</p>
     </section>
 
   </div>
