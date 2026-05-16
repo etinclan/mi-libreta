@@ -1,80 +1,111 @@
 ---
 import Base from '../layouts/Base.astro';
+import Antetitulo from '../components/Antetitulo.astro';
 
-const ediciones = [
-  { numero: 66, titulo: "Más allá del segundo cerebro",          fecha: "abril 2026",   url: "https://eduardotoledo.substack.com" },
-  { numero: 65, titulo: "IA: Dónde estamos y hacia dónde va",    fecha: "abril 2026",   url: "https://eduardotoledo.substack.com" },
-  { numero: 64, titulo: "Cambiar el centro de gravedad",         fecha: "febrero 2026", url: "https://eduardotoledo.substack.com" },
-  { numero: 63, titulo: "De mentalidad digital a mentalidad de IA", fecha: "enero 2026", url: "https://eduardotoledo.substack.com" },
+const tiposDeCartas = [
+  {
+    titulo: "Análisis sectoriales",
+    descripcion: "Cómo queda un sector concreto ante la IA. Qué se reposiciona, qué se sostiene, qué desaparece. Banca, legal, educación, salud, sector público, marketing, consultoría, sanidad. Una por edición.",
+  },
+  {
+    titulo: "Ensayos asentados",
+    descripcion: "Frameworks propios — Reshufle, las cuatro posturas, las cuatro mecánicas — aplicados a situaciones reales. Pensamiento destilado, no especulación.",
+  },
+  {
+    titulo: "Cartas íntimas",
+    descripcion: "A veces una edición no analiza nada — solo pregunta. Sobre qué estamos perdiendo, qué estamos ganando, qué deberíamos estar cuidando como humanos.",
+  },
 ];
 
-const bullets = [
-  "Análisis sectoriales. Cómo queda un sector concreto ante la IA: qué se reposiciona, qué se sostiene, qué desaparece. Banca, derecho, educación, salud, sector público.",
-  "Ideas en estado de cocción. Frameworks propios — Reshufle, las cuatro posturas, las cuatro mecánicas — aplicados a situaciones reales, no en abstracto.",
-  "Cartas más íntimas. A veces una edición no analiza nada — solo pregunta. Sobre qué estamos perdiendo, qué estamos ganando, qué deberíamos estar cuidando.",
-  "Sin algoritmo, sin publicidad, sin tracking invasivo. Llega a tu correo, la lees cuando quieras, te das de baja con un clic si deja de servirte.",
+const ediciones = [
+  { numero: 66, titulo: "[TITULO_ED_66]", fecha: "[FECHA]", url: "[URL_ED_66]" },
+  { numero: 65, titulo: "[TITULO_ED_65]", fecha: "[FECHA]", url: "[URL_ED_65]" },
+  { numero: 64, titulo: "[TITULO_ED_64]", fecha: "[FECHA]", url: "[URL_ED_64]" },
+  { numero: 63, titulo: "[TITULO_ED_63]", fecha: "[FECHA]", url: "[URL_ED_63]" },
 ];
 ---
 
 <Base title="Newsletter · Eduardo Toledo">
   <div class="newsletter">
 
-    <!-- HERO -->
+    <!-- 1. HERO -->
     <header class="hero">
-      <h1>Newsletter</h1>
-      <p class="subtitulo"><em>Una carta mensual sobre cómo fortalecer la agencia humana en la era de la IA.</em></p>
+      <Antetitulo texto="LA NEWSLETTER" />
+      <h1>Cartas desde el <em class="coral">nuevo juego</em></h1>
+      <p class="subtitulo"><em>Un correo al mes para quienes prefieren entender antes de reaccionar.</em></p>
     </header>
 
-    <!-- QUÉ ES -->
-    <section class="que-es">
-      <h2>Qué es</h2>
+    <!-- 2. QUÉ ENCONTRARÁS AQUÍ -->
+    <section class="manifiesto">
+      <div class="sec-label">
+        <span class="marcador" aria-hidden="true"></span>
+        <span class="tag">Qué encontrarás aquí</span>
+      </div>
       <div class="prose">
-        <p>Una vez al mes envío una carta larga. No un boletín de novedades ni un resumen de enlaces — un ensayo destilado sobre una pregunta concreta: cómo seguimos aprendiendo, pensando, creando, comunicándonos, relacionándonos y trabajando con criterio propio cuando las máquinas también pueden hacerlo.</p>
-        <p>Cada edición es el resultado de semanas de pensamiento — a veces de un sector entero leído con cuidado, a veces de una intuición que llevaba meses dándome vueltas. La escribo despacio porque la leen despacio. No hay descargas, no hay urgencia, no hay clickbait. Solo un correo al mes que merezca la pena abrir.</p>
-        <p>Si te interesa pensar en serio sobre lo que la IA está cambiando en nuestro trabajo y nuestra vida — sin hype y sin alarmismo — este es el sitio.</p>
+        <p>Una vez al mes envío una carta larga. No un boletín de novedades ni un resumen de enlaces — un ensayo destilado sobre una pregunta concreta: cómo la IA está cambiando una pieza de nuestra vida profesional o personal, y qué decisiones se abren ante el cambio.</p>
+        <p>Cada edición es el resultado de semanas de pensamiento — a veces de un sector entero leído con cuidado, a veces de una intuición que llevaba meses dándome vueltas. La escribo despacio porque la leen despacio. Sin algoritmo, sin urgencia, sin clickbait. Solo un correo al mes que merezca la pena abrir.</p>
+        <p>Si te interesa pensar en serio sobre las nuevas reglas del juego de la IA — sin hype y sin alarmismo, con criterio y voz humana — este es el sitio.</p>
       </div>
     </section>
 
-    <!-- SUSCRIPCIÓN -->
+    <!-- 3. BLOQUE DE SUSCRIPCIÓN -->
     <section class="suscripcion">
       <div class="suscripcion-inner">
-        <p class="suscripcion-copy">Un correo al mes que merezca la pena abrir.</p>
+        <p class="suscripcion-copy">Suma tu correo a la libreta. Te aviso cada vez que publique una nueva carta.</p>
         <a
-          href="https://eduardotoledo.substack.com"
+          href="https://eduardotoledo.substack.com/subscribe"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           class="boton-suscribir"
         >
           Suscribirse →
         </a>
-        <p class="suscripcion-nota">Gratis · Sin spam · Cancela cuando quieras</p>
+        <p class="suscripcion-nota"><em>Gratis. Sin spam. Te puedes dar de baja con un clic.</em></p>
       </div>
     </section>
 
-    <!-- LO QUE VAS A ENCONTRAR -->
-    <section class="contenido">
-      <h2>Lo que vas a encontrar</h2>
-      <ul>
-        {bullets.map(b => <li>{b}</li>)}
-      </ul>
+    <!-- 4. TIPOS DE CARTAS -->
+    <section class="tipos">
+      <div class="sec-label">
+        <span class="marcador" aria-hidden="true"></span>
+        <span class="tag">Tres tipos de carta</span>
+      </div>
+      <div class="tipos-grid">
+        {tiposDeCartas.map(t => (
+          <div class="tipo-bloque">
+            <p class="tipo-titulo"><em>{t.titulo}</em></p>
+            <p class="tipo-desc">{t.descripcion}</p>
+          </div>
+        ))}
+      </div>
     </section>
 
-    <!-- ÚLTIMAS EDICIONES -->
+    <!-- 5. ÚLTIMAS EDICIONES -->
     <section class="ediciones">
-      <h2>Últimas ediciones</h2>
-      <ol>
+      <div class="sec-label">
+        <span class="marcador" aria-hidden="true"></span>
+        <span class="tag">Lo último</span>
+      </div>
+      <ol class="ediciones-lista">
         {ediciones.map(e => (
-          <li>
-            <a href={e.url} target="_blank" rel="noopener">
-              <span class="num">#{e.numero}</span>
-              <span class="titulo">{e.titulo}</span>
-              <span class="fecha">{e.fecha}</span>
+          <li class="edicion-item">
+            <a href={e.url} target="_blank" rel="noopener noreferrer" class="edicion-link">
+              <span class="edicion-num">#{e.numero}</span>
+              <span class="edicion-titulo">{e.titulo}</span>
+              <span class="edicion-fecha">{e.fecha}</span>
             </a>
           </li>
         ))}
       </ol>
-      <a href="https://eduardotoledo.substack.com/archive" target="_blank" rel="noopener" class="ver-todas">
-        Ver todas las ediciones →
+
+      <!-- 6. ENLACE AL ARCHIVO -->
+      <a
+        href="https://eduardotoledo.substack.com/archive"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="ver-archivo"
+      >
+        Ver todas las ediciones en Substack →
       </a>
     </section>
 
@@ -82,12 +113,44 @@ const bullets = [
 </Base>
 
 <style>
-  .newsletter { max-width: 72ch; }
-
-  /* Hero */
-  .hero {
-    margin-bottom: 72px;
+  :root {
+    --mint:  #5EECC5;
+    --coral: #FF8F6B;
   }
+
+  .newsletter {
+    max-width: 72ch;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+  }
+
+  /* Antetítulo compartido */
+  .type-label,
+  .sec-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .marcador {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--mint);
+    border-radius: 1px;
+    flex-shrink: 0;
+  }
+  .tag {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mint);
+  }
+
+  /* ── 1. HERO ── */
   h1 {
     font-family: var(--font-serif-display);
     font-size: var(--font-size-3xl);
@@ -96,27 +159,19 @@ const bullets = [
     color: var(--color-text-bright);
     margin-bottom: 20px;
   }
+  .coral {
+    font-style: italic;
+    color: var(--coral);
+  }
   .subtitulo {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-md);
+    font-style: italic;
     line-height: 1.5;
-    color: #A8A5A0;
-  }
-  .subtitulo em { font-style: italic; }
-
-  /* Secciones */
-  section { margin-bottom: 72px; }
-  h2 {
-    font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--color-text-dim);
-    margin-bottom: 24px;
+    color: var(--etcom-smoke);
   }
 
-  /* Qué es */
+  /* ── 2. MANIFIESTO ── */
   .prose p {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-base);
@@ -124,117 +179,135 @@ const bullets = [
     color: var(--color-text);
     margin-bottom: 1.5em;
   }
+  .prose p:last-child { margin-bottom: 0; }
 
-  /* Suscripción */
+  /* ── 3. SUSCRIPCIÓN ── */
   .suscripcion-inner {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 20px;
-    padding: 56px 40px;
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    background: #1F1E1B;
+    gap: 24px;
+    padding: 56px 48px;
+    background: #F5EFE6;
+    border-radius: 3px;
   }
   .suscripcion-copy {
-    font-family: var(--font-serif-text);
+    font-family: var(--font-serif-display);
     font-size: var(--font-size-md);
-    line-height: 1.5;
-    color: var(--color-text-bright);
+    font-weight: 400;
+    line-height: 1.4;
+    color: #1C1B18;
   }
   .boton-suscribir {
     display: inline-block;
     font-family: var(--font-sans);
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-base);
     font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--color-bg);
-    background: var(--color-accent);
-    padding: 16px 40px;
-    border-radius: 4px;
+    letter-spacing: 0.04em;
+    color: #fff;
+    background: var(--coral);
+    padding: 18px 48px;
+    border-radius: 2px;
     text-decoration: none;
     transition: opacity 0.15s;
   }
   .boton-suscribir:hover { opacity: 0.85; }
   .suscripcion-nota {
-    font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 300;
-    color: var(--color-text-dim);
-    letter-spacing: 0.04em;
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-sm);
+    font-style: italic;
+    color: var(--etcom-smoke);
   }
 
-  /* Lo que vas a encontrar */
-  .contenido ul {
-    list-style: none;
-    padding: 0;
+  /* ── 4. TIPOS DE CARTAS ── */
+  .tipos-grid {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 0;
   }
-  .contenido li {
+  .tipo-bloque {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .tipo-bloque:first-child { border-top: 1px solid var(--color-border); }
+  .tipo-titulo {
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-md);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-text-bright);
+    line-height: 1.2;
+  }
+  .tipo-desc {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-base);
-    line-height: 1.7;
-    color: var(--color-text);
-    padding-left: 24px;
-    border-left: 2px solid var(--color-border);
+    line-height: 1.8;
+    color: var(--color-text-dim);
   }
 
-  /* Últimas ediciones */
-  .ediciones ol {
+  /* ── 5. ÚLTIMAS EDICIONES ── */
+  .ediciones-lista {
     list-style: none;
     padding: 0;
     margin-bottom: 32px;
   }
-  .ediciones li {
+  .edicion-item {
     border-bottom: 1px solid var(--color-border);
   }
-  .ediciones li:first-child { border-top: 1px solid var(--color-border); }
-  .ediciones a {
+  .edicion-item:first-child { border-top: 1px solid var(--color-border); }
+  .edicion-link {
     display: flex;
     align-items: baseline;
     gap: 16px;
-    padding: 18px 0;
+    padding: 20px 0;
     text-decoration: none;
-    transition: background 0.1s;
   }
-  .ediciones a:hover .titulo { color: var(--color-accent); }
-  .num {
+  .edicion-link:hover .edicion-titulo { color: var(--color-text-bright); }
+  .edicion-num {
     font-family: var(--font-sans);
     font-size: var(--font-size-xs);
     font-weight: 700;
-    color: var(--color-text-dim);
+    color: var(--coral);
     white-space: nowrap;
-    min-width: 3ch;
+    min-width: 3.5ch;
   }
-  .titulo {
-    font-family: var(--font-serif-text);
+  .edicion-titulo {
+    font-family: var(--font-serif-display);
     font-size: var(--font-size-base);
+    font-weight: 400;
     color: var(--color-text);
     flex: 1;
-    line-height: 1.4;
+    line-height: 1.3;
+    transition: color 0.15s;
   }
-  .fecha {
+  .edicion-fecha {
     font-family: var(--font-sans);
     font-size: var(--font-size-xs);
     font-weight: 300;
-    color: #5A5855;
+    color: var(--color-text-dim);
     white-space: nowrap;
   }
-  .ver-todas {
+
+  /* ── 6. ARCHIVO ── */
+  .ver-archivo {
     font-family: var(--font-sans);
     font-size: var(--font-size-sm);
     font-weight: 300;
-    color: var(--color-accent);
+    color: var(--coral);
     text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: opacity 0.15s;
   }
-  .ver-todas:hover { text-decoration: underline; }
+  .ver-archivo:hover { opacity: 0.7; }
 
+  /* ── RESPONSIVE ── */
   @media (max-width: 600px) {
+    .newsletter { gap: 56px; }
     .suscripcion-inner { padding: 40px 24px; }
-    .fecha { display: none; }
+    .edicion-fecha { display: none; }
   }
 </style>

@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Antetitulo from '../components/Antetitulo.astro';
 import { getCollection } from 'astro:content';
 
 const notas = await getCollection('notas');
@@ -30,6 +31,7 @@ function countByTerritorio(slug: string) {
   <div class="jardin">
 
     <header>
+      <Antetitulo texto="LA LIBRETA" />
       <h1>La Libreta</h1>
       <p class="subtitulo"><em>Un cuaderno de campo sobre cómo fortalecer la agencia humana en la era de la IA.</em></p>
       <div class="manifiesto">
