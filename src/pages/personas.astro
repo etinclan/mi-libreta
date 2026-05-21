@@ -57,11 +57,6 @@ const programas = [
 </Base>
 
 <style>
-  :root {
-    --mint:  #5EECC5;
-    --coral: #FF8F6B;
-  }
-
   .estudio { max-width: 72ch; }
 
   /* Hero */
@@ -70,17 +65,19 @@ const programas = [
   h1 {
     font-family: var(--font-serif-display);
     font-size: var(--font-size-2xl);
-    font-weight: 400;
-    color: var(--color-text-bright);
+    font-weight: 500;
+    font-variation-settings: 'SOFT' 30, 'WONK' 1;
+    color: var(--etcom-lapis-noche);
     margin-bottom: 16px;
-    line-height: 1.1;
+    line-height: 1.05;
   }
 
   .subtitulo {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-md);
     line-height: 1.5;
-    color: #A8A5A0;
+    color: var(--etcom-humo);
+    font-style: italic;
   }
 
   /* Intro */
@@ -90,8 +87,8 @@ const programas = [
   .intro p {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-base);
-    line-height: 2;
-    color: var(--color-text);
+    line-height: 1.8;
+    color: var(--etcom-lapis-noche);
     margin-bottom: 1.4em;
   }
 
@@ -100,11 +97,11 @@ const programas = [
 
   h2 {
     font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 700;
-    letter-spacing: 0.12em;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--color-text-bright);
+    color: var(--etcom-lapis-noche);
     margin-bottom: 40px;
   }
 
@@ -125,7 +122,7 @@ const programas = [
     width: 3px;
     height: 100%;
     min-height: 160px;
-    background: var(--mint);
+    background: var(--etcom-oro);
     border-radius: 2px;
     margin-top: 6px;
   }
@@ -138,18 +135,19 @@ const programas = [
 
   .tag {
     font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 700;
-    letter-spacing: 0.1em;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--mint);
+    color: var(--etcom-lapis);
   }
 
   h3 {
     font-family: var(--font-serif-display);
     font-size: var(--font-size-xl);
-    font-weight: 400;
-    color: var(--color-text-bright);
+    font-weight: 500;
+    font-variation-settings: 'SOFT' 30, 'WONK' 1;
+    color: var(--etcom-lapis-noche);
     line-height: 1.1;
   }
 
@@ -158,42 +156,48 @@ const programas = [
     font-size: var(--font-size-md);
     font-style: italic;
     line-height: 1.5;
-    color: #A8A5A0;
+    color: var(--etcom-humo);
   }
 
   .desc {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-base);
     line-height: 1.8;
-    color: var(--color-text);
+    color: var(--etcom-lapis-noche);
   }
 
   .cta {
     display: inline-block;
     margin-top: 6px;
     font-family: var(--font-sans);
-    font-size: var(--font-size-sm);
+    font-size: 0.6875rem;
     font-weight: 400;
-    color: var(--coral);
+    color: var(--etcom-lapis-vivo);
     text-decoration: none;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
   }
   .cta:hover { text-decoration: underline; }
 
   /* Cierre */
   .cierre {
     padding-top: 48px;
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid var(--etcom-oro);
   }
   .cierre p {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-base);
-    line-height: 2;
-    color: var(--color-text-dim);
+    line-height: 1.8;
+    color: var(--etcom-humo);
   }
   .cierre a {
-    color: var(--color-accent);
+    color: var(--etcom-lapis);
     text-decoration: none;
+    text-decoration-color: var(--etcom-oro);
+    text-underline-offset: 3px;
   }
-  .cierre a:hover { text-decoration: underline; }
+  .cierre a:hover {
+    text-decoration: underline;
+    color: var(--etcom-lapis-vivo);
+  }
 </style>

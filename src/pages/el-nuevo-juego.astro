@@ -49,11 +49,6 @@ import Antetitulo from '../components/Antetitulo.astro';
 </Base>
 
 <style>
-  :root {
-    --mint:  #5EECC5;
-    --coral: #FF8F6B;
-  }
-
   .nuevo-juego {
     max-width: 72ch;
     display: flex;
@@ -65,29 +60,30 @@ import Antetitulo from '../components/Antetitulo.astro';
   h1 {
     font-family: var(--font-serif-display);
     font-size: var(--font-size-2xl);
-    font-weight: 400;
-    color: var(--color-text-bright);
-    line-height: 1.1;
+    font-weight: 500;
+    font-variation-settings: 'SOFT' 30, 'WONK' 1;
+    color: var(--etcom-lapis-noche);
+    line-height: 1.05;
     margin-bottom: 20px;
   }
   .coral {
     font-style: italic;
-    color: var(--coral);
+    color: var(--etcom-lapis-vivo);
   }
   .subtitulo {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-md);
     font-style: italic;
     line-height: 1.5;
-    color: #A8A5A0;
+    color: var(--etcom-humo);
   }
 
   /* Manifiesto */
   .manifiesto p {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-base);
-    line-height: 2;
-    color: var(--color-text);
+    line-height: 1.8;
+    color: var(--etcom-lapis-noche);
     margin-bottom: 1.4em;
   }
   .manifiesto p:last-child { margin-bottom: 0; }
@@ -95,11 +91,11 @@ import Antetitulo from '../components/Antetitulo.astro';
   /* Dos caminos */
   h2 {
     font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 700;
-    letter-spacing: 0.12em;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--color-text-bright);
+    color: var(--etcom-lapis-noche);
     margin-bottom: 40px;
   }
   .caminos-cols {
@@ -112,34 +108,35 @@ import Antetitulo from '../components/Antetitulo.astro';
     flex-direction: column;
     gap: 12px;
     padding: 28px 32px 28px 0;
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid var(--etcom-oro);
   }
   .camino-col:last-child {
     padding-left: 32px;
     padding-right: 0;
-    border-left: 1px solid var(--color-border);
+    border-left: 1px solid var(--etcom-oro);
   }
   .camino-quien {
     font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 700;
-    letter-spacing: 0.12em;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--etcom-smoke);
+    color: var(--etcom-humo);
   }
   .camino-desc {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-base);
-    line-height: 1.9;
-    color: var(--color-text);
+    line-height: 1.8;
+    color: var(--etcom-lapis-noche);
   }
   .camino-link {
     font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 300;
-    color: var(--coral);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    color: var(--etcom-lapis-vivo);
     text-decoration: none;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     margin-top: 4px;
     transition: opacity 0.15s;
   }
@@ -148,19 +145,19 @@ import Antetitulo from '../components/Antetitulo.astro';
   /* Cierre */
   .cierre {
     padding-top: 48px;
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid var(--etcom-oro);
   }
   .cierre p {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-base);
-    line-height: 2;
-    color: var(--color-text-dim);
+    line-height: 1.8;
+    color: var(--etcom-humo);
     font-style: italic;
   }
 
   /* Responsive */
   @media (max-width: 600px) {
     .caminos-cols { grid-template-columns: 1fr; }
-    .camino-col:last-child { padding-left: 0; border-left: none; border-top: 1px solid var(--color-border); }
+    .camino-col:last-child { padding-left: 0; border-left: none; border-top: 1px solid var(--etcom-oro); }
   }
 </style>

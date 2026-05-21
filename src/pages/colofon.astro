@@ -26,18 +26,18 @@ import Antetitulo from '../components/Antetitulo.astro';
 
     <section>
       <h2>Tipografía y diseño</h2>
-      <p>El sistema visual viene de mi marca personal — un proyecto continuo que he ido afinando estos años. Tres tipografías, una paleta de cinco colores, mucha disciplina.</p>
+      <p>El sistema visual sigue el brand system ETCOM — El Manuscrito Iluminado. Tres tipografías, una paleta inspirada en el lapislázuli pigmento de los manuscritos medievales, mucha disciplina.</p>
       <ul>
-        <li><a href="https://fonts.google.com/specimen/DM+Serif+Display" target="_blank" rel="noopener">DM Serif Display</a> — para titulares y firma editorial</li>
-        <li><a href="https://fonts.google.com/specimen/DM+Serif+Text" target="_blank" rel="noopener">DM Serif Text</a> — variante para textos destacados largos</li>
-        <li><a href="https://fonts.google.com/specimen/Lato" target="_blank" rel="noopener">Lato</a> — sans-serif de apoyo para etiquetas y elementos de interfaz</li>
+        <li><a href="https://fonts.google.com/specimen/Fraunces" target="_blank" rel="noopener">Fraunces</a> — variable, con SOFT 30 y WONK 1 activados. Titulares y firma editorial.</li>
+        <li><a href="https://fonts.google.com/specimen/Newsreader" target="_blank" rel="noopener">Newsreader</a> — para texto de cuerpo. Óptica variable, de 6 a 72pt.</li>
+        <li><a href="https://fonts.google.com/specimen/JetBrains+Mono" target="_blank" rel="noopener">JetBrains Mono</a> — monospace para etiquetas, antetítulos y metadatos de interfaz.</li>
       </ul>
       <div class="paleta">
-        <div class="chip" style="background:#FF8F6B" title="#FF8F6B"><span>Coral</span></div>
-        <div class="chip" style="background:#5EECC5" title="#5EECC5"><span>Mint</span></div>
-        <div class="chip" style="background:#0D1B2E; color:#C2BFB2" title="#0D1B2E"><span>Midnight</span></div>
-        <div class="chip" style="background:#F5EFE6; color:#0D1B2E" title="#F5EFE6"><span>Cream</span></div>
-        <div class="chip" style="background:#6B6560" title="#6B6560"><span>Smoke</span></div>
+        <div class="chip" style="background:#26358C; color:#F2EDDC" title="#26358C"><span>Lapis</span></div>
+        <div class="chip" style="background:#0F1340; color:#F2EDDC" title="#0F1340"><span>Noche</span></div>
+        <div class="chip" style="background:#D4B976; color:#0F1340" title="#D4B976"><span>Oro</span></div>
+        <div class="chip" style="background:#F2EDDC; color:#0F1340" title="#F2EDDC"><span>Vitela</span></div>
+        <div class="chip" style="background:#6E6F75; color:#F2EDDC" title="#6E6F75"><span>Humo</span></div>
       </div>
       <p>Sin animaciones decorativas, sin pop-ups, sin trackers invasivos. La idea es que el medio respete al lector tanto como aspira a hacerlo el contenido.</p>
     </section>
@@ -64,49 +64,52 @@ import Antetitulo from '../components/Antetitulo.astro';
   h1 {
     font-family: var(--font-serif-display);
     font-size: var(--font-size-2xl);
-    font-weight: 400;
-    color: var(--color-text-bright);
+    font-weight: 500;
+    font-variation-settings: 'SOFT' 30, 'WONK' 1;
+    color: var(--etcom-lapis-noche);
     margin-bottom: 16px;
   }
   .subtitulo {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-md);
+    font-style: italic;
     line-height: 1.4;
-    color: #A8A5A0;
+    color: var(--etcom-humo);
   }
-  .subtitulo em { font-style: italic; }
 
   section {
     margin-bottom: 64px;
     padding-bottom: 64px;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--etcom-oro-suave);
   }
   section:last-of-type { border-bottom: none; }
 
   h2 {
     font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 700;
-    letter-spacing: 0.12em;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--color-text-bright);
+    color: var(--etcom-lapis-noche);
     margin-bottom: 24px;
   }
 
   p {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-base);
-    line-height: 2;
-    color: var(--color-text);
+    line-height: 1.8;
+    color: var(--etcom-lapis-noche);
     margin-bottom: 1.5em;
   }
   p:last-child { margin-bottom: 0; }
 
   p a, li a {
-    color: var(--color-accent);
-    text-decoration: none;
+    color: var(--etcom-lapis);
+    text-decoration: underline;
+    text-decoration-color: var(--etcom-oro);
+    text-underline-offset: 3px;
   }
-  p a:hover, li a:hover { text-decoration: underline; }
+  p a:hover, li a:hover { color: var(--etcom-lapis-vivo); }
 
   ul {
     list-style: none;
@@ -120,12 +123,13 @@ import Antetitulo from '../components/Antetitulo.astro';
     font-family: var(--font-serif-text);
     font-size: var(--font-size-base);
     line-height: 1.6;
-    color: var(--color-text);
+    color: var(--etcom-lapis-noche);
     padding-left: 20px;
-    border-left: 2px solid var(--color-border);
+    border-left: 3px solid var(--etcom-oro);
   }
   li a {
     font-family: var(--font-serif-display);
+    font-variation-settings: 'SOFT' 30, 'WONK' 1;
     font-size: inherit;
   }
 
@@ -141,36 +145,37 @@ import Antetitulo from '../components/Antetitulo.astro';
     align-items: flex-end;
     width: 80px;
     height: 80px;
-    border-radius: 6px;
+    border-radius: 4px;
     padding: 8px;
     position: relative;
+    border: 1px solid rgba(0,0,0,0.08);
   }
   .chip span {
     font-family: var(--font-sans);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
+    font-size: 0.625rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: inherit;
-    opacity: 0.7;
+    opacity: 0.8;
     line-height: 1;
   }
 
   /* Footer de página */
   .pie {
     padding-top: 48px;
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid var(--etcom-oro);
   }
   .pie p {
     font-family: var(--font-sans);
-    font-size: var(--font-size-sm);
-    font-weight: 300;
-    color: var(--color-text-dim);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    color: var(--etcom-humo);
+    letter-spacing: 0.06em;
     line-height: 1.6;
     margin-bottom: 8px;
   }
   .fecha {
-    font-size: var(--font-size-xs) !important;
-    color: #5A5855 !important;
+    color: var(--etcom-humo-claro) !important;
   }
 </style>

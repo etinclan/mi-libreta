@@ -54,11 +54,12 @@ const mostrarActualizado = actualizado && actualizado !== fecha;
     line-height: 1.6;
     margin-bottom: 1.5em;
   }
-  .sep { color: #3A3835; }
+  .sep { color: var(--etcom-humo-claro, #B5B5BA); }
   .territorio {
-    color: var(--etcom-smoke);
+    color: var(--etcom-lapis, #26358C);
     text-decoration: none;
-    border-bottom: 1px solid #3A3835;
+    border-bottom: 1px solid var(--etcom-oro, #D4B976);
+    text-underline-offset: 3px;
   }
-  .territorio:hover { color: var(--etcom-coral); border-color: var(--etcom-coral); }
+  .territorio:hover { color: var(--etcom-lapis-vivo, #3445A8); border-color: var(--etcom-lapis-vivo, #3445A8); }
 </style>

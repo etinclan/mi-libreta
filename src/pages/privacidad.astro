@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Política de Privacidad · Eduardo Toledo</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
   </head>
   <body>
     <header>
@@ -57,23 +57,23 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --color-bg:         #1C1B18;
-    --color-text:       #C2BFB2;
-    --color-text-dim:   #7A7773;
-    --color-text-bright:#E8E5DF;
-    --color-border:     #2A2927;
-    --color-accent:     #E85AAB;
-    --font-serif-display: 'DM Serif Display', serif;
-    --font-serif-text:    'Cormorant Garamond', serif;
-    --font-sans:          'Lato', sans-serif;
+    --etcom-lapis:         #26358C;
+    --etcom-lapis-vivo:    #3445A8;
+    --etcom-lapis-noche:   #0F1340;
+    --etcom-oro:           #D4B976;
+    --etcom-vitela:        #F2EDDC;
+    --etcom-humo:          #6E6F75;
+    --font-serif-display: 'Fraunces', Georgia, serif;
+    --font-serif-text:    'Newsreader', Georgia, serif;
+    --font-sans:          'JetBrains Mono', 'Courier New', monospace;
   }
 
   body {
-    background: var(--color-bg);
-    color: var(--color-text);
+    background: var(--etcom-vitela);
+    color: var(--etcom-lapis-noche);
     font-family: var(--font-serif-text);
     font-size: 1.0625rem;
-    line-height: 1.9;
+    line-height: 1.8;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -82,23 +82,25 @@
     align-items: center;
     justify-content: space-between;
     padding: 28px 40px;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--etcom-oro);
   }
 
   .back {
     font-family: var(--font-sans);
-    font-size: 0.8125rem;
-    font-weight: 300;
-    color: var(--color-text-dim);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    color: var(--etcom-humo);
     text-decoration: none;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
   }
-  .back:hover { color: var(--color-text); }
+  .back:hover { color: var(--etcom-lapis); }
 
   .wordmark {
     font-family: var(--font-serif-display);
     font-size: 1rem;
-    color: var(--color-text-bright);
+    font-variation-settings: 'SOFT' 30, 'WONK' 1;
+    color: var(--etcom-lapis-noche);
     text-decoration: none;
   }
 
@@ -111,10 +113,11 @@
   h1 {
     font-family: var(--font-serif-display);
     font-size: 2rem;
-    font-weight: 400;
-    color: var(--color-text-bright);
+    font-weight: 500;
+    font-variation-settings: 'SOFT' 30, 'WONK' 1;
+    color: var(--etcom-lapis-noche);
     margin-bottom: 52px;
-    line-height: 1.2;
+    line-height: 1.1;
   }
 
   section {
@@ -123,33 +126,36 @@
 
   h2 {
     font-family: var(--font-sans);
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--color-text-dim);
+    color: var(--etcom-humo);
     margin-bottom: 10px;
   }
 
   p {
     font-family: var(--font-serif-text);
     font-size: 1.0625rem;
-    line-height: 1.9;
-    color: var(--color-text);
+    line-height: 1.8;
+    color: var(--etcom-lapis-noche);
   }
 
   a {
-    color: var(--color-accent);
-    text-decoration: none;
+    color: var(--etcom-lapis);
+    text-decoration: underline;
+    text-decoration-color: var(--etcom-oro);
+    text-underline-offset: 3px;
   }
-  a:hover { text-decoration: underline; }
+  a:hover { color: var(--etcom-lapis-vivo); }
 
   .updated {
     margin-top: 52px;
     font-family: var(--font-sans);
-    font-size: 0.75rem;
-    font-weight: 300;
-    color: var(--color-text-dim);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--etcom-humo);
   }
 
   @media (max-width: 600px) {

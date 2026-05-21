@@ -60,7 +60,7 @@ const dateStr = nota.data.date.toLocaleDateString('es-MX', {
   header {
     margin-bottom: 56px;
     padding-bottom: 40px;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--etcom-oro);
   }
   .meta {
     display: flex;
@@ -70,29 +70,31 @@ const dateStr = nota.data.date.toLocaleDateString('es-MX', {
   }
   .stage {
     font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 700;
-    letter-spacing: 0.1em;
+    font-size: 0.625rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     padding: 4px 10px;
     border-radius: 3px;
-    background: var(--color-border);
-    color: var(--color-text-dim);
+    background: var(--etcom-humo-claro);
+    color: var(--etcom-vitela);
   }
-  .stage.maduro   { background: #1A2E1A; color: #5C9E5C; }
-  .stage.emergente { background: #2A2215; color: #B08A3E; }
+  .stage.maduro    { background: var(--etcom-lapis); color: var(--etcom-vitela); }
+  .stage.emergente { background: var(--etcom-oro); color: var(--etcom-lapis-noche); }
   .date {
     font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 300;
-    color: var(--color-text-dim);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--etcom-humo);
   }
   h1 {
     font-family: var(--font-serif-display);
     font-size: var(--font-size-xl);
-    font-weight: 400;
-    line-height: 1.2;
-    color: var(--color-text-bright);
+    font-weight: 500;
+    font-variation-settings: 'SOFT' 30, 'WONK' 1;
+    line-height: 1.1;
+    color: var(--etcom-lapis-noche);
     margin-bottom: 20px;
   }
   .tags {
@@ -103,58 +105,68 @@ const dateStr = nota.data.date.toLocaleDateString('es-MX', {
   }
   .tag {
     font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 300;
-    color: var(--color-text-dim);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--etcom-lapis);
+    padding: 2px 8px;
+    border: 1px solid var(--etcom-oro);
+    border-radius: 3px;
   }
 
   /* Cuerpo del artículo — igual que ProseWrapper de Maggie */
   .body {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-base);
-    line-height: 2;
-    color: var(--color-text);
+    line-height: 1.8;
+    color: var(--etcom-lapis-noche);
   }
   .body :global(h2) {
     font-family: var(--font-serif-display);
     font-size: var(--font-size-xl);
-    font-weight: 400;
-    color: var(--color-text-bright);
-    line-height: 1.2;
+    font-weight: 500;
+    font-variation-settings: 'SOFT' 30, 'WONK' 1;
+    color: var(--etcom-lapis-noche);
+    line-height: 1.1;
     margin: 2.5em 0 0.8em;
   }
   .body :global(h3) {
     font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 700;
-    letter-spacing: 0.1em;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--color-text-dim);
+    color: var(--etcom-humo);
     margin: 2em 0 0.8em;
   }
   .body :global(p)  { margin-bottom: 1.5em; }
-  .body :global(a)  { color: var(--color-accent); text-decoration: none; }
-  .body :global(a:hover) { text-decoration: underline; }
+  .body :global(a)  {
+    color: var(--etcom-lapis);
+    text-decoration: underline;
+    text-decoration-color: var(--etcom-oro);
+    text-underline-offset: 3px;
+  }
+  .body :global(a:hover) { color: var(--etcom-lapis-vivo); }
   .body :global(blockquote) {
-    text-align: center;
-    padding: 2em 0;
+    border-left: 3px solid var(--etcom-oro);
+    padding: 1em 0 1em 1.5em;
     margin: 1.5em 0;
   }
   .body :global(blockquote p) {
-    font-size: var(--font-size-lg);
-    line-height: 1.4;
-    max-width: 28ch;
-    margin: 0 auto 1.5em;
+    font-size: var(--font-size-md);
+    line-height: 1.5;
+    margin: 0;
     font-style: italic;
-    color: #A8A5A0;
+    color: var(--etcom-lapis);
   }
   .body :global(code) {
-    font-family: monospace;
+    font-family: 'JetBrains Mono', monospace;
     font-size: var(--font-size-sm);
-    background: var(--color-border);
+    background: var(--etcom-vitela-claro);
+    border: 1px solid var(--etcom-oro-suave);
     padding: 2px 6px;
     border-radius: 3px;
-    color: var(--color-text);
+    color: var(--etcom-lapis-noche);
   }
   .body :global(ul), .body :global(ol) {
     padding-left: 1.5em;
@@ -162,6 +174,6 @@ const dateStr = nota.data.date.toLocaleDateString('es-MX', {
   }
   .body :global(li) {
     margin-bottom: 0.5em;
-    line-height: 2;
+    line-height: 1.8;
   }
 </style>

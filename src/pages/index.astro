@@ -168,11 +168,6 @@ Aquí descubro, investigo, conecto y cartografío cómo la IA está cambiando nu
 </Base>
 
 <style>
-  :root {
-    --mint:  #5EECC5;
-    --coral: #FF8F6B;
-  }
-
   .home {
     display: flex;
     flex-direction: column;
@@ -190,26 +185,27 @@ Aquí descubro, investigo, conecto y cartografío cómo la IA está cambiando nu
     display: block;
     width: 24px;
     height: 2px;
-    background: var(--mint);
+    background: var(--etcom-oro);
     border-radius: 1px;
     flex-shrink: 0;
   }
   .tag {
     font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 700;
-    letter-spacing: 0.1em;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--mint);
+    color: var(--etcom-lapis);
   }
 
   /* Shared section title */
   .sec-titulo {
     font-family: var(--font-serif-display);
     font-size: var(--font-size-lg);
-    font-weight: 400;
+    font-weight: 500;
     font-style: italic;
-    color: var(--color-text-bright);
+    font-variation-settings: 'SOFT' 30, 'WONK' 1;
+    color: var(--etcom-lapis-noche);
     line-height: 1.2;
     margin-bottom: 20px;
   }
@@ -218,8 +214,8 @@ Aquí descubro, investigo, conecto y cartografío cómo la IA está cambiando nu
   .sec-intro {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-base);
-    line-height: 1.9;
-    color: var(--color-text);
+    line-height: 1.8;
+    color: var(--etcom-lapis-noche);
     max-width: 60ch;
     margin-bottom: 36px;
   }
@@ -230,29 +226,31 @@ Aquí descubro, investigo, conecto y cartografío cómo la IA está cambiando nu
   h1 {
     font-family: var(--font-serif-display);
     font-size: var(--font-size-2xl);
-    font-weight: 400;
-    line-height: 1.1;
-    color: var(--color-text-bright);
+    font-weight: 500;
+    font-variation-settings: 'SOFT' 30, 'WONK' 1;
+    line-height: 1.05;
+    color: var(--etcom-lapis-noche);
     margin-bottom: 20px;
   }
   .coral {
     font-style: italic;
-    color: var(--coral);
+    color: var(--etcom-lapis-vivo);
   }
   .subtitulo {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-md);
     font-style: italic;
     line-height: 1.5;
-    color: #A8A5A0;
+    color: var(--etcom-humo);
     margin-bottom: 20px;
   }
   .descripcion {
     font-family: var(--font-sans);
-    font-size: var(--font-size-base);
-    font-weight: 300;
-    color: var(--color-text-dim);
-    letter-spacing: 0.02em;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    color: var(--etcom-humo);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
   }
 
   /* ── 2. TERRITORIOS ─────────────────────────── */
@@ -266,16 +264,16 @@ Aquí descubro, investigo, conecto y cartografío cómo la IA está cambiando nu
     align-items: baseline;
     gap: 10px;
     padding: 14px 0;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--etcom-oro-suave);
     text-decoration: none;
   }
-  .territorio-item:nth-child(-n+3) { border-top: 1px solid var(--color-border); }
-  .territorio-item:hover .territorio-nombre { color: var(--color-text-bright); }
-  .territorio-item:hover .dot { color: var(--coral); }
+  .territorio-item:nth-child(-n+3) { border-top: 1px solid var(--etcom-oro); }
+  .territorio-item:hover .territorio-nombre { color: var(--etcom-lapis-vivo); }
+  .territorio-item:hover .dot { color: var(--etcom-oro); }
   .dot {
     font-family: var(--font-sans);
     font-size: 1.1rem;
-    color: #3A3835;
+    color: var(--etcom-humo-claro);
     line-height: 1;
     flex-shrink: 0;
     transition: color 0.15s;
@@ -283,7 +281,8 @@ Aquí descubro, investigo, conecto y cartografío cómo la IA está cambiando nu
   .territorio-nombre {
     font-family: var(--font-serif-display);
     font-size: var(--font-size-base);
-    color: var(--color-text);
+    font-variation-settings: 'SOFT' 30, 'WONK' 1;
+    color: var(--etcom-lapis-noche);
     transition: color 0.15s;
   }
 
@@ -301,11 +300,11 @@ Aquí descubro, investigo, conecto y cartografío cómo la IA está cambiando nu
   }
   .col-label {
     font-family: var(--font-sans);
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--coral);
+    color: var(--etcom-lapis);
     display: block;
     margin-bottom: 6px;
   }
@@ -313,7 +312,7 @@ Aquí descubro, investigo, conecto y cartografío cómo la IA está cambiando nu
     font-family: var(--font-serif-text);
     font-size: var(--font-size-sm);
     font-style: italic;
-    color: var(--etcom-smoke);
+    color: var(--etcom-humo);
     line-height: 1.6;
   }
 
@@ -322,11 +321,12 @@ Aquí descubro, investigo, conecto y cartografío cómo la IA está cambiando nu
     display: inline-block;
     margin-top: 28px;
     font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 300;
-    color: var(--coral);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    color: var(--etcom-lapis-vivo);
     text-decoration: none;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     transition: opacity 0.15s;
   }
   .ver-enlace:hover { opacity: 0.7; }
@@ -336,8 +336,7 @@ Aquí descubro, investigo, conecto y cartografío cómo la IA está cambiando nu
     font-family: var(--font-serif-text);
     font-size: var(--font-size-sm);
     font-style: italic;
-    color: var(--etcom-smoke);
-    opacity: 0.6;
+    color: var(--etcom-humo);
     padding: 32px 0;
   }
 
@@ -353,18 +352,22 @@ Aquí descubro, investigo, conecto y cartografío cómo la IA está cambiando nu
     display: flex;
     flex-direction: column;
     text-decoration: none;
-    background: #201F1C;
-    border: 1px solid var(--color-border);
-    border-radius: 2px;
+    background: var(--etcom-vitela-claro);
+    border: 1px solid var(--etcom-oro-suave);
+    border-top: 3px solid var(--etcom-oro);
+    border-radius: 4px;
     overflow: hidden;
-    transition: border-color 0.15s;
+    transition: border-color 0.15s, box-shadow 0.15s;
   }
-  .ensayo-card:hover { border-color: var(--etcom-smoke); }
-  .ensayo-card:hover .ensayo-titulo { color: var(--color-text-bright); }
+  .ensayo-card:hover {
+    border-color: var(--etcom-oro);
+    box-shadow: 0 4px 16px rgba(38,53,140,0.08);
+  }
+  .ensayo-card:hover .ensayo-titulo { color: var(--etcom-lapis-vivo); }
 
   .ensayo-imagen {
     height: 120px;
-    background: #F5EFE6;
+    background: var(--etcom-lapis);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -374,7 +377,8 @@ Aquí descubro, investigo, conecto y cartografío cómo la IA está cambiando nu
     font-family: var(--font-serif-display);
     font-size: 3.5rem;
     font-weight: 400;
-    color: rgba(28,27,24,0.18);
+    font-variation-settings: 'SOFT' 30, 'WONK' 1;
+    color: rgba(212,185,118,0.3);
     line-height: 1;
     user-select: none;
   }
@@ -389,16 +393,16 @@ Aquí descubro, investigo, conecto y cartografío cómo la IA está cambiando nu
   .ensayo-titulo {
     font-family: var(--font-serif-display);
     font-size: var(--font-size-base);
-    font-weight: 400;
-    color: var(--color-text);
+    font-weight: 500;
+    font-variation-settings: 'SOFT' 30, 'WONK' 1;
+    color: var(--etcom-lapis-noche);
     line-height: 1.25;
     transition: color 0.15s;
   }
   .ensayo-extracto {
-    font-family: var(--font-sans);
-    font-size: 0.78rem;
-    font-weight: 300;
-    color: var(--etcom-smoke);
+    font-family: var(--font-serif-text);
+    font-size: 0.875rem;
+    color: var(--etcom-humo);
     line-height: 1.6;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -407,10 +411,10 @@ Aquí descubro, investigo, conecto y cartografío cómo la IA está cambiando nu
   }
   .ensayo-fecha {
     font-family: var(--font-sans);
-    font-size: 0.68rem;
-    font-weight: 300;
-    color: var(--etcom-smoke);
-    opacity: 0.7;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    color: var(--etcom-humo-claro);
+    letter-spacing: 0.06em;
     margin-top: auto;
   }
 
@@ -421,9 +425,9 @@ Aquí descubro, investigo, conecto y cartografío cómo la IA está cambiando nu
     flex-direction: column;
   }
   .coccion-item {
-    border-bottom: 1px solid rgba(107, 101, 96, 0.12);
+    border-bottom: 1px solid var(--etcom-oro-suave);
   }
-  .coccion-item:first-child { border-top: 1px solid rgba(107, 101, 96, 0.12); }
+  .coccion-item:first-child { border-top: 1px solid var(--etcom-oro); }
 
   .coccion-link {
     display: flex;
@@ -432,11 +436,11 @@ Aquí descubro, investigo, conecto y cartografío cómo la IA está cambiando nu
     padding: 14px 0;
     text-decoration: none;
   }
-  .coccion-link:hover .coccion-titulo { color: var(--color-text-bright); }
+  .coccion-link:hover .coccion-titulo { color: var(--etcom-lapis-vivo); }
 
   .coccion-punto {
     font-size: 1.3rem;
-    color: var(--coral);
+    color: var(--etcom-oro);
     line-height: 1;
     flex-shrink: 0;
     margin-top: 2px;
@@ -450,7 +454,8 @@ Aquí descubro, investigo, conecto y cartografío cómo la IA está cambiando nu
     font-family: var(--font-serif-display);
     font-size: var(--font-size-sm);
     font-weight: 400;
-    color: var(--color-text);
+    font-variation-settings: 'SOFT' 30, 'WONK' 1;
+    color: var(--etcom-lapis-noche);
     line-height: 1.3;
     transition: color 0.15s;
   }
@@ -459,14 +464,16 @@ Aquí descubro, investigo, conecto y cartografío cómo la IA está cambiando nu
   .cta-coral {
     display: inline-block;
     padding: 14px 32px;
-    background: var(--coral);
-    color: #1C1B18;
+    background: var(--etcom-oro);
+    color: var(--etcom-lapis-noche);
     font-family: var(--font-sans);
-    font-size: var(--font-size-sm);
-    font-weight: 700;
-    letter-spacing: 0.04em;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
     text-decoration: none;
-    border-radius: 2px;
+    border-radius: 4px;
+    transition: opacity 0.15s;
   }
   .cta-coral:hover { opacity: 0.88; }
 
@@ -481,30 +488,32 @@ Aquí descubro, investigo, conecto y cartografío cómo la IA está cambiando nu
     flex-direction: column;
     gap: 10px;
     padding: 28px 32px 28px 0;
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid var(--etcom-oro);
     text-decoration: none;
+    transition: background 0.15s;
   }
-  .trabajo-col:last-child { padding-left: 32px; padding-right: 0; border-left: 1px solid var(--color-border); }
+  .trabajo-col:last-child { padding-left: 32px; padding-right: 0; border-left: 1px solid var(--etcom-oro-suave); }
   .trabajo-quien {
     font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 700;
-    letter-spacing: 0.12em;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--etcom-smoke);
+    color: var(--etcom-humo);
   }
   .trabajo-desc {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-base);
-    line-height: 1.9;
-    color: var(--color-text);
+    line-height: 1.8;
+    color: var(--etcom-lapis-noche);
   }
   .trabajo-link {
     font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 300;
-    color: var(--coral);
-    letter-spacing: 0.02em;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    color: var(--etcom-lapis-vivo);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     margin-top: 8px;
     transition: opacity 0.15s;
   }
@@ -515,9 +524,9 @@ Aquí descubro, investigo, conecto y cartografío cómo la IA está cambiando nu
     .home { gap: 64px; }
     .territorios-grid { grid-template-columns: 1fr 1fr; }
     .territorio-item:nth-child(-n+3) { border-top: none; }
-    .territorio-item:nth-child(-n+2) { border-top: 1px solid var(--color-border); }
+    .territorio-item:nth-child(-n+2) { border-top: 1px solid var(--etcom-oro); }
     .trabajo-cols { grid-template-columns: 1fr; }
-    .trabajo-col:last-child { padding-left: 0; border-left: none; border-top: 1px solid var(--color-border); }
+    .trabajo-col:last-child { padding-left: 0; border-left: none; border-top: 1px solid var(--etcom-oro); }
 
     /* Libreta — apila columnas, ensayos primero */
     .libreta-cols {

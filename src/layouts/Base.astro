@@ -6,7 +6,7 @@ const { title = "La Libreta" } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>{title}</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
   </head>
   <body>
     <nav>
@@ -14,8 +14,19 @@ const { title = "La Libreta" } = Astro.props;
       <div class="links">
         <a href="/jardin">La Libreta</a>
         <a href="/newsletter">Newsletter</a>
-        <a href="/el-nuevo-juego">El nuevo juego</a>
-        <a href="/organizaciones">Organizaciones</a>
+        <div class="dropdown">
+          <a href="/el-nuevo-juego" class="dropdown-trigger">El nuevo juego <span class="chevron" aria-hidden="true">›</span></a>
+          <div class="dropdown-menu">
+            <a href="/personas" class="dropdown-item">
+              <span class="dropdown-item-title">Personas</span>
+              <span class="dropdown-item-desc">Formaciones para reposicionarte</span>
+            </a>
+            <a href="/organizaciones" class="dropdown-item">
+              <span class="dropdown-item-title">Organizaciones</span>
+              <span class="dropdown-item-desc">Programas estratégicos a medida</span>
+            </a>
+          </div>
+        </div>
         <a href="/ahora">Ahora</a>
         <a href="/sobre">Sobre mí</a>
       </div>
@@ -56,23 +67,36 @@ const { title = "La Libreta" } = Astro.props;
     --font-size-2xl:  calc(((47   / 16) * 1rem) + (56   - 47  ) * var(--fluid-bp));
     --font-size-3xl:  calc(((58   / 16) * 1rem) + (82   - 58  ) * var(--fluid-bp));
 
-    --font-serif-display: 'DM Serif Display', serif;
-    --font-serif-text:    'Cormorant Garamond', serif;
-    --font-sans:          'Lato', sans-serif;
+    /* ETCOM — El Manuscrito Iluminado */
+    --font-serif-display: 'Fraunces', Georgia, serif;
+    --font-serif-text:    'Newsreader', Georgia, serif;
+    --font-sans:          'JetBrains Mono', 'Courier New', monospace;
 
-    --color-bg:        #1C1B18;
-    --color-text:      #C2BFB2;
-    --color-text-dim:  #7A7773;
-    --color-text-bright: #E8E5DF;
-    --color-border:    #2A2927;
-    --color-accent:    #E85AAB;
+    /* ETCOM — Lapislázuli Pigmento */
+    --color-bg:          #F2EDDC;  /* vitela — pergamino */
+    --color-text:        #0F1340;  /* lapis noche — texto principal */
+    --color-text-dim:    #6E6F75;  /* humo — captions, metadatos */
+    --color-text-bright: #0F1340;  /* lapis noche — titulares */
+    --color-border:      #D4B976;  /* oro — ribete estructural */
+    --color-accent:      #26358C;  /* lapis — acentos */
 
-    /* ETCOM palette — usada en componentes MDX y páginas de servicios */
-    --etcom-coral:    #FF8F6B;
-    --etcom-mint:     #5EECC5;
-    --etcom-midnight: #0D1B2E;
-    --etcom-cream:    #F5EFE6;
-    --etcom-smoke:    #6B6560;
+    /* ETCOM palette — tokens directos para componentes y páginas */
+    --etcom-coral:    #3445A8;  /* lapis vivo — CTAs, palabras-eje italic */
+    --etcom-mint:     #D4B976;  /* oro — marcadores, antetítulos */
+    --etcom-midnight: #26358C;  /* lapis dominante */
+    --etcom-cream:    #F2EDDC;  /* vitela */
+    --etcom-smoke:    #6E6F75;  /* humo */
+
+    /* Tokens ETCOM completos */
+    --etcom-lapis:         #26358C;
+    --etcom-lapis-vivo:    #3445A8;
+    --etcom-lapis-noche:   #0F1340;
+    --etcom-oro:           #D4B976;
+    --etcom-oro-suave:     #E5D4A3;
+    --etcom-vitela:        #F2EDDC;
+    --etcom-vitela-claro:  #FAF6E8;
+    --etcom-humo:          #6E6F75;
+    --etcom-humo-claro:    #B5B5BA;
   }
 
   @media screen and (min-width: 1200px) {
@@ -86,8 +110,9 @@ const { title = "La Libreta" } = Astro.props;
     color: var(--color-text);
     font-family: var(--font-serif-text);
     font-size: var(--font-size-base);
-    line-height: 2;
+    line-height: 1.8;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   nav {
@@ -116,14 +141,74 @@ const { title = "La Libreta" } = Astro.props;
 
   .links a {
     font-family: var(--font-sans);
-    font-size: var(--font-size-sm);
-    font-weight: 300;
-    color: var(--color-text-dim);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    color: var(--etcom-humo);
     text-decoration: none;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
   }
 
-  .links a:hover { color: var(--color-text); }
+  .links a:hover { color: var(--etcom-lapis); }
+
+  /* Dropdown */
+  .dropdown {
+    position: relative;
+  }
+  .dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: default;
+  }
+  .chevron {
+    font-size: 0.7rem;
+    transition: transform 0.15s;
+    display: inline-block;
+  }
+  .dropdown:hover .chevron { transform: rotate(90deg); }
+
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 16px);
+    right: 0;
+    min-width: 220px;
+    background: var(--etcom-vitela-claro);
+    border: 1px solid var(--etcom-oro);
+    border-radius: 4px;
+    padding: 8px;
+    z-index: 100;
+    box-shadow: 0 8px 24px rgba(15,19,64,0.12);
+  }
+  .dropdown:hover .dropdown-menu { display: flex; flex-direction: column; gap: 2px; }
+
+  .dropdown-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.12s;
+  }
+  .dropdown-item:hover { background: var(--etcom-oro-suave); color: inherit; }
+  .dropdown-item-title {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    color: var(--etcom-lapis-noche);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .dropdown-item-desc {
+    font-family: var(--font-serif-text);
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--etcom-humo);
+    letter-spacing: 0;
+    text-transform: none;
+  }
 
   main {
     padding: 80px;
@@ -145,9 +230,11 @@ const { title = "La Libreta" } = Astro.props;
   }
   footer span {
     font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 300;
-    color: #5A5855;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    color: var(--etcom-humo);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
   }
   .footer-links {
     display: flex;
@@ -155,13 +242,14 @@ const { title = "La Libreta" } = Astro.props;
   }
   .footer-links a {
     font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 300;
-    color: var(--color-text-dim);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    color: var(--etcom-humo);
     text-decoration: none;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
   }
-  .footer-links a:hover { color: var(--color-text); }
+  .footer-links a:hover { color: var(--etcom-lapis); }
 
   @media (max-width: 700px) {
     nav { padding: 20px 24px; }

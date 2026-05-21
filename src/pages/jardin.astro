@@ -84,18 +84,19 @@ function countByTerritorio(slug: string) {
   h1 {
     font-family: var(--font-serif-display);
     font-size: var(--font-size-2xl);
-    font-weight: 400;
-    color: var(--color-text-bright);
+    font-weight: 500;
+    font-variation-settings: 'SOFT' 30, 'WONK' 1;
+    color: var(--etcom-lapis-noche);
     margin-bottom: 16px;
   }
   .subtitulo {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-md);
+    font-style: italic;
     line-height: 1.4;
-    color: #A8A5A0;
+    color: var(--etcom-humo);
     margin-bottom: 32px;
   }
-  .subtitulo em { font-style: italic; }
 
   .manifiesto {
     margin-bottom: 40px;
@@ -104,8 +105,8 @@ function countByTerritorio(slug: string) {
   .manifiesto p {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-base);
-    line-height: 2;
-    color: var(--color-text);
+    line-height: 1.8;
+    color: var(--etcom-lapis-noche);
     margin-bottom: 1.2em;
   }
   .manifiesto p:last-child { margin-bottom: 0; }
@@ -113,19 +114,20 @@ function countByTerritorio(slug: string) {
   /* Leyenda */
   .leyenda {
     padding: 24px 28px;
-    border: 1px solid var(--color-border);
-    border-radius: 6px;
-    background: #1F1E1B;
+    border: 1px solid var(--etcom-oro);
+    border-left: 3px solid var(--etcom-oro);
+    border-radius: 4px;
+    background: var(--etcom-vitela-claro);
     max-width: 52ch;
   }
   .leyenda-titulo {
     display: block;
     font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 700;
-    letter-spacing: 0.12em;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--color-text-dim);
+    color: var(--etcom-lapis);
     margin-bottom: 14px;
   }
   .leyenda ul {
@@ -138,7 +140,7 @@ function countByTerritorio(slug: string) {
   .leyenda li {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-sm);
-    color: var(--color-text-dim);
+    color: var(--etcom-humo);
     display: flex;
     align-items: center;
     gap: 12px;
@@ -149,27 +151,27 @@ function countByTerritorio(slug: string) {
   .badge {
     display: inline-block;
     font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 700;
-    letter-spacing: 0.08em;
+    font-size: 0.625rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     padding: 3px 9px;
     border-radius: 3px;
     white-space: nowrap;
-    background: var(--color-border);
-    color: var(--color-text-dim);
+    background: var(--etcom-humo-claro);
+    color: var(--etcom-vitela);
   }
-  .badge.maduro    { background: #1A2E1A; color: #5C9E5C; }
-  .badge.emergente { background: #2A2215; color: #B08A3E; }
-  .badge.intuicion { background: var(--color-border); color: var(--color-text-dim); }
+  .badge.maduro    { background: var(--etcom-lapis); color: var(--etcom-vitela); }
+  .badge.emergente { background: var(--etcom-oro); color: var(--etcom-lapis-noche); }
+  .badge.intuicion { background: var(--etcom-humo-claro); color: var(--etcom-vitela); }
 
   h2 {
     font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 700;
-    letter-spacing: 0.12em;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--color-text-bright);
+    color: var(--etcom-lapis-noche);
     margin-bottom: 24px;
   }
 
@@ -185,28 +187,32 @@ function countByTerritorio(slug: string) {
     justify-content: space-between;
     align-items: center;
     padding: 18px 22px;
-    border: 1px solid var(--color-border);
-    border-radius: 6px;
+    border: 1px solid var(--etcom-oro-suave);
+    border-top: 3px solid var(--etcom-oro);
+    border-radius: 4px;
+    background: var(--etcom-vitela-claro);
     text-decoration: none;
-    transition: border-color 0.15s, background 0.15s;
+    transition: border-color 0.15s, box-shadow 0.15s;
   }
   .territorio:hover {
-    border-color: var(--color-accent);
-    background: #1F1E1B;
+    border-color: var(--etcom-lapis);
+    border-top-color: var(--etcom-lapis);
+    box-shadow: 0 4px 12px rgba(38,53,140,0.08);
   }
   .nombre {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-base);
-    color: var(--color-text);
+    color: var(--etcom-lapis-noche);
   }
-  .territorio:hover .nombre { color: var(--color-text-bright); }
+  .territorio:hover .nombre { color: var(--etcom-lapis-vivo); }
   .count {
     font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 300;
-    color: #3A3835;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    color: var(--etcom-humo-claro);
+    letter-spacing: 0.06em;
   }
-  .territorio:hover .count { color: var(--color-text-dim); }
+  .territorio:hover .count { color: var(--etcom-humo); }
 
   /* Lista de notas */
   section { margin-bottom: 56px; }
@@ -216,20 +222,21 @@ function countByTerritorio(slug: string) {
     align-items: center;
     gap: 16px;
     padding: 18px 0;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--etcom-oro-suave);
   }
-  .notas-lista li:first-child { border-top: 1px solid var(--color-border); }
+  .notas-lista li:first-child { border-top: 1px solid var(--etcom-oro); }
   .notas-lista a {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-md);
-    color: var(--color-text);
+    color: var(--etcom-lapis-noche);
     text-decoration: none;
     flex: 1;
   }
-  .notas-lista a:hover { color: var(--color-accent); }
+  .notas-lista a:hover { color: var(--etcom-lapis-vivo); }
   .vacio {
     font-size: var(--font-size-sm);
-    color: #3A3835;
+    font-style: italic;
+    color: var(--etcom-humo);
     border: none !important;
     padding-top: 8px !important;
   }

@@ -93,8 +93,9 @@ const links = [
   h1 {
     font-family: var(--font-serif-display);
     font-size: var(--font-size-2xl);
-    font-weight: 400;
-    color: var(--color-text-bright);
+    font-weight: 500;
+    font-variation-settings: 'SOFT' 30, 'WONK' 1;
+    color: var(--etcom-lapis-noche);
     margin-bottom: 16px;
   }
   .tagline {
@@ -102,32 +103,32 @@ const links = [
     font-size: var(--font-size-md);
     font-style: italic;
     line-height: 1.5;
-    color: #A8A5A0;
+    color: var(--etcom-humo);
   }
 
   section { margin-bottom: 64px; }
   h2 {
     font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 700;
-    letter-spacing: 0.12em;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--color-text-bright);
+    color: var(--etcom-lapis-noche);
     margin-bottom: 20px;
   }
   p {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-base);
-    line-height: 2;
-    color: var(--color-text);
+    line-height: 1.8;
+    color: var(--etcom-lapis-noche);
     margin-bottom: 1.5em;
   }
   p em {
     font-style: italic;
-    color: var(--color-text-bright);
+    color: var(--etcom-lapis);
   }
   .placeholder {
-    color: #3A3835;
+    color: var(--etcom-humo-claro);
     font-style: italic;
   }
 
@@ -143,28 +144,30 @@ const links = [
     flex-wrap: wrap;
     gap: 8px;
     padding: 16px 0;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--etcom-oro-suave);
   }
-  .rol:first-child { border-top: 1px solid var(--color-border); }
+  .rol:first-child { border-top: 1px solid var(--etcom-oro); }
   .empresa {
     font-family: var(--font-serif-display);
     font-size: var(--font-size-base);
-    color: var(--color-text-bright);
+    font-variation-settings: 'SOFT' 30, 'WONK' 1;
+    color: var(--etcom-lapis-noche);
     white-space: nowrap;
   }
-  .sep { color: #3A3835; }
+  .sep { color: var(--etcom-oro); }
   .cargo {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-sm);
-    color: #A8A5A0;
+    color: var(--etcom-humo);
     flex: 1;
     min-width: 160px;
   }
   .periodo {
     font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 300;
-    color: #5A5855;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    color: var(--etcom-humo);
+    letter-spacing: 0.08em;
     white-space: nowrap;
   }
 
@@ -181,39 +184,49 @@ const links = [
     flex-direction: column;
     gap: 8px;
     padding-left: 20px;
-    border-left: 2px solid var(--color-border);
+    border-left: 3px solid var(--etcom-oro);
   }
   .obsesiones strong {
     font-family: var(--font-serif-display);
     font-size: var(--font-size-md);
-    font-weight: 400;
-    color: var(--color-text-bright);
+    font-weight: 500;
+    font-variation-settings: 'SOFT' 30, 'WONK' 1;
+    color: var(--etcom-lapis-noche);
   }
   .obsesiones span {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-base);
-    line-height: 2;
-    color: var(--color-text-dim);
+    line-height: 1.8;
+    color: var(--etcom-humo);
   }
 
   /* Contacto */
   .contacto {
     padding-top: 48px;
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid var(--etcom-oro);
   }
   .cta {
     font-family: var(--font-sans);
-    font-size: var(--font-size-sm);
-    color: var(--color-text-dim);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--etcom-humo);
     margin-bottom: 16px;
   }
   .links { display: flex; gap: 24px; }
   .links a {
     font-family: var(--font-sans);
-    font-size: var(--font-size-sm);
-    font-weight: 300;
-    color: var(--color-accent);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--etcom-lapis);
     text-decoration: none;
+    text-decoration-color: var(--etcom-oro);
   }
-  .links a:hover { text-decoration: underline; }
+  .links a:hover {
+    color: var(--etcom-lapis-vivo);
+    text-decoration: underline;
+  }
 </style>

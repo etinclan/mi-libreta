@@ -69,8 +69,9 @@ const noHaciendo = "[Algo que dejaste ir / declinaste — da carácter y honesti
   h1 {
     font-family: var(--font-serif-display);
     font-size: var(--font-size-2xl);
-    font-weight: 400;
-    color: var(--color-text-bright);
+    font-weight: 500;
+    font-variation-settings: 'SOFT' 30, 'WONK' 1;
+    color: var(--etcom-lapis-noche);
     margin-bottom: 20px;
   }
   .intro {
@@ -78,29 +79,33 @@ const noHaciendo = "[Algo que dejaste ir / declinaste — da carácter y honesti
     font-size: var(--font-size-md);
     font-style: italic;
     line-height: 1.5;
-    color: #A8A5A0;
+    color: var(--etcom-humo);
     margin-bottom: 12px;
   }
   .intro a {
-    color: var(--color-accent);
-    text-decoration: none;
+    color: var(--etcom-lapis);
+    text-decoration: underline;
+    text-decoration-color: var(--etcom-oro);
+    text-underline-offset: 3px;
   }
-  .intro a:hover { text-decoration: underline; }
+  .intro a:hover { color: var(--etcom-lapis-vivo); }
   .fecha {
     font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 300;
-    color: #5A5855;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    color: var(--etcom-humo);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
   }
 
   section { margin-bottom: 56px; }
   h2 {
     font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 700;
-    letter-spacing: 0.12em;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--color-text-bright);
+    color: var(--etcom-lapis-noche);
     margin-bottom: 20px;
   }
 
@@ -114,22 +119,24 @@ const noHaciendo = "[Algo que dejaste ir / declinaste — da carácter y honesti
   li {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-base);
-    line-height: 2;
-    color: var(--color-text);
+    line-height: 1.8;
+    color: var(--etcom-lapis-noche);
     padding-left: 20px;
-    border-left: 2px solid var(--color-border);
+    border-left: 3px solid var(--etcom-oro);
   }
 
   .lugar {
     font-family: var(--font-serif-display);
     font-size: var(--font-size-md);
-    color: var(--color-text-bright);
+    font-variation-settings: 'SOFT' 30, 'WONK' 1;
+    font-style: italic;
+    color: var(--etcom-lapis);
   }
   .nodoing {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-base);
-    line-height: 2;
-    color: var(--color-text-dim);
+    line-height: 1.8;
+    color: var(--etcom-humo);
     font-style: italic;
   }
 </style>

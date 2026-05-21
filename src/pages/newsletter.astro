@@ -113,11 +113,6 @@ const ediciones = [
 </Base>
 
 <style>
-  :root {
-    --mint:  #5EECC5;
-    --coral: #FF8F6B;
-  }
-
   .newsletter {
     max-width: 72ch;
     display: flex;
@@ -125,7 +120,7 @@ const ediciones = [
     gap: 80px;
   }
 
-  /* Antetítulo compartido */
+  /* Antetítulo compartido (inline en newsletter) */
   .type-label,
   .sec-label {
     display: flex;
@@ -137,46 +132,47 @@ const ediciones = [
     display: block;
     width: 24px;
     height: 2px;
-    background: var(--mint);
+    background: var(--etcom-oro);
     border-radius: 1px;
     flex-shrink: 0;
   }
   .tag {
     font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 700;
-    letter-spacing: 0.1em;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--mint);
+    color: var(--etcom-lapis);
   }
 
   /* ── 1. HERO ── */
   h1 {
     font-family: var(--font-serif-display);
     font-size: var(--font-size-2xl);
-    font-weight: 400;
+    font-weight: 500;
+    font-variation-settings: 'SOFT' 30, 'WONK' 1;
     line-height: 1.05;
-    color: var(--color-text-bright);
+    color: var(--etcom-lapis-noche);
     margin-bottom: 20px;
   }
   .coral {
     font-style: italic;
-    color: var(--coral);
+    color: var(--etcom-lapis-vivo);
   }
   .subtitulo {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-md);
     font-style: italic;
     line-height: 1.5;
-    color: var(--etcom-smoke);
+    color: var(--etcom-humo);
   }
 
   /* ── 2. MANIFIESTO ── */
   .prose p {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-base);
-    line-height: 2;
-    color: var(--color-text);
+    line-height: 1.8;
+    color: var(--etcom-lapis-noche);
     margin-bottom: 1.5em;
   }
   .prose p:last-child { margin-bottom: 0; }
@@ -189,26 +185,29 @@ const ediciones = [
     text-align: center;
     gap: 24px;
     padding: 56px 48px;
-    background: #F5EFE6;
-    border-radius: 3px;
+    background: var(--etcom-lapis);
+    border: 3px solid var(--etcom-oro);
+    border-radius: 4px;
   }
   .suscripcion-copy {
     font-family: var(--font-serif-display);
     font-size: var(--font-size-md);
     font-weight: 400;
+    font-variation-settings: 'SOFT' 30, 'WONK' 1;
     line-height: 1.4;
-    color: #1C1B18;
+    color: var(--etcom-vitela);
   }
   .boton-suscribir {
     display: inline-block;
     font-family: var(--font-sans);
-    font-size: var(--font-size-base);
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    color: #fff;
-    background: var(--coral);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--etcom-lapis-noche);
+    background: var(--etcom-oro);
     padding: 18px 48px;
-    border-radius: 2px;
+    border-radius: 4px;
     text-decoration: none;
     transition: opacity 0.15s;
   }
@@ -217,7 +216,7 @@ const ediciones = [
     font-family: var(--font-serif-text);
     font-size: var(--font-size-sm);
     font-style: italic;
-    color: var(--etcom-smoke);
+    color: var(--etcom-oro-suave);
   }
 
   /* ── 4. TIPOS DE CARTAS ── */
@@ -228,25 +227,26 @@ const ediciones = [
   }
   .tipo-bloque {
     padding: 28px 0;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--etcom-oro-suave);
     display: flex;
     flex-direction: column;
     gap: 8px;
   }
-  .tipo-bloque:first-child { border-top: 1px solid var(--color-border); }
+  .tipo-bloque:first-child { border-top: 1px solid var(--etcom-oro); }
   .tipo-titulo {
     font-family: var(--font-serif-display);
     font-size: var(--font-size-md);
-    font-weight: 400;
+    font-weight: 500;
+    font-variation-settings: 'SOFT' 30, 'WONK' 1;
     font-style: italic;
-    color: var(--color-text-bright);
+    color: var(--etcom-lapis-noche);
     line-height: 1.2;
   }
   .tipo-desc {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-base);
     line-height: 1.8;
-    color: var(--color-text-dim);
+    color: var(--etcom-humo);
   }
 
   /* ── 5. ÚLTIMAS EDICIONES ── */
@@ -256,9 +256,9 @@ const ediciones = [
     margin-bottom: 32px;
   }
   .edicion-item {
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--etcom-oro-suave);
   }
-  .edicion-item:first-child { border-top: 1px solid var(--color-border); }
+  .edicion-item:first-child { border-top: 1px solid var(--etcom-oro); }
   .edicion-link {
     display: flex;
     align-items: baseline;
@@ -266,12 +266,13 @@ const ediciones = [
     padding: 20px 0;
     text-decoration: none;
   }
-  .edicion-link:hover .edicion-titulo { color: var(--color-text-bright); }
+  .edicion-link:hover .edicion-titulo { color: var(--etcom-lapis-vivo); }
   .edicion-num {
     font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 700;
-    color: var(--coral);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    color: var(--etcom-oro);
+    letter-spacing: 0.08em;
     white-space: nowrap;
     min-width: 3.5ch;
   }
@@ -279,27 +280,30 @@ const ediciones = [
     font-family: var(--font-serif-display);
     font-size: var(--font-size-base);
     font-weight: 400;
-    color: var(--color-text);
+    font-variation-settings: 'SOFT' 30, 'WONK' 1;
+    color: var(--etcom-lapis-noche);
     flex: 1;
     line-height: 1.3;
     transition: color 0.15s;
   }
   .edicion-fecha {
     font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: 300;
-    color: var(--color-text-dim);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    color: var(--etcom-humo);
+    letter-spacing: 0.06em;
     white-space: nowrap;
   }
 
   /* ── 6. ARCHIVO ── */
   .ver-archivo {
     font-family: var(--font-sans);
-    font-size: var(--font-size-sm);
-    font-weight: 300;
-    color: var(--coral);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    color: var(--etcom-lapis-vivo);
     text-decoration: none;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     transition: opacity 0.15s;
   }
   .ver-archivo:hover { opacity: 0.7; }

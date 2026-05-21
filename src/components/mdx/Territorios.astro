@@ -24,21 +24,23 @@ const { lista } = Astro.props;
   .territorio {
     font-family: var(--font-sans);
     font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
+    font-weight: 400;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--etcom-coral);
+    color: var(--etcom-lapis, #26358C);
     text-decoration: none;
     padding: 3px 8px;
-    border: 1px solid #3A1E14;
+    border: 1px solid var(--etcom-oro, #D4B976);
     border-radius: 3px;
+    transition: background 0.15s;
   }
   .territorio:hover {
-    background: #3A1E14;
+    background: var(--etcom-oro-suave, #E5D4A3);
+    color: var(--etcom-lapis-noche, #0F1340);
   }
   .sep {
     font-family: var(--font-sans);
     font-size: 0.75rem;
-    color: #3A3835;
+    color: var(--etcom-humo-claro, #B5B5BA);
   }
 </style>
