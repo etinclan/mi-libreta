@@ -1,0 +1,118 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Marcos de trabajo · Eduardo Toledo">
+  <div class="marcos-page">
+
+    <header class="page-header">
+      <p class="eyebrow">MARCOS DE TRABAJO</p>
+      <h1>Marcos para pensar mejor cuando el sistema cambia</h1>
+      <p class="subtitulo">Mapas conceptuales para leer el trabajo, el valor y tu relevancia con las nuevas reglas de la IA. En construcción.</p>
+    </header>
+
+    <section aria-label="en construcción" class="construccion-sec">
+      <div class="construccion-card">
+        <span class="construccion-icono" aria-hidden="true">◎</span>
+        <h2>Los mapas están en camino</h2>
+        <p>Estoy cartografiando los marcos conceptuales más útiles para navegar el nuevo juego de la IA. Pronto encontrarás aquí los mapas para leer cómo cambian el trabajo, el valor y tu relevancia.</p>
+        <a href="/" class="volver-link">← Volver al inicio</a>
+      </div>
+    </section>
+
+  </div>
+</Base>
+
+<style>
+  .marcos-page {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    max-width: 760px;
+  }
+
+  .page-header {
+    padding-top: 24px;
+  }
+
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rojo);
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-2xl);
+    font-weight: 500;
+    line-height: 1.1;
+    color: var(--mora);
+    margin-bottom: 20px;
+  }
+
+  .subtitulo {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-base);
+    font-style: italic;
+    line-height: 1.75;
+    color: var(--meta);
+    max-width: 56ch;
+  }
+
+  .construccion-card {
+    border: 1px solid var(--linea);
+    border-top: 3px solid var(--rojo);
+    border-radius: 4px;
+    padding: 48px;
+    background: var(--niebla);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 600px;
+  }
+
+  .construccion-icono {
+    font-size: 2rem;
+    color: var(--rojo);
+    line-height: 1;
+  }
+
+  h2 {
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-md);
+    font-weight: 500;
+    color: var(--mora);
+    line-height: 1.2;
+  }
+
+  .construccion-card p {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-sm);
+    line-height: 1.75;
+    color: var(--tinta);
+    max-width: 52ch;
+  }
+
+  .volver-link {
+    display: inline-block;
+    margin-top: 8px;
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    color: var(--mora);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--mora);
+    padding-bottom: 2px;
+    transition: color 0.12s, border-color 0.12s;
+  }
+
+  .volver-link:hover {
+    color: var(--rojo);
+    border-color: var(--rojo);
+  }
+</style>

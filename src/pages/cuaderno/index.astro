@@ -1,0 +1,326 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const categorias = [
+  {
+    nombre: "Brújula",
+    icono: "◎",
+    descripcion: "Para orientarse. Artículos que ayudan a tomar posición ante los cambios del nuevo juego de la IA.",
+  },
+  {
+    nombre: "Estrella Polar",
+    icono: "★",
+    descripcion: "Dirección de avance. Essays sobre el futuro, el trabajo y la relevancia a largo plazo.",
+  },
+  {
+    nombre: "Hito",
+    icono: "◆",
+    descripcion: "Explicar conceptos. Ideas y marcos que merece la pena tener claros antes de seguir.",
+  },
+  {
+    nombre: "Itinerario",
+    icono: "→",
+    descripcion: "Conectando ideas. Entradas que enlazan conceptos y construyen un mapa mayor.",
+  },
+  {
+    nombre: "Mirador",
+    icono: "◉",
+    descripcion: "Pensar conmigo. Reflexiones en voz alta, preguntas abiertas, pensamiento en proceso.",
+  },
+  {
+    nombre: "Sendero",
+    icono: "∿",
+    descripcion: "Explorando ideas. Ideas emergentes que todavía no tienen forma definitiva.",
+  },
+];
+
+const todasLasNotas = await getCollection('notas').catch(() => []);
+const notasOrdenadas = todasLasNotas.sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+
+function fmtDate(d: Date) {
+  return d.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+---
+
+<Base title="Cuaderno de Viaje · Eduardo Toledo">
+  <div class="cuaderno-page">
+
+    <header class="cuaderno-header">
+      <p class="eyebrow">CUADERNO DE VIAJE</p>
+      <h1>Mi cuaderno de viaje</h1>
+      <p class="subtitulo">Apuntes sobre cómo construir una forma propia de pensar, crear y decidir que no dependa del algoritmo.</p>
+    </header>
+
+    <!-- Categorías cartográficas -->
+    <section aria-label="categorías del cuaderno" class="categorias-sec">
+      <h2 class="sec-titulo">Cómo me oriento</h2>
+      <p class="sec-intro">Cada entrada pertenece a un tipo de recorrido. Aquí están las seis categorías del cuaderno:</p>
+      <div class="categorias-grid" role="list">
+        {categorias.map(cat => (
+          <article class="categoria-card" role="listitem">
+            <span class="categoria-icono" aria-hidden="true">{cat.icono}</span>
+            <h3 class="categoria-nombre">{cat.nombre}</h3>
+            <p class="categoria-desc">{cat.descripcion}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- Lista de notas -->
+    <section aria-label="todas las notas" class="notas-sec">
+      <h2 class="sec-titulo">Todas las entradas</h2>
+
+      {notasOrdenadas.length === 0 ? (
+        <p class="vacio">El cuaderno está en preparación. Vuelve pronto.</p>
+      ) : (
+        <ul class="notas-lista" role="list">
+          {notasOrdenadas.map(nota => (
+            <li class="nota-item">
+              <a href={`/notas/${nota.id}`} class="nota-link">
+                <span class="nota-titulo">{nota.data.title}</span>
+                <span class="nota-meta">
+                  <time datetime={nota.data.date.toISOString().slice(0, 10)}>{fmtDate(nota.data.date)}</time>
+                  {nota.data.tags && nota.data.tags.length > 0 && (
+                    <span class="nota-tags">
+                      {nota.data.tags.slice(0, 2).map(tag => (
+                        <span class="tag">{tag}</span>
+                      ))}
+                    </span>
+                  )}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+
+    <div class="volver">
+      <a href="/" class="volver-link">← Volver al inicio</a>
+    </div>
+
+  </div>
+</Base>
+
+<style>
+  .cuaderno-page {
+    display: flex;
+    flex-direction: column;
+    gap: 72px;
+  }
+
+  /* HEADER */
+  .cuaderno-header {
+    max-width: 680px;
+    padding-top: 24px;
+  }
+
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rojo);
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-2xl);
+    font-weight: 500;
+    line-height: 1.1;
+    color: var(--mora);
+    margin-bottom: 20px;
+  }
+
+  .subtitulo {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-base);
+    font-style: italic;
+    line-height: 1.75;
+    color: var(--meta);
+    max-width: 56ch;
+  }
+
+  /* SECCIÓN TÍTULOS */
+  .sec-titulo {
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-md);
+    font-weight: 500;
+    color: var(--mora);
+    margin-bottom: 12px;
+  }
+
+  .sec-intro {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-sm);
+    color: var(--meta);
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 56ch;
+  }
+
+  /* CATEGORÍAS GRID */
+  .categorias-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .categoria-card {
+    padding: 28px 24px;
+    border: 1px solid var(--linea);
+    border-radius: 4px;
+    background: var(--pergamino);
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  .categoria-card:hover {
+    border-color: var(--rojo);
+    box-shadow: 0 4px 16px rgba(59,30,84,0.08);
+  }
+
+  .categoria-icono {
+    display: block;
+    font-size: 1.5rem;
+    color: var(--rojo);
+    margin-bottom: 12px;
+    line-height: 1;
+  }
+
+  .categoria-nombre {
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--mora);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .categoria-desc {
+    font-family: var(--font-serif-text);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--meta);
+  }
+
+  /* NOTAS LISTA */
+  .notas-lista {
+    list-style: none;
+    padding: 0;
+  }
+
+  .nota-item {
+    border-bottom: 1px solid var(--linea);
+  }
+
+  .nota-item:first-child {
+    border-top: 1px solid var(--linea);
+  }
+
+  .nota-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+    padding: 20px 0;
+    text-decoration: none;
+  }
+
+  .nota-titulo {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-base);
+    color: var(--mora);
+    line-height: 1.4;
+    transition: color 0.12s;
+  }
+
+  .nota-link:hover .nota-titulo {
+    color: var(--rojo);
+  }
+
+  .nota-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .nota-meta time {
+    font-family: var(--font-sans);
+    font-size: 0.625rem;
+    color: var(--meta);
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+
+  .nota-tags {
+    display: flex;
+    gap: 6px;
+  }
+
+  .tag {
+    font-family: var(--font-sans);
+    font-size: 0.5625rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mora);
+    background: var(--niebla);
+    border: 1px solid var(--linea);
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+
+  .vacio {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-sm);
+    font-style: italic;
+    color: var(--meta);
+    padding: 32px 0;
+  }
+
+  /* VOLVER */
+  .volver {
+    padding-bottom: 24px;
+  }
+
+  .volver-link {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    color: var(--meta);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.12s;
+  }
+
+  .volver-link:hover {
+    color: var(--rojo);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .categorias-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .categorias-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .nota-link {
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .nota-meta {
+      flex-wrap: wrap;
+    }
+  }
+</style>

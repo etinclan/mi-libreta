@@ -1,0 +1,354 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Programas de acompañamiento · Eduardo Toledo">
+  <div class="programas-page">
+
+    <header class="page-header">
+      <p class="eyebrow">PROGRAMAS</p>
+      <h1>Programas de acompañamiento</h1>
+      <p class="subtitulo">Para rediseñar tu relevancia, la de tu equipo o la de tu marca. Del diagnóstico a la implementación, paso a paso contigo.</p>
+    </header>
+
+    <!-- THE REFRAME GAME -->
+    <section id="reframe-game" aria-label="The Reframe Game" class="programa-sec programa-sec--destacado">
+      <div class="programa-inner">
+        <div class="programa-meta">
+          <p class="eyebrow eyebrow--claro">THE REFRAME GAME</p>
+          <span class="programa-badge">Metodología</span>
+        </div>
+        <h2 class="programa-titulo programa-titulo--claro">The Reframe Game — Cómo ser relevante en cuatro pasos</h2>
+        <p class="programa-desc programa-desc--claro">La mejor manera de dominar el nuevo juego de la IA, de manera experiencial y totalmente enfocado a la realidad de tu negocio e industria. Un programa en cuatro pasos para entender las nuevas reglas, identificar dónde está tu ventaja real y reposicionarte antes de que el sistema lo haga por ti.</p>
+        <div class="programa-pasos" aria-label="Los cuatro pasos">
+          <div class="paso">
+            <span class="paso-num">01</span>
+            <span class="paso-label">Leer el nuevo juego</span>
+          </div>
+          <div class="paso">
+            <span class="paso-num">02</span>
+            <span class="paso-label">Diagnosticar tu posición</span>
+          </div>
+          <div class="paso">
+            <span class="paso-num">03</span>
+            <span class="paso-label">Rediseñar la relevancia</span>
+          </div>
+          <div class="paso">
+            <span class="paso-num">04</span>
+            <span class="paso-label">Implementar el reframe</span>
+          </div>
+        </div>
+        <a href="mailto:edutoledo@gmail.com?subject=The Reframe Game" class="cta-btn">Quiero saber más →</a>
+      </div>
+    </section>
+
+    <!-- REFRAME YOURSELF -->
+    <section id="reframe-yourself" aria-label="Reframe yourself" class="programa-sec">
+      <div class="programa-inner programa-inner--clara">
+        <div class="programa-meta">
+          <p class="eyebrow">REFRAME YOURSELF</p>
+          <span class="programa-badge programa-badge--mora">Individual</span>
+        </div>
+        <h2 class="programa-titulo">Reframe yourself</h2>
+        <p class="programa-desc">Programa individual para rediseñar tu relevancia profesional. Para profesionales que quieren entender cómo cambia su valor en la era de la IA y tomar decisiones estratégicas con criterio propio — no siguiendo tendencias.</p>
+        <ul class="programa-lista" aria-label="Qué incluye">
+          <li>Diagnóstico de posición actual y ventajas reales</li>
+          <li>Mapa de cómo la IA afecta a tu sector y rol específico</li>
+          <li>Plan de rediseño personalizado</li>
+          <li>Acompañamiento en la implementación</li>
+        </ul>
+        <a href="mailto:edutoledo@gmail.com?subject=Reframe yourself" class="cta-btn">Hablemos →</a>
+      </div>
+    </section>
+
+    <!-- REFRAME BUSINESS -->
+    <section id="reframe-business" aria-label="Reframe business" class="programa-sec">
+      <div class="programa-inner programa-inner--clara">
+        <div class="programa-meta">
+          <p class="eyebrow">REFRAME BUSINESS</p>
+          <span class="programa-badge programa-badge--mora">Organizaciones</span>
+        </div>
+        <h2 class="programa-titulo">Reframe business</h2>
+        <p class="programa-desc">Programa para organizaciones y equipos. Para comités directivos y equipos que entienden que la IA no se decide en el departamento de IT. Del diagnóstico estratégico a la implementación, con foco en la relevancia real de la organización en el nuevo juego.</p>
+        <ul class="programa-lista" aria-label="Qué incluye">
+          <li>Diagnóstico de impacto de la IA en el modelo de negocio</li>
+          <li>Talleres ejecutivos y formaciones a medida</li>
+          <li>Hoja de ruta estratégica para el equipo</li>
+          <li>Acompañamiento en la transformación</li>
+        </ul>
+        <a href="mailto:edutoledo@gmail.com?subject=Reframe business" class="cta-btn">Contactar →</a>
+      </div>
+    </section>
+
+    <div class="volver">
+      <a href="/" class="volver-link">← Volver al inicio</a>
+    </div>
+
+  </div>
+</Base>
+
+<style>
+  .programas-page {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .page-header {
+    padding-top: 24px;
+    padding-bottom: 72px;
+    max-width: 720px;
+    border-bottom: 1px solid var(--linea);
+    margin-bottom: 0;
+  }
+
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rojo);
+    margin-bottom: 16px;
+  }
+
+  .eyebrow--claro {
+    color: var(--lima);
+  }
+
+  h1 {
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-2xl);
+    font-weight: 500;
+    line-height: 1.1;
+    color: var(--mora);
+    margin-bottom: 20px;
+  }
+
+  .subtitulo {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-base);
+    font-style: italic;
+    line-height: 1.75;
+    color: var(--meta);
+    max-width: 56ch;
+  }
+
+  /* SECCIONES PROGRAMA */
+  .programa-sec {
+    border-bottom: 1px solid var(--linea);
+  }
+
+  .programa-sec--destacado {
+    background: var(--mora);
+    margin-left: -80px;
+    margin-right: -80px;
+    border-bottom: none;
+  }
+
+  .programa-inner {
+    padding: 72px 0;
+    max-width: 720px;
+  }
+
+  .programa-sec--destacado .programa-inner {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  .programa-inner--clara {
+    background: transparent;
+  }
+
+  /* META ROW */
+  .programa-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .programa-meta .eyebrow {
+    margin-bottom: 0;
+  }
+
+  .programa-badge {
+    font-family: var(--font-sans);
+    font-size: 0.5625rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 2px;
+    background: rgba(217,79,42,0.15);
+    color: var(--rojo);
+    border: 1px solid rgba(217,79,42,0.3);
+  }
+
+  .programa-badge--mora {
+    background: rgba(59,30,84,0.1);
+    color: var(--mora);
+    border-color: var(--linea);
+  }
+
+  /* TÍTULOS */
+  .programa-titulo {
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    line-height: 1.15;
+    color: var(--mora);
+    margin-bottom: 20px;
+    max-width: 600px;
+  }
+
+  .programa-titulo--claro {
+    color: var(--pergamino);
+  }
+
+  /* DESCRIPCIÓN */
+  .programa-desc {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-base);
+    line-height: 1.75;
+    color: var(--tinta);
+    max-width: 58ch;
+    margin-bottom: 32px;
+  }
+
+  .programa-desc--claro {
+    color: rgba(246,241,232,0.82);
+  }
+
+  /* PASOS */
+  .programa-pasos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-bottom: 40px;
+    max-width: 640px;
+  }
+
+  .paso {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 20px 16px;
+    border: 1px solid rgba(246,241,232,0.2);
+    border-radius: 3px;
+  }
+
+  .paso-num {
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-md);
+    font-weight: 400;
+    color: var(--lima);
+    line-height: 1;
+  }
+
+  .paso-label {
+    font-family: var(--font-sans);
+    font-size: 0.625rem;
+    font-weight: 400;
+    color: rgba(246,241,232,0.7);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  /* LISTA */
+  .programa-lista {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .programa-lista li {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-sm);
+    color: var(--tinta);
+    line-height: 1.6;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--linea);
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .programa-lista li:first-child {
+    border-top: 1px solid var(--linea);
+  }
+
+  .programa-lista li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--rojo);
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+  }
+
+  /* CTA */
+  .cta-btn {
+    display: inline-block;
+    background: var(--rojo);
+    color: var(--pergamino);
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 14px 28px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+
+  .cta-btn:hover {
+    background: var(--rojo-deep);
+  }
+
+  /* VOLVER */
+  .volver {
+    padding: 48px 0 24px;
+  }
+
+  .volver-link {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    color: var(--meta);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.12s;
+  }
+
+  .volver-link:hover {
+    color: var(--rojo);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 767px) {
+    .programa-sec--destacado {
+      margin-left: -24px;
+      margin-right: -24px;
+    }
+
+    .programa-sec--destacado .programa-inner {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .programa-pasos {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .programa-pasos {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

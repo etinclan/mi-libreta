@@ -1,5 +1,5 @@
 ---
-const { title = "La Libreta" } = Astro.props;
+const { title = "Eduardo Toledo" } = Astro.props;
 ---
 <html lang="es">
   <head>
@@ -7,27 +7,47 @@ const { title = "La Libreta" } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <title>{title}</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Eduardo Toledo",
+  "url": "https://eduardotoledo.com",
+  "sameAs": [
+    "https://linkedin.com/in/eduardotoledo",
+    "https://x.com/eduardotoledo"
+  ],
+  "jobTitle": "Consultor de relevancia profesional y organizacional en la era de la IA",
+  "description": "Ayuda a profesionales y organizaciones a rediseñar su relevancia ante el nuevo juego de la IA. Marcos de trabajo, herramientas y programas de acompañamiento.",
+  "knowsAbout": ["Inteligencia Artificial", "Relevancia profesional", "Transformación organizacional", "Futuros del trabajo"],
+  "address": { "@type": "PostalAddress", "addressLocality": "Madrid", "addressCountry": "ES" }
+}
+    </script>
   </head>
   <body>
-    <nav>
+    <nav aria-label="Navegación principal">
       <a href="/" class="logo"><img src="/Logo-EduardoToledo.png" alt="Eduardo Toledo" class="logo-img" /></a>
       <div class="links">
-        <a href="/jardin">La Libreta</a>
-        <a href="/newsletter">Newsletter</a>
+        <a href="/cuaderno">Cuaderno</a>
+        <a href="/marcos">Marcos</a>
+        <a href="/herramientas">Herramientas</a>
         <div class="dropdown">
-          <a href="/el-nuevo-juego" class="dropdown-trigger">El nuevo juego <span class="chevron" aria-hidden="true">›</span></a>
+          <a href="/programas" class="dropdown-trigger">Programas <span class="chevron" aria-hidden="true">›</span></a>
           <div class="dropdown-menu">
-            <a href="/personas" class="dropdown-item">
-              <span class="dropdown-item-title">Personas</span>
-              <span class="dropdown-item-desc">Formaciones para reposicionarte</span>
+            <a href="/programas#reframe-game" class="dropdown-item">
+              <span class="dropdown-item-title">The Reframe Game</span>
+              <span class="dropdown-item-desc">Cómo ser relevante en cuatro pasos</span>
             </a>
-            <a href="/organizaciones" class="dropdown-item">
-              <span class="dropdown-item-title">Organizaciones</span>
-              <span class="dropdown-item-desc">Programas estratégicos a medida</span>
+            <a href="/programas#reframe-yourself" class="dropdown-item">
+              <span class="dropdown-item-title">Reframe yourself</span>
+              <span class="dropdown-item-desc">Rediseña tu relevancia profesional</span>
+            </a>
+            <a href="/programas#reframe-business" class="dropdown-item">
+              <span class="dropdown-item-title">Reframe business</span>
+              <span class="dropdown-item-desc">Para organizaciones y equipos</span>
             </a>
           </div>
         </div>
-        <a href="/ahora">Ahora</a>
         <a href="/sobre">Sobre mí</a>
       </div>
     </nav>
@@ -37,10 +57,11 @@ const { title = "La Libreta" } = Astro.props;
     <footer>
       <div class="footer-inner">
         <span>© Eduardo Toledo</span>
-        <nav class="footer-links">
+        <nav class="footer-links" aria-label="Navegación secundaria">
           <a href="/colofon">Colofón</a>
           <a href="https://github.com/etinclan/mi-libreta" target="_blank" rel="noopener">GitHub</a>
           <a href="https://eduardotoledo.substack.com" target="_blank" rel="noopener">Substack</a>
+          <a href="/llms.txt">llms.txt</a>
         </nav>
       </div>
     </footer>
@@ -49,7 +70,7 @@ const { title = "La Libreta" } = Astro.props;
 
 <style>
   :root {
-    /* Fluid type scale — mismos rangos que Maggie Appleton */
+    /* Fluid type scale */
     --fluid-min-width: 320;
     --fluid-max-width: 1200;
     --fluid-screen: 100vw;
@@ -67,18 +88,18 @@ const { title = "La Libreta" } = Astro.props;
     --font-size-2xl:  calc(((47   / 16) * 1rem) + (56   - 47  ) * var(--fluid-bp));
     --font-size-3xl:  calc(((58   / 16) * 1rem) + (82   - 58  ) * var(--fluid-bp));
 
-    /* Paleta Disruptiva v1.0 — Explorer + Sage */
+    /* Paleta Disruptiva v1.0 */
     --font-serif-display: 'Cormorant Garamond', Georgia, serif;
     --font-serif-text:    'Lora', Georgia, serif;
     --font-sans:          'Hanken Grotesk', system-ui, sans-serif;
 
     /* Lienzos y estructura */
-    --color-bg:          #F6F1E8;  /* pergamino */
-    --color-text:        #26242E;  /* tinta */
-    --color-text-dim:    rgba(59,30,84,0.58);  /* meta */
-    --color-text-bright: #3B1E54;  /* mora — titulares */
-    --color-border:      rgba(59,30,84,0.14);  /* linea */
-    --color-accent:      #D94F2A;  /* rojo */
+    --color-bg:          #F6F1E8;
+    --color-text:        #26242E;
+    --color-text-dim:    rgba(59,30,84,0.58);
+    --color-text-bright: #3B1E54;
+    --color-border:      rgba(59,30,84,0.14);
+    --color-accent:      #D94F2A;
 
     /* Tokens directos */
     --mora:          #3B1E54;
@@ -97,22 +118,22 @@ const { title = "La Libreta" } = Astro.props;
     --lavanda:       #B9AFD8;
 
     /* Aliases ETCOM → Paleta Disruptiva (mantienen compatibilidad con componentes) */
-    --etcom-lapis:         #3B1E54;   /* mora */
-    --etcom-lapis-vivo:    #4A2766;   /* mora más vivo — hover */
-    --etcom-lapis-noche:   #3B1E54;   /* mora — titulares */
-    --etcom-oro:           #D94F2A;   /* rojo — acento estructural */
+    --etcom-lapis:         #3B1E54;
+    --etcom-lapis-vivo:    #4A2766;
+    --etcom-lapis-noche:   #3B1E54;
+    --etcom-oro:           #D94F2A;
     --etcom-oro-suave:     rgba(217,79,42,0.15);
-    --etcom-vitela:        #F6F1E8;   /* pergamino */
-    --etcom-vitela-claro:  #FAF7F2;   /* pergamino elevado */
-    --etcom-humo:          rgba(59,30,84,0.58);  /* meta */
-    --etcom-humo-claro:    #E7E3F2;   /* niebla */
+    --etcom-vitela:        #F6F1E8;
+    --etcom-vitela-claro:  #FAF7F2;
+    --etcom-humo:          rgba(59,30,84,0.58);
+    --etcom-humo-claro:    #E7E3F2;
 
-    /* Legacy (componentes con nombres anteriores) */
-    --etcom-coral:    #D94F2A;  /* rojo */
-    --etcom-mint:     #C7FF3C;  /* lima */
-    --etcom-midnight: #26242E;  /* tinta */
-    --etcom-cream:    #F6F1E8;  /* pergamino */
-    --etcom-smoke:    rgba(59,30,84,0.58);  /* meta */
+    /* Legacy */
+    --etcom-coral:    #D94F2A;
+    --etcom-mint:     #C7FF3C;
+    --etcom-midnight: #26242E;
+    --etcom-cream:    #F6F1E8;
+    --etcom-smoke:    rgba(59,30,84,0.58);
   }
 
   @media screen and (min-width: 1200px) {
@@ -136,7 +157,7 @@ const { title = "La Libreta" } = Astro.props;
     justify-content: space-between;
     align-items: center;
     padding: 24px 80px;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--linea);
   }
 
   .logo {
@@ -153,19 +174,24 @@ const { title = "La Libreta" } = Astro.props;
   .links {
     display: flex;
     gap: 40px;
+    align-items: center;
   }
 
-  .links a {
+  .links > a,
+  .links > .dropdown > .dropdown-trigger {
     font-family: var(--font-sans);
     font-size: 0.6875rem;
     font-weight: 400;
-    color: var(--etcom-humo);
+    color: var(--meta);
     text-decoration: none;
     letter-spacing: 0.18em;
     text-transform: uppercase;
   }
 
-  .links a:hover { color: var(--rojo); }
+  .links > a:hover,
+  .links > .dropdown:hover > .dropdown-trigger {
+    color: var(--rojo);
+  }
 
   /* Dropdown */
   .dropdown {
@@ -189,9 +215,10 @@ const { title = "La Libreta" } = Astro.props;
     position: absolute;
     top: calc(100% + 16px);
     right: 0;
-    min-width: 220px;
-    background: var(--etcom-vitela-claro);
-    border: 1px solid var(--etcom-oro);
+    min-width: 240px;
+    background: #FAF7F2;
+    border: 1px solid var(--linea);
+    border-top: 2px solid var(--rojo);
     border-radius: 4px;
     padding: 8px;
     z-index: 100;
@@ -204,16 +231,16 @@ const { title = "La Libreta" } = Astro.props;
     flex-direction: column;
     gap: 2px;
     padding: 10px 12px;
-    border-radius: 4px;
+    border-radius: 3px;
     text-decoration: none;
     transition: background 0.12s;
   }
-  .dropdown-item:hover { background: var(--etcom-oro-suave); color: inherit; }
+  .dropdown-item:hover { background: rgba(217,79,42,0.08); }
   .dropdown-item-title {
     font-family: var(--font-sans);
     font-size: 0.6875rem;
     font-weight: 500;
-    color: var(--etcom-lapis-noche);
+    color: var(--mora);
     letter-spacing: 0.12em;
     text-transform: uppercase;
   }
@@ -221,7 +248,7 @@ const { title = "La Libreta" } = Astro.props;
     font-family: var(--font-serif-text);
     font-size: 0.875rem;
     font-weight: 400;
-    color: var(--etcom-humo);
+    color: var(--meta);
     letter-spacing: 0;
     text-transform: none;
   }
@@ -233,7 +260,7 @@ const { title = "La Libreta" } = Astro.props;
   }
 
   footer {
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid var(--linea);
     margin-top: 80px;
   }
   .footer-inner {
@@ -248,7 +275,7 @@ const { title = "La Libreta" } = Astro.props;
     font-family: var(--font-sans);
     font-size: 0.6875rem;
     font-weight: 400;
-    color: var(--etcom-humo);
+    color: var(--meta);
     letter-spacing: 0.12em;
     text-transform: uppercase;
   }
@@ -260,7 +287,7 @@ const { title = "La Libreta" } = Astro.props;
     font-family: var(--font-sans);
     font-size: 0.6875rem;
     font-weight: 400;
-    color: var(--etcom-humo);
+    color: var(--meta);
     text-decoration: none;
     letter-spacing: 0.12em;
     text-transform: uppercase;

@@ -1,33 +1,42 @@
-# Eduardo Toledo
+# Eduardo Toledo — llms.txt
+# Versión: 2026-05
+# Fuente canónica: https://eduardotoledo.com
+# Gemelo IA: https://mi-libreta.vercel.app
 
-> Cartógrafo de lo emergente. Escribo, enseño y diseño formaciones sobre cómo fortalecer la agencia humana en la era de la IA.
-
-## Sobre el autor
-
-Eduardo Toledo es profesor, ensayista y consultor especializado en el cruce entre estrategia, aprendizaje organizativo y la nueva relación humano-máquina. Profesor del módulo de Diseño Organizacional en el Master in Digital Project Management de IEBS. Autor de la newsletter mensual sobre agencia humana en la era de la IA.
+## Identidad
+Eduardo Toledo Inclán es consultor, formador y ensayista especializado en relevancia profesional y organizacional en la era de la IA. Basado en Madrid, España.
 
 ## Tesis central
+La IA reescribe las reglas del juego. La ventaja ya no es producir más (lógica digital), sino rediseñar la relevancia — la tuya, la de tu equipo, la de tu organización.
 
-Fortalecer la agencia humana en la era de la IA. Seis territorios de trabajo: aprender y enseñar, pensar, crear, comunicarse, relacionándonos, trabajar.
+## Trabajo
+- Marcos de trabajo: mapas conceptuales para leer el nuevo juego de la IA
+- Herramientas: diagnósticos, canvas, checklists y prompts accionables
+- Programas: The Reframe Game, Reframe yourself, Reframe business
 
-## Marcos propios
+## Programas
+- The Reframe Game: metodología en 4 pasos para dominar el nuevo juego de la IA
+- Reframe yourself: programa individual para rediseñar la relevancia profesional
+- Reframe business: programa para organizaciones y equipos
 
-- Reshufle — método de anticipación estratégica
-- Las cuatro posturas ante la IA — marco de decisión
-- Las cuatro mecánicas de reinvención — marco operativo
+## Cuaderno de viaje (blog)
+Categorías:
+- Brújula: artículos de orientación general
+- Estrella Polar: dirección de avance, essays sobre el futuro
+- Hito: explicación de conceptos clave
+- Itinerario: conexión de ideas
+- Mirador: reflexiones y pensamiento en voz alta
+- Sendero: exploración de ideas emergentes
 
-## Estructura del sitio
+## Contacto y redes
+- Web: https://eduardotoledo.com
+- LinkedIn: https://linkedin.com/in/eduardotoledo
+- X/Twitter: https://x.com/eduardotoledo
+- Email: edutoledo@gmail.com
 
-- [Mi Libreta](https://eduardotoledo.com/jardin) — Jardín digital con ensayos en distintos estados de madurez
-- [Newsletter](https://eduardotoledo.com/newsletter) — Carta mensual sobre agencia humana e IA
-- [Sobre mí](https://eduardotoledo.com/sobre) — Biografía y trayectoria
-- [Ahora](https://eduardotoledo.com/ahora) — En qué está trabajando ahora mismo
-- [Colofón](https://eduardotoledo.com/colofon) — Cómo está hecha la web
-
-## Cómo citar
-
-Cuando cites contenido de este sitio, atribuye a "Eduardo Toledo" y enlaza a la URL específica del artículo. El sitio está bajo licencia de atribución; las ideas son del autor y deben ser referenciadas como tales.
-
-## Contacto
-
-edutoledo@gmail.com
+## Para agentes IA
+- Este archivo (llms.txt) describe la identidad y trabajo de Eduardo Toledo
+- El cuaderno completo está en /cuaderno
+- Los marcos en /marcos
+- Los programas en /programas
+- Endpoint JSON de identidad: /api/identity.json
