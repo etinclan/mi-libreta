@@ -1,121 +1,159 @@
-# La Libreta — Contexto de proyecto para Claude Code
+# CLAUDE.md — Mi Libreta (repo)
+
+Contexto técnico del repo para Claude Code. Refleja el estado real del código a mayo 2026.
+Para contexto editorial y de marca, leer `/Desktop/Proyectos IA/Mi libreta/CLAUDE.md`.
+
+---
 
 ## Stack
-- **Astro v6.3.3** + MDX (`@astrojs/mdx`) + Vercel + GitHub (`etinclan/mi-libreta`)
-- Contenido en `src/content/notas/` (colección `notas`, glob `**/*.mdx`)
-- Colección `ensayos` registrada pero vacía — no rompe, maneja el warning con `.catch(() => [])`
-- Deploy automático desde `main` → Vercel → `eduardotoledo.com`
 
-## Sistema de diseño
+- **Astro v6.3.3** + MDX (`@astrojs/mdx`) + GitHub (`etinclan/mi-libreta`) + Vercel
+- Contenido en `src/content/notas/` (colección `notas`) y `src/content/ensayos/` (colección `ensayos`, carpeta vacía — no rompe)
+- Deploy automático desde `main` → Vercel → `eduardotoledo.com` (pendiente migración)
+- Node ≥ 22.12.0
 
-### Fuentes
-- **DM Serif Display** — títulos `<h1>`, wordmark, cards destacadas. Siempre `font-weight: 400`.
-- **Cormorant Garamond** — cuerpo de texto, párrafos, subtítulos. `line-height: 2` en prosa.
-- **Lato** — UI sans: antetítulos, ladillos `<h2>`, etiquetas, metadatos, botones.
+---
 
-### Paleta dark (base del sitio — no modificar)
-| Token | Valor | Uso |
+## Sistema de diseño — ETCOM v1.1 «El Manuscrito Iluminado»
+
+### Fuentes (Google Fonts, cargadas en `Base.astro`)
+| Token | Fuente | Uso |
 |---|---|---|
-| `--color-bg` | `#1C1B18` | Fondo de página |
-| `--color-text` | `#C2BFB2` | Texto de cuerpo |
-| `--color-text-dim` | `#7A7773` | Texto secundario / metadatos |
-| `--color-text-bright` | `#E8E5DF` | Títulos y elementos destacados |
-| `--color-border` | `#2A2927` | Bordes y separadores |
-| `--color-accent` | `#E85AAB` | Acento legacy (no usar en nuevos elementos) |
+| `--font-serif-display` | **Fraunces** (variable opsz 9–144) | Títulos, `<h1>`, `<h2>`, citas grandes, palabra-eje italic |
+| `--font-serif-text` | **Newsreader** (variable opsz 6–72) | Cuerpo, párrafos, extractos |
+| `--font-sans` | **JetBrains Mono** | Nav, antetítulos, labels, tags, footer, metadatos |
 
-### Paleta ETCOM (tokens globales en `:root`)
-| Token | Valor | Uso |
+- Pesos permitidos: 400 y 500. El 600 solo en capitulares (`drop-cap`).
+- Fraunces siempre con `font-variation-settings: 'SOFT' 30, 'WONK' 1` cuando se aplique.
+- JetBrains Mono siempre en `text-transform: uppercase`, `letter-spacing: 0.18em`, peso 400.
+- Italic en titulares = firma visual de la marca (palabra-eje, subtítulos).
+
+### Paleta — Lapislázuli Pigmento
+| Token CSS | Valor | Uso |
 |---|---|---|
-| `--etcom-coral` / `--coral` | `#FF8F6B` | CTAs, badges, puntos de lista, énfasis |
-| `--etcom-mint` / `--mint` | `#5EECC5` | Antetítulos, marcadores de sección |
-| `--etcom-cream` | `#F5EFE6` | Fondos de bloque destacado (ej: suscripción) |
-| `--etcom-smoke` | `#6B6560` | Subtítulos itálicos, texto terciario |
-| `--etcom-midnight` | `#0D1B2E` | Uso esporádico en fondos de contraste |
+| `--etcom-lapis` / `--color-accent` | `#26358C` | Superficie dominante, hover nav |
+| `--etcom-lapis-vivo` / `--etcom-coral` | `#3445A8` | CTAs, palabras-eje, botones, links activos |
+| `--etcom-lapis-noche` / `--color-text` / `--color-text-bright` | `#0F1340` | Texto principal, titulares |
+| `--etcom-oro` / `--color-border` | `#D4B976` | Ribetes, separadores, bordes estructurales |
+| `--etcom-oro-suave` | `#E5D4A3` | Hover cards, divisiones sutiles |
+| `--etcom-vitela` / `--color-bg` / `--etcom-cream` | `#F2EDDC` | Fondo principal (pergamino) |
+| `--etcom-vitela-claro` | `#FAF6E8` | Superficies elevadas, dropdown, cards claras |
+| `--etcom-humo` / `--color-text-dim` / `--etcom-smoke` | `#6E6F75` | Captions, metadatos, nav en reposo, footer |
+| `--etcom-humo-claro` | `#B5B5BA` | Bordes sutiles |
+| `--etcom-mint` | `#D4B976` | Alias del oro — antetítulos, marcadores de sección |
+| `--etcom-midnight` | `#26358C` | Alias del lapis |
 
-### Tipografía fluida
-Escala de 8 pasos (`--font-size-xs` → `--font-size-3xl`), mismos rangos que Maggie Appleton.
+> ⚠️ El oro **nunca** es texto corrido. Solo ribetes, números destacados y separadores.
+> El fondo es siempre vitela (`#F2EDDC`), nunca blanco.
 
-### Normas de estilo por elemento
-| Elemento | Fuente | Tamaño | Estilo | Color |
-|---|---|---|---|---|
-| `<h1>` de página | DM Serif Display | `--font-size-2xl` | normal | `--color-text-bright` |
-| Hero home `<h1>` | DM Serif Display | `--font-size-2xl` | normal | `--color-text-bright` |
-| Subtítulo tras `<h1>` | Cormorant Garamond | `--font-size-md` | **italic** | `#A8A5A0` |
-| `<h2>` ladillo de sección | Lato | `--font-size-xs` | uppercase, `letter-spacing: 0.12em` | `--color-text-bright` |
-| Antetítulo de sección | Lato | `--font-size-xs` | uppercase, `letter-spacing: 0.1em` | `--etcom-mint` |
-| Marcador de antetítulo | — | 24×2 px | barra horizontal | `--etcom-mint` |
-| Cuerpo de texto | Cormorant Garamond | `--font-size-base` | normal | `--color-text` |
-| Metadatos / fechas | Lato | `--font-size-xs` | `font-weight: 300` | `--color-text-dim` |
-| Enlace coral (CTA texto) | Lato | `--font-size-xs/sm` | `font-weight: 300` | `--etcom-coral` |
-| Botón coral primario | Lato | `--font-size-base` | `font-weight: 700` | bg `--etcom-coral`, texto `#fff` |
+### Escala tipográfica fluida
+8 pasos desde 320px hasta 1200px:
+`--font-size-xs` → `--font-size-sm` → `--font-size-base` → `--font-size-md` → `--font-size-lg` → `--font-size-xl` → `--font-size-2xl` → `--font-size-3xl`
 
-### Componente compartido
-- `src/components/Antetitulo.astro` — antetítulo con marcador mint. Usar en todas las páginas excepto home (que gestiona sus propios antetítulos inline).
+---
 
-### No usar
-- DM Serif Text (fuente eliminada del proyecto)
-- `--color-accent` (`#E85AAB`) en nuevos elementos
-- `--font-size-3xl` en `<h1>` de páginas interiores (reservado solo si se aprueba explícitamente)
+## Colecciones de contenido (`src/content.config.ts`)
+
+```ts
+// notas
+{ title: string, date: Date, stage: 'intuicion' | 'emergente' | 'maduro', tags?: string[] }
+
+// ensayos
+{ title: string, date: Date, stage: 'intuicion' | 'emergente' | 'maduro', tags?: string[], description?: string }
+```
+
+> Los stages son `intuicion / emergente / maduro` — no "borrador/ensayo".
+
+---
 
 ## Páginas existentes
+
 | Ruta | Archivo | Estado |
 |---|---|---|
-| `/` | `src/pages/index.astro` | Sección libreta rediseñada (dos columnas asimétricas); copy parcial en placeholders |
+| `/` | `src/pages/index.astro` | Home — copy parcialmente en placeholders |
 | `/jardin` | `src/pages/jardin.astro` | Funcional, lee `notas` dinámicamente |
-| `/notas/[id]` | `src/pages/notas/[id].astro` | Funcional con 8 componentes MDX registrados |
-| `/profesionales` | `src/pages/profesionales.astro` | Copy real (antes `/estudio`) |
-| `/profesionales/asomarse` | `src/pages/profesionales/asomarse.astro` | Estructura lista, copy en placeholders |
-| `/profesionales/reinventarse` | `src/pages/profesionales/reinventarse.astro` | Copy real, precio y fechas ilustrativas |
-| `/organizaciones` | `src/pages/organizaciones.astro` | Copy real, datos ⚠️ ilustrativos, Formspree ID pendiente |
+| `/notas/[id]` | `src/pages/notas/[id].astro` | Funcional con 8 componentes MDX |
+| `/el-nuevo-juego` | `src/pages/el-nuevo-juego.astro` | Página hub con dropdown a Personas y Organizaciones |
+| `/personas` | `src/pages/personas.astro` | Copy real (antes `/profesionales`) |
+| `/organizaciones` | `src/pages/organizaciones.astro` | Copy real, datos ⚠️ ilustrativos, Formspree pendiente |
 | `/newsletter` | `src/pages/newsletter.astro` | Copy real, URLs de ediciones individuales pendientes |
-| `/sobre` | `src/pages/sobre.astro` | Copy real, "Un poco de historia" placeholder |
+| `/sobre` | `src/pages/sobre.astro` | Copy real, sección "Un poco de historia" placeholder |
 | `/ahora` | `src/pages/ahora.astro` | Todo en placeholders |
 | `/colofon` | `src/pages/colofon.astro` | Completa |
-| `/privacidad` | `src/pages/privacidad.astro` | Completa (layout propio sin nav) |
-| `/aviso-legal` | `src/pages/aviso-legal.astro` | Completa (layout propio sin nav) |
+| `/privacidad` | `src/pages/privacidad.astro` | Completa (layout sin nav) |
+| `/aviso-legal` | `src/pages/aviso-legal.astro` | Completa (layout sin nav) |
 
-## Componentes MDX globales
-En `src/components/mdx/` — registrados en `[id].astro` via `<Content components={{...}} />`:
-- `EstadoBadge` — pildorita de estadio (intuicion/borrador/ensayo)
-- `MetaEntrada` — línea contextual completa
-- `Audiencia` — caja "Asumo que…" borde coral
-- `Duda` — caja "Lo que no tengo claro" borde mint
-- `NotaAlMargen` — lateral en desktop, inline en mobile
-- `Cita` — blockquote con atribución
-- `EntradaRelacionada` — card con datos auto-cargados por `id`
-- `Territorios` — badges con enlace a /jardin
+### Nav (definida en `Base.astro`)
+```
+Logo | La Libreta | Newsletter | El nuevo juego ▾ | Ahora | Sobre mí
+                                   └ Personas
+                                   └ Organizaciones
+```
+
+---
+
+## Componentes MDX (`src/components/mdx/`)
+
+Registrados en `notas/[id].astro` via `<Content components={{...}} />`:
+
+| Componente | Uso |
+|---|---|
+| `EstadoBadge` | Píldora de stage (intuicion / emergente / maduro) |
+| `MetaEntrada` | Línea contextual completa (fecha, stage, ámbito) |
+| `Audiencia` | Caja "Asumo que…" con borde lapis |
+| `Duda` | Caja "Lo que no tengo claro" con borde oro |
+| `NotaAlMargen` | Lateral en desktop, inline en mobile |
+| `Cita` | Blockquote con atribución estructurada |
+| `EntradaRelacionada` | Card con datos auto-cargados por `id` |
+| `Territorios` | Badges con enlace a /jardin |
 
 Referencia de uso: `src/content/cuaderno/_ejemplos.mdx`
 
-## Notas de contenido existentes
+### Componente compartido
+- `src/components/Antetitulo.astro` — antetítulo con marcador oro. Usar en páginas interiores.
+
+---
+
+## Notas publicadas
+
 - `src/content/notas/agencia-humana-ia.mdx` — única nota real publicada
 
-## Datos de contacto
+---
+
+## Datos de contacto (usar en páginas)
+
 - Email: `edutoledo@gmail.com`
 - LinkedIn: `https://www.linkedin.com/in/eduardotoledoinclan/`
 - Twitter/X: `https://x.com/eduardotoledo`
 - Substack: `https://eduardotoledo.substack.com`
+- Formspree: ID pendiente — sustituir `[FORMSPREE_ID]` en `/organizaciones`
+
+---
 
 ## Pendiente crítico (bloquea lanzamiento)
-1. **Formspree ID** en `/organizaciones` — sustituir `[FORMSPREE_ID]` por el real
-2. **Datos ilustrativos en `/organizaciones`** — fact-bar, 3 casos, 8 apariciones, precios FAQ
-3. **Datos ilustrativos en `/estudio/reinventarse`** — 3 casos, fechas de cohortes, precio
+
+1. **Formspree ID real** en `/organizaciones`
+2. **Datos ilustrativos ⚠️** en `/organizaciones` — fact-bar, 3 casos, apariciones, precios FAQ
+3. **Datos ilustrativos ⚠️** en `/personas` — casos, fechas de cohortes, precio
 
 ## Pendiente copy
-- **`/`** — hero, territorios intro, libreta título, newsletter, trabajo (7 placeholders)
-- **`/estudio/asomarse`** — todo el copy (subtítulo, manifiesto, para quién, 4 momentos, 3 formatos, CTA)
-- **`/sobre`** — sección "Un poco de historia"
-- **`/ahora`** — trabajando en, aprendiendo, viviendo, no haciendo
 
-## Pendiente contenido jardín
-- Nota `reshufle.mdx` — marco de anticipación estratégica
-- Nota `cuatro-posturas.mdx` — las cuatro posturas ante la IA
-- Nota `cuatro-mecanicas.mdx` — las cuatro mecánicas de reinvención
-- Añadir campo `description` a notas existentes (usado en index y cards)
+- `/` — hero, territorios intro, libreta título, newsletter, trabajo (varios placeholders)
+- `/sobre` — sección "Un poco de historia"
+- `/ahora` — trabajando en, aprendiendo, viviendo, no haciendo
+- URLs individuales de ediciones de newsletter (actualmente apuntan a home de Substack)
 
 ## Pendiente técnico
-- Plugin `@astrojs/sitemap` — robots.txt ya referencia sitemap.xml pero no se genera
-- Actualizar `public/llms.txt` — falta `/estudio` en la estructura del sitio
-- Rutas de territorio `/jardin/[territorio]` — los enlaces de territorios apuntan a `/jardin` por ahora
-- URLs individuales de ediciones de newsletter (actualmente todas apuntan a la home de Substack)
-- Añadir `description` al schema de `notas` en `content.config.ts` (ahora opcional)
+
+- Plugin `@astrojs/sitemap` — robots.txt referencia sitemap.xml pero no se genera
+- Actualizar `public/llms.txt` con la estructura de nav actual (`/el-nuevo-juego`, `/personas`)
+- Rutas de territorio `/jardin/[territorio]` — los enlaces de Territorios apuntan a `/jardin` por ahora
+- Migrar de `mi-libreta.vercel.app` a `eduardotoledo.com` y actualizar URLs en llms.txt y robots.txt
+- Añadir `description` al schema de `notas` (ahora solo en `ensayos`)
+
+## Pendiente contenido jardín
+
+- Nota `reshuffle.mdx` — marco de anticipación estratégica
+- Nota `cuatro-posturas.mdx` — las cuatro posturas ante la IA
+- Nota `cuatro-mecanicas.mdx` — las cuatro mecánicas de reinvención
+- Al menos una nota por cada uno de los seis ámbitos

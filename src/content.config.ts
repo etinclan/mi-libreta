@@ -22,4 +22,16 @@ const ensayos = defineCollection({
   }),
 });
 
-export const collections = { notas, ensayos };
+const cuaderno = defineCollection({
+  loader: glob({ pattern: '*.mdx', base: './src/content/cuaderno' }),
+  schema: z.object({
+    title: z.string(),
+    date: z.date(),
+    lecturaMin: z.number().optional(),
+    nota_autor: z.string().optional(),
+    estado: z.enum(['en-el-radar', 'investigando', 'asentada', 'relacionada', 'anticuada']).optional(),
+    tags: z.array(z.string()).optional(),
+  }),
+});
+
+export const collections = { notas, ensayos, cuaderno };

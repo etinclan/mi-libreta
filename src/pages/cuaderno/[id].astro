@@ -1,0 +1,285 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+import EstadoBadge from '../../components/mdx/EstadoBadge.astro';
+import MetaEntrada from '../../components/mdx/MetaEntrada.astro';
+import Audiencia from '../../components/mdx/Audiencia.astro';
+import Duda from '../../components/mdx/Duda.astro';
+import NotaAlMargen from '../../components/mdx/NotaAlMargen.astro';
+import Cita from '../../components/mdx/Cita.astro';
+import EntradaRelacionada from '../../components/mdx/EntradaRelacionada.astro';
+import Territorios from '../../components/mdx/Territorios.astro';
+
+export async function getStaticPaths() {
+  const entradas = await getCollection('cuaderno');
+  return entradas.map(e => ({
+    params: { id: e.id },
+    props: { entrada: e },
+  }));
+}
+
+const { entrada } = Astro.props;
+const { Content, headings } = await render(entrada);
+
+const dateStr = entrada.data.date.toLocaleDateString('es-MX', {
+  year: 'numeric', month: 'long', day: 'numeric',
+});
+
+const estadoLabels: Record<string, string> = {
+  'en-el-radar':  'En el radar',
+  'investigando': 'Investigando',
+  'asentada':     'Asentada',
+  'relacionada':  'Relacionada con otras',
+  'anticuada':    'Anticuada',
+};
+
+const h2s = headings.filter(h => h.depth === 2);
+---
+
+<Base title={`${entrada.data.title} · Cuaderno de Viaje`}>
+  <div class="cuaderno-layout">
+
+    <article>
+      <header>
+        <a href="/cuaderno" class="volver">← Cuaderno de Viaje</a>
+        <h1>{entrada.data.title}</h1>
+      </header>
+      <div class="body">
+        <Content components={{ EstadoBadge, MetaEntrada, Audiencia, Duda, NotaAlMargen, Cita, EntradaRelacionada, Territorios }} />
+      </div>
+    </article>
+
+    <aside class="sidebar">
+
+      {/* Índice */}
+      <div class="sidebar-bloque">
+        <p class="sidebar-titulo">Índice</p>
+        {h2s.length > 0
+          ? <nav class="indice"><ul>{h2s.map(h => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ul></nav>
+          : <p class="vacio">—</p>
+        }
+      </div>
+
+      {/* Publicado + lectura — sin título */}
+      <div class="sidebar-bloque sidebar-meta">
+        <p class="meta-fecha">{dateStr}</p>
+        {entrada.data.lecturaMin && (
+          <p class="meta-lectura">{entrada.data.lecturaMin} min de lectura</p>
+        )}
+      </div>
+
+      {/* Nota del autor */}
+      <div class="sidebar-bloque">
+        <p class="sidebar-titulo">Comentario del autor</p>
+        {entrada.data.nota_autor
+          ? <p class="nota-autor">{entrada.data.nota_autor}</p>
+          : <p class="vacio">—</p>
+        }
+      </div>
+
+      {/* Estado de esta idea */}
+      <div class="sidebar-bloque">
+        <p class="sidebar-titulo">Estado de esta idea</p>
+        {entrada.data.estado
+          ? <span class={`estado-pill ${entrada.data.estado}`}>{estadoLabels[entrada.data.estado]}</span>
+          : <p class="vacio">—</p>
+        }
+      </div>
+
+    </aside>
+
+  </div>
+</Base>
+
+<style>
+  .cuaderno-layout {
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    gap: 80px;
+    align-items: start;
+  }
+
+  /* Article */
+  .volver {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--etcom-humo);
+    text-decoration: none;
+    margin-bottom: 28px;
+    transition: color 0.12s;
+  }
+  .volver:hover { color: var(--etcom-lapis-vivo); }
+
+  h1 {
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-xl);
+    font-weight: 500;
+    font-variation-settings: 'SOFT' 30, 'WONK' 1;
+    line-height: 1.1;
+    color: var(--etcom-lapis-noche);
+    margin-bottom: 40px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--etcom-oro);
+  }
+
+  .body {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-base);
+    line-height: 1.8;
+    color: var(--etcom-lapis-noche);
+  }
+  .body :global(h2) {
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-xl);
+    font-weight: 500;
+    font-variation-settings: 'SOFT' 30, 'WONK' 1;
+    color: var(--etcom-lapis-noche);
+    line-height: 1.1;
+    margin: 2.5em 0 0.8em;
+  }
+  .body :global(h3) {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--etcom-humo);
+    margin: 2em 0 0.8em;
+  }
+  .body :global(p)  { margin-bottom: 1.5em; }
+  .body :global(a) {
+    color: var(--etcom-lapis);
+    text-decoration: underline;
+    text-decoration-color: var(--etcom-oro);
+    text-underline-offset: 3px;
+  }
+  .body :global(a:hover) { color: var(--etcom-lapis-vivo); }
+  .body :global(blockquote) {
+    border-left: 3px solid var(--etcom-oro);
+    padding: 1em 0 1em 1.5em;
+    margin: 1.5em 0;
+  }
+  .body :global(blockquote p) {
+    font-size: var(--font-size-md);
+    line-height: 1.5;
+    margin: 0;
+    font-style: italic;
+    color: var(--etcom-lapis);
+  }
+  .body :global(ul), .body :global(ol) {
+    padding-left: 1.5em;
+    margin-bottom: 1.5em;
+  }
+  .body :global(li) {
+    margin-bottom: 0.5em;
+    line-height: 1.8;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    position: sticky;
+    top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .sidebar-bloque {
+    border: 1px solid var(--etcom-oro-suave);
+    border-top: 3px solid var(--etcom-oro);
+    border-radius: 4px;
+    padding: 16px 18px;
+    background: var(--etcom-vitela-claro);
+    margin-bottom: 12px;
+  }
+  .sidebar-titulo {
+    font-family: var(--font-sans);
+    font-size: 0.5625rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--etcom-lapis);
+    margin-bottom: 10px;
+  }
+
+  /* Índice */
+  .indice ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .indice a {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-sm);
+    color: var(--etcom-humo);
+    text-decoration: none;
+    line-height: 1.4;
+    display: block;
+    transition: color 0.12s;
+  }
+  .indice a:hover { color: var(--etcom-lapis-vivo); }
+
+  /* Meta — sin título */
+  .sidebar-meta { border-top-color: transparent; background: transparent; border-color: var(--etcom-oro-suave); }
+  .meta-fecha {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    color: var(--etcom-humo);
+    letter-spacing: 0.06em;
+  }
+  .meta-lectura {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    color: var(--etcom-humo-claro);
+    letter-spacing: 0.06em;
+    margin-top: 4px;
+  }
+
+  .vacio {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    color: var(--etcom-humo-claro);
+    letter-spacing: 0.06em;
+  }
+
+  /* Nota del autor */
+  .nota-autor {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-sm);
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--etcom-humo);
+  }
+
+  /* Estado */
+  .estado-pill {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.625rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 3px;
+    background: var(--etcom-humo-claro);
+    color: var(--etcom-lapis);
+  }
+  .estado-pill.asentada    { background: var(--mora); color: var(--pergamino); }
+  .estado-pill.investigando { background: var(--rojo); color: var(--pergamino); }
+  .estado-pill.en-el-radar { background: var(--niebla); color: var(--mora); }
+
+  @media (max-width: 800px) {
+    .cuaderno-layout {
+      grid-template-columns: 1fr;
+    }
+    .sidebar {
+      position: static;
+      order: -1;
+    }
+  }
+</style>
