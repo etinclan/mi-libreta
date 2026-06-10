@@ -12,10 +12,10 @@ La IA reescribe las reglas del juego. La ventaja ya no es producir más (lógica
 ## Trabajo
 - Marcos de trabajo: mapas conceptuales para leer el nuevo juego de la IA
 - Herramientas: diagnósticos, canvas, checklists y prompts accionables
-- Programas: The Reframe Game, Reframe yourself, Reframe business
+- Programas: El gran reajuste, Reframe yourself, Reframe business
 
 ## Programas
-- The Reframe Game: metodología en 4 pasos para dominar el nuevo juego de la IA
+- El gran reajuste (antes The Reframe Game): juego experiencial en 4 pasos para aprender a ganar con las nuevas reglas de la IA
 - Reframe yourself: programa individual para rediseñar la relevancia profesional
 - Reframe business: programa para organizaciones y equipos
 

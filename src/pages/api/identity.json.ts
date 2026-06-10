@@ -7,7 +7,7 @@ export async function GET() {
     location: "Madrid, España",
     thesis: "La IA reescribe las reglas del juego. La ventaja ya no es producir más, sino rediseñar la relevancia.",
     programs: [
-      { name: "The Reframe Game", url: "/programas#reframe-game", description: "Metodología en 4 pasos para dominar el nuevo juego de la IA" },
+      { name: "El gran reajuste", url: "/programas#reframe-game", description: "Juego experiencial en 4 pasos para aprender a ganar con las nuevas reglas de la IA. Un juego para ver quién gana poder cuando la IA reescribe las reglas." },
       { name: "Reframe yourself", url: "/programas#reframe-yourself", description: "Programa individual de rediseño de relevancia profesional" },
       { name: "Reframe business", url: "/programas#reframe-business", description: "Programa para organizaciones y equipos" }
     ],
