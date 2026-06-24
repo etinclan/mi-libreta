@@ -239,6 +239,8 @@ nav.main a:hover{color:var(--text); background:var(--surface)}
 .email h3{color:var(--mora)}
 .email form{display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.6rem}
 .email input[type=email]{flex:1; min-width:220px; font-family:var(--font-ui); font-size:.95rem; padding:.75rem .9rem; border:1px solid var(--border); border-radius:var(--radius); background:#fff}
+.email .news-opt{display:flex; align-items:flex-start; gap:.5rem; font-family:var(--font-ui); font-size:.85rem; color:var(--text); margin:.7rem 0 0; cursor:pointer}
+.email .news-opt input{margin-top:.15rem; accent-color:var(--coral)}
 .email .privacy{font-family:var(--font-ui); font-size:.74rem; color:var(--muted); margin:.6rem 0 0}
 .email .done{font-family:var(--font-ui); color:var(--mint-deep); font-weight:600; margin-top:.4rem}
 
@@ -455,14 +457,15 @@ footer.site a:hover{color:var(--text)}
 
     <!-- Email opcional -->
     <div class="email" id="email-box">
-      <h3>Recibir ficha completa</h3>
+      <h3>Recibir ficha completa por email</h3>
       <p style="margin:.2rem 0 0; font-size:.98rem">Déjanos tu email (opcional) y te enviamos la ficha ampliada de tu cultura de IA y próximos pasos.</p>
       <form id="email-form" novalidate>
         <input type="email" id="email-input" placeholder="tu@email.com" aria-label="Tu email" required />
-        <button class="btn btn-primary" type="submit">Enviar</button>
+        <button class="btn btn-primary" type="submit">Enviar ficha</button>
       </form>
+      <label class="news-opt"><input type="checkbox" id="email-news" /> Quiero recibir también la newsletter de Eduardo Toledo.</label>
       <p class="privacy">No bloquea tu resultado. No compartimos tu email. Puedes hacer el quiz sin dejar ningún dato.</p>
-      <p class="done" id="email-done" hidden>¡Gracias! Te escribiremos pronto.</p>
+      <p class="done" id="email-done" hidden>¡Gracias! Si todo está configurado, recibirás tu ficha en unos minutos. Revisa también spam.</p>
     </div>
 
     <div class="result-actions">
@@ -637,6 +640,32 @@ function track(event, props){
 }
 
 /* ===========================================================================
+   BACKEND (Supabase) — estadísticas anónimas + envío de ficha por email.
+   La anon key es pública por diseño: RLS solo permite INSERT en quiz_responses
+   y no permite ninguna lectura. Si dejas SUPABASE_URL vacío, la app sigue
+   funcionando sin backend (no guarda estadística ni envía email).
+   =========================================================================== */
+const SUPABASE_URL = "https://fyjdtpmabbggctvddomn.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ5amR0cG1hYmJnZ2N0dmRkb21uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIzMDQ5OTUsImV4cCI6MjA5Nzg4MDk5NX0.WYjgeNt0-w6TgwxvfMw1wgOXDYD7_CD-fDvkEC4qWGI";
+
+// Guarda la respuesta (anónima) para estadística agregada.
+function saveResponse(res){
+  if(!SUPABASE_URL) return;
+  try{
+    fetch(SUPABASE_URL+"/rest/v1/quiz_responses", {
+      method:"POST",
+      headers:{ "apikey":SUPABASE_ANON_KEY, "Authorization":"Bearer "+SUPABASE_ANON_KEY,
+                "Content-Type":"application/json", "Prefer":"return=minimal" },
+      body: JSON.stringify({
+        result_culture: res.primary, mode: res.mode, transit: res.transit,
+        scores: res.scores, answers: state.answers,
+        device: deviceType(), source: location.host || null
+      })
+    }).catch(function(){});
+  }catch(e){}
+}
+
+/* ===========================================================================
    ESTADO + LÓGICA
    =========================================================================== */
 const state = { current:0, answers:new Array(QUIZ_DATA.questions.length).fill(null), startedAt:null };
@@ -753,6 +782,7 @@ function finishQuiz(){
   const secs = state.startedAt ? Math.round((nowMs()-state.startedAt)/1000) : null;
   track("quiz_completed", {result:res.primary, mode:res.mode, scores:res.scores, seconds:secs, device:deviceType()});
   track("result_viewed", {result:res.primary, mode:res.mode});
+  saveResponse(res);
 }
 
 function renderResult(res){
@@ -826,17 +856,24 @@ function flashShare(msg){
 }
 
 /* ---- Email opcional ---- */
-// Para activar el envío real: crea un formulario en https://formspree.io y pega aquí su endpoint.
-const FORMSPREE_ENDPOINT = ""; // p.ej. "https://formspree.io/f/xxxxxxx"
+// Envía la ficha por email vía la Edge Function de Supabase (enviar-ficha).
+// El envío real del correo requiere configurar RESEND_API_KEY + dominio (ver README).
+// Aunque el correo no salga, el lead queda guardado y el formulario muestra el "gracias".
 function handleEmail(e){
   e.preventDefault();
-  const input=$("#email-input"), val=(input.value||"").trim();
+  const input=$("#email-input"), val=(input.value||"").trim().toLowerCase();
   if(!val || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(val)){ input.focus(); input.reportValidity && input.reportValidity(); return; }
-  track("email_submitted", {result:state.lastResult?state.lastResult.res.primary:null});
-  const reveal=()=>{ $("#email-form").hidden=true; $("#email-done").hidden=false; };
-  if(FORMSPREE_ENDPOINT){
-    fetch(FORMSPREE_ENDPOINT,{method:"POST", headers:{"Accept":"application/json"}, body:(()=>{const f=new FormData(); f.append("email",val); f.append("resultado", state.lastResult?state.lastResult.res.primary:""); return f;})()})
-      .then(reveal).catch(reveal);
+  const wantsNews = !!($("#email-news") && $("#email-news").checked);
+  const culture = state.lastResult ? state.lastResult.res.primary : null;
+  track("email_submitted", {result:culture, newsletter:wantsNews});
+  const reveal=()=>{ $("#email-form").hidden=true; $("#email-news").parentNode.style.display="none"; $("#email-done").hidden=false; };
+  if(SUPABASE_URL){
+    fetch(SUPABASE_URL+"/functions/v1/enviar-ficha", {
+      method:"POST",
+      headers:{ "apikey":SUPABASE_ANON_KEY, "Authorization":"Bearer "+SUPABASE_ANON_KEY, "Content-Type":"application/json" },
+      body: JSON.stringify({ email:val, result_culture:culture,
+        scores: state.lastResult?state.lastResult.res.scores:null, wants_newsletter:wantsNews })
+    }).then(reveal).catch(reveal);
   } else { reveal(); }
 }
 
