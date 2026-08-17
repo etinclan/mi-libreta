@@ -6,19 +6,70 @@ import Base from '../layouts/Base.astro';
   <div class="marcos-page">
 
     <header class="page-header">
-      <p class="eyebrow">MARCOS DE TRABAJO</p>
-      <h1>Marcos para pensar mejor cuando el sistema cambia</h1>
-      <p class="subtitulo">Mapas conceptuales para leer el trabajo, el valor y tu relevancia con las nuevas reglas de la IA. En construcción.</p>
+      <p class="eyebrow">MARCOS DE TRABAJO · BIBLIOTECA DE MAPAS</p>
+      <h1>Mapas para moverte en la<br/><em>nueva era post-Internet</em></h1>
+      <div class="intro">
+        <p>Aquí no encontrarás tendencias de IA. Encontrarás los marcos que uso para leer el trabajo, el valor y la relevancia con las reglas nuevas.</p>
+        <p class="intro-cita">Un creador tiene temas. Un autor tiene sistema.</p>
+        <p>Estos seis marcos forman un sistema para entender cómo la IA reordena tareas, decisiones, coordinación y valor — y dónde queda tu lugar. Cada uno nombra un problema, te dice cuándo usarlo y conecta con una lectura, un artefacto o un programa.</p>
+      </div>
     </header>
 
-    <section aria-label="en construcción" class="construccion-sec">
-      <div class="construccion-card">
-        <span class="construccion-icono" aria-hidden="true">◎</span>
-        <h2>Los mapas están en camino</h2>
-        <p>Estoy cartografiando los marcos conceptuales más útiles para navegar el nuevo juego de la IA. Pronto encontrarás aquí los mapas para leer cómo cambian el trabajo, el valor y tu relevancia.</p>
-        <a href="/" class="volver-link">← Volver al inicio</a>
-      </div>
+    <section class="marcos-lista" aria-label="Biblioteca de marcos">
+
+      <article class="marco" id="gran-reajuste">
+        <div class="marco-num">MARCO 01</div>
+        <h2>El gran reajuste</h2>
+        <p class="marco-problema"><strong>El problema que resuelve:</strong> que ser más eficiente ya no te haga más relevante. El viejo juego premiaba producir y optimizar; el nuevo premia leer sistemas, aprender en loops y rediseñar tu relevancia.</p>
+        <a href="/programas" class="marco-link">Programa una de las próximas sesiones →</a>
+      </article>
+
+      <article class="marco" id="economia-autores">
+        <div class="marco-num">MARCO 02</div>
+        <h2>Economía de los autores</h2>
+        <p class="marco-problema"><strong>El problema que resuelve:</strong> que tu visibilidad dependa del ranking. En Search la estrategia era atraer demanda; en la economía de los autores es formar parte del contexto desde el que otros piensan, deciden y actúan.</p>
+        <a href="/cuaderno" class="marco-link">Lectura relacionada: La IA, el nuevo Google →</a>
+      </article>
+
+      <article class="marco" id="messy-jobs">
+        <div class="marco-num">MARCO 03</div>
+        <h2>Messy jobs</h2>
+        <p class="marco-problema">¿Qué pasa con tu trabajo cuando la IA abarata la cognición? Todo lo que sustentaba a los trabajadores del conocimiento —pensar, redactar, crear— se vuelve barato y abundante. El antídoto son los trabajos «desordenados», o messy jobs: los que requieren contexto, relación y criterio situado.</p>
+        <a href="/herramientas" class="marco-link">Descubre en qué nivel te encuentras →</a>
+      </article>
+
+      <article class="marco" id="how-not-to-use-ai">
+        <div class="marco-num">MARCO 04</div>
+        <h2>How not to use AI</h2>
+        <p class="marco-problema"><strong>El problema que resuelve:</strong> tener experiencia sin sistema: contenido sin tesis y autoridad sin oferta. Es el método para transformar tu experiencia en una marca con tesis, lenguaje propio, artefactos y productos.</p>
+        <a href="/programas" class="marco-link">Programa relacionado: Rediseño profesional →</a>
+      </article>
+
+      <article class="marco" id="4-estilos-juego">
+        <div class="marco-num">MARCO 05</div>
+        <h2>Los 4 estilos de juego</h2>
+        <p class="marco-problema">Ante el nuevo juego, no todos responden igual. Hay cuatro posiciones posibles: el que optimiza el viejo juego, el que acumula herramientas, el que construye criterio y el que rediseña el sistema. Solo una de las cuatro posiciona a largo plazo.</p>
+        <a href="/herramientas" class="marco-link">Diagnóstico: ¿cuál es tu estilo? →</a>
+      </article>
+
     </section>
+
+    <blockquote class="cita-cierre">
+      <p>«No estamos entrando en la era de la IA. Estamos entrando en la era de la recoordinación.»</p>
+    </blockquote>
+
+    <div class="nota-cierre">
+      <p>Las herramientas cambian. Los prompts caducan. Los modelos se sustituyen. Los mapas para pensar, permanecen.</p>
+    </div>
+
+    <div class="ctas-cierre">
+      <p class="ctas-titulo">¿Quieres aplicar estos mapas?</p>
+      <p>Llévalos a tu trabajo o a tu equipo: ese es exactamente el papel de mis programas.</p>
+      <div class="ctas-botones">
+        <a href="/programas" class="cta-btn">Ver programas y workshops →</a>
+        <a href="/herramientas" class="cta-btn cta-btn--ghost">Explorar los artefactos →</a>
+      </div>
+    </div>
 
   </div>
 </Base>
@@ -27,12 +78,14 @@ import Base from '../layouts/Base.astro';
   .marcos-page {
     display: flex;
     flex-direction: column;
-    gap: 64px;
+    gap: 0;
     max-width: 760px;
   }
 
   .page-header {
     padding-top: 24px;
+    padding-bottom: 64px;
+    border-bottom: 1px solid var(--linea);
   }
 
   .eyebrow {
@@ -42,7 +95,7 @@ import Base from '../layouts/Base.astro';
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--rojo);
-    margin-bottom: 16px;
+    margin-bottom: 20px;
   }
 
   h1 {
@@ -51,68 +104,177 @@ import Base from '../layouts/Base.astro';
     font-weight: 500;
     line-height: 1.1;
     color: var(--mora);
-    margin-bottom: 20px;
+    margin-bottom: 32px;
   }
 
-  .subtitulo {
-    font-family: var(--font-serif-text);
-    font-size: var(--font-size-base);
-    font-style: italic;
-    line-height: 1.75;
-    color: var(--meta);
-    max-width: 56ch;
-  }
+  h1 em { font-style: italic; color: var(--rojo); }
 
-  .construccion-card {
-    border: 1px solid var(--linea);
-    border-top: 3px solid var(--rojo);
-    border-radius: 4px;
-    padding: 48px;
-    background: var(--niebla);
+  .intro {
+    max-width: 62ch;
     display: flex;
     flex-direction: column;
     gap: 16px;
-    max-width: 600px;
   }
 
-  .construccion-icono {
-    font-size: 2rem;
+  .intro p {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-base);
+    line-height: 1.75;
+    color: var(--tinta);
+  }
+
+  .intro-cita {
+    font-style: italic;
+    color: var(--mora) !important;
+    font-size: var(--font-size-md) !important;
+    border-left: 3px solid var(--rojo);
+    padding-left: 20px;
+    margin: 8px 0;
+  }
+
+  /* MARCOS LISTA */
+  .marcos-lista {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .marco {
+    padding: 48px 0;
+    border-bottom: 1px solid var(--linea);
+  }
+
+  .marco-num {
+    font-family: var(--font-sans);
+    font-size: 0.5625rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
     color: var(--rojo);
-    line-height: 1;
+    margin-bottom: 12px;
   }
 
   h2 {
     font-family: var(--font-serif-display);
-    font-size: var(--font-size-md);
+    font-size: var(--font-size-lg);
     font-weight: 500;
+    line-height: 1.15;
     color: var(--mora);
-    line-height: 1.2;
+    margin-bottom: 16px;
+    font-style: italic;
   }
 
-  .construccion-card p {
+  .marco-problema {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-base);
+    line-height: 1.75;
+    color: var(--tinta);
+    max-width: 58ch;
+    margin-bottom: 20px;
+  }
+
+  .marco-link {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--rojo);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(217,79,42,0.3);
+    padding-bottom: 2px;
+    transition: border-color 0.12s;
+  }
+
+  .marco-link:hover { border-color: var(--rojo); }
+
+  /* CIERRE */
+  .cita-cierre {
+    margin: 64px 0 0;
+    padding: 32px 40px;
+    border-left: 3px solid var(--mora);
+    background: var(--niebla);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .cita-cierre p {
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-md);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--mora);
+  }
+
+  .nota-cierre {
+    padding: 32px 0;
+    border-bottom: 1px solid var(--linea);
+  }
+
+  .nota-cierre p {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-sm);
     line-height: 1.75;
-    color: var(--tinta);
+    color: var(--meta);
     max-width: 52ch;
+    font-style: italic;
   }
 
-  .volver-link {
+  .ctas-cierre {
+    padding: 48px 0 24px;
+  }
+
+  .ctas-titulo {
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-md);
+    font-weight: 500;
+    color: var(--mora);
+    margin-bottom: 12px;
+  }
+
+  .ctas-cierre > p:last-of-type {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-base);
+    line-height: 1.75;
+    color: var(--tinta);
+    margin-bottom: 28px;
+  }
+
+  .ctas-botones {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .cta-btn {
     display: inline-block;
-    margin-top: 8px;
+    background: var(--rojo);
+    color: var(--pergamino);
     font-family: var(--font-sans);
     font-size: 0.6875rem;
-    color: var(--mora);
-    text-decoration: none;
-    letter-spacing: 0.1em;
+    font-weight: 500;
     text-transform: uppercase;
-    border-bottom: 1px solid var(--mora);
-    padding-bottom: 2px;
-    transition: color 0.12s, border-color 0.12s;
+    letter-spacing: 0.08em;
+    padding: 14px 28px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background 0.15s;
   }
 
-  .volver-link:hover {
-    color: var(--rojo);
-    border-color: var(--rojo);
+  .cta-btn:hover { background: var(--rojo-deep); }
+
+  .cta-btn--ghost {
+    background: transparent;
+    color: var(--mora);
+    border: 1px solid var(--linea);
+  }
+
+  .cta-btn--ghost:hover {
+    background: var(--niebla);
+    background: transparent;
+    border-color: var(--mora);
+  }
+
+  @media (max-width: 600px) {
+    .ctas-botones { flex-direction: column; }
   }
 </style>

@@ -2,37 +2,107 @@
 import Base from '../layouts/Base.astro';
 ---
 
-<Base title="Herramientas · Eduardo Toledo">
-  <div class="herramientas-page">
+<Base title="Artefactos · Eduardo Toledo">
+  <div class="artefactos-page">
 
     <header class="page-header">
-      <p class="eyebrow">HERRAMIENTAS</p>
-      <h1>Herramientas para pensar, decidir y trabajar en la era de la IA</h1>
-      <p class="subtitulo">Diagnósticos, canvas, checklists y prompts. En construcción.</p>
+      <p class="eyebrow">ARTEFACTOS · RECURSOS PARA USAR Y GUARDAR</p>
+      <h1>Herramientas para pensar, decidir<br/>y trabajar en la era de la IA</h1>
+      <p class="subtitulo">No quiero que leas mi contenido. Quiero que uses mis mapas. Cada artefacto tiene nombre, forma y ritual: se guarda, se imprime, se lleva a una reunión.</p>
+      <p class="cita-intro"><em>«Si no se guarda, solo pasó por el feed.»</em></p>
     </header>
 
-    <section aria-label="en construcción" class="construccion-sec">
-      <div class="construccion-card">
-        <span class="construccion-icono" aria-hidden="true">◆</span>
-        <h2>Las herramientas están llegando</h2>
-        <p>Diagnósticos, canvas, checklists y prompts para usar y guardar. No para leerme: para que pienses, decidas y trabajes mejor. Estarán disponibles aquí pronto.</p>
-        <a href="/" class="volver-link">← Volver al inicio</a>
-      </div>
+    <section class="filtros" aria-label="Categorías">
+      <span class="filtro filtro--activo">Todos</span>
+      <span class="filtro">Profesionales</span>
+      <span class="filtro">Negocios</span>
+      <span class="filtro">Productividad</span>
     </section>
+
+    <section class="artefactos-grid" aria-label="Artefactos disponibles">
+
+      <article class="artefacto artefacto--disponible">
+        <div class="artefacto-meta">
+          <span class="artefacto-cat">PROFESIONALES</span>
+        </div>
+        <h2>¿Acabará la IA con mi trabajo?</h2>
+        <p class="artefacto-desc">Un diagnóstico para saber qué parte de tu trabajo se automatiza, qué parte se amplifica y qué parte se vuelve más valiosa con la IA.</p>
+        <a href="/programas" class="artefacto-cta">Encuentra tu reajuste →</a>
+      </article>
+
+      <article class="artefacto artefacto--disponible">
+        <div class="artefacto-meta">
+          <span class="artefacto-cat">PROFESIONALES</span>
+        </div>
+        <h2>Mi profesión del futuro</h2>
+        <p class="artefacto-desc">Canvas para mapear cómo cambia tu rol, qué skills ganan peso y cómo rediseñar tu oferta profesional para el nuevo juego.</p>
+        <a href="/programas" class="artefacto-cta">Ver artefacto →</a>
+      </article>
+
+      <article class="artefacto artefacto--proximamente">
+        <div class="artefacto-meta">
+          <span class="artefacto-cat">NEGOCIOS</span>
+          <span class="artefacto-badge">Próximamente</span>
+        </div>
+        <h2>¿Cómo me afecta esta noticia?</h2>
+        <p class="artefacto-desc">Plantilla para analizar noticias de IA y traducirlas a decisiones concretas para tu negocio o sector.</p>
+      </article>
+
+      <article class="artefacto artefacto--proximamente">
+        <div class="artefacto-meta">
+          <span class="artefacto-cat">NEGOCIOS</span>
+          <span class="artefacto-badge">Próximamente</span>
+        </div>
+        <h2>Mapa de fricciones de coordinación</h2>
+        <p class="artefacto-desc">Dónde se pierde tiempo en reuniones, aprobaciones, búsquedas y handoffs — y cómo rediseñarlos AI-native.</p>
+      </article>
+
+      <article class="artefacto artefacto--proximamente">
+        <div class="artefacto-meta">
+          <span class="artefacto-cat">PRODUCTIVIDAD</span>
+          <span class="artefacto-badge">Próximamente</span>
+        </div>
+        <h2>Sistema de decisión con IA</h2>
+        <p class="artefacto-desc">Checklist para decidir cuándo usar IA, cuándo no usarla, y cómo mantener tu criterio en el loop.</p>
+      </article>
+
+      <article class="artefacto artefacto--proximamente">
+        <div class="artefacto-meta">
+          <span class="artefacto-cat">PRODUCTIVIDAD</span>
+          <span class="artefacto-badge">Próximamente</span>
+        </div>
+        <h2>Prompt de contexto personal</h2>
+        <p class="artefacto-desc">Plantilla para construir tu contexto reutilizable con la IA: quién eres, cómo piensas, qué necesitas que recuerde.</p>
+      </article>
+
+    </section>
+
+    <div class="suscripcion-banner">
+      <div class="suscripcion-inner">
+        <p class="suscripcion-titulo">Cada artefacto, en tu bandeja en cuanto salga</p>
+        <p class="suscripcion-desc">Los artefactos se están terminando de construir. Suscríbete y te llega cada uno el día que se publique.</p>
+        <div class="suscripcion-ctas">
+          <a href="https://eduardotoledo.substack.com/subscribe" target="_blank" rel="noopener" class="cta-btn">Suscríbete a la newsletter →</a>
+          <a href="/marcos" class="cta-btn cta-btn--ghost">Ver los marcos detrás →</a>
+        </div>
+      </div>
+    </div>
 
   </div>
 </Base>
 
 <style>
-  .herramientas-page {
+  .artefactos-page {
     display: flex;
     flex-direction: column;
-    gap: 64px;
-    max-width: 760px;
+    gap: 0;
   }
 
   .page-header {
     padding-top: 24px;
+    padding-bottom: 48px;
+    max-width: 720px;
+    border-bottom: 1px solid var(--linea);
   }
 
   .eyebrow {
@@ -42,7 +112,7 @@ import Base from '../layouts/Base.astro';
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--rojo);
-    margin-bottom: 16px;
+    margin-bottom: 20px;
   }
 
   h1 {
@@ -57,62 +127,205 @@ import Base from '../layouts/Base.astro';
   .subtitulo {
     font-family: var(--font-serif-text);
     font-size: var(--font-size-base);
-    font-style: italic;
     line-height: 1.75;
-    color: var(--meta);
-    max-width: 56ch;
+    color: var(--tinta);
+    max-width: 58ch;
+    margin-bottom: 12px;
   }
 
-  .construccion-card {
+  .cita-intro {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-sm);
+    color: var(--meta);
+  }
+
+  /* FILTROS */
+  .filtros {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--linea);
+  }
+
+  .filtro {
+    font-family: var(--font-sans);
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 3px;
     border: 1px solid var(--linea);
-    border-top: 3px solid var(--rojo);
-    border-radius: 4px;
-    padding: 48px;
-    background: var(--niebla);
+    color: var(--meta);
+    cursor: pointer;
+    transition: all 0.12s;
+  }
+
+  .filtro--activo,
+  .filtro:hover {
+    background: var(--mora);
+    color: var(--pergamino);
+    border-color: var(--mora);
+  }
+
+  /* GRID */
+  .artefactos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--linea);
+    border-bottom: 1px solid var(--linea);
+    margin-bottom: 0;
+  }
+
+  .artefacto {
+    background: var(--color-bg);
+    padding: 40px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    max-width: 600px;
+    gap: 12px;
   }
 
-  .construccion-icono {
-    font-size: 2rem;
+  .artefacto--proximamente {
+    opacity: 0.6;
+  }
+
+  .artefacto-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .artefacto-cat {
+    font-family: var(--font-sans);
+    font-size: 0.5625rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
     color: var(--rojo);
-    line-height: 1;
+  }
+
+  .artefacto-badge {
+    font-family: var(--font-sans);
+    font-size: 0.5rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 2px;
+    border: 1px solid var(--linea);
+    color: var(--meta);
   }
 
   h2 {
     font-family: var(--font-serif-display);
     font-size: var(--font-size-md);
     font-weight: 500;
+    font-style: italic;
+    line-height: 1.2;
     color: var(--mora);
+  }
+
+  .artefacto-desc {
+    font-family: var(--font-serif-text);
+    font-size: var(--font-size-sm);
+    line-height: 1.7;
+    color: var(--tinta);
+    flex: 1;
+  }
+
+  .artefacto-cta {
+    font-family: var(--font-sans);
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--rojo);
+    text-decoration: none;
+    margin-top: 8px;
+    transition: opacity 0.12s;
+  }
+
+  .artefacto-cta:hover { opacity: 0.7; }
+
+  /* SUSCRIPCIÓN */
+  .suscripcion-banner {
+    background: var(--mora);
+    margin-left: -80px;
+    margin-right: -80px;
+    padding: 64px 80px;
+  }
+
+  .suscripcion-inner {
+    max-width: 640px;
+  }
+
+  .suscripcion-titulo {
+    font-family: var(--font-serif-display);
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    font-style: italic;
+    color: var(--pergamino);
+    margin-bottom: 12px;
     line-height: 1.2;
   }
 
-  .construccion-card p {
+  .suscripcion-desc {
     font-family: var(--font-serif-text);
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-base);
     line-height: 1.75;
-    color: var(--tinta);
+    color: rgba(246,241,232,0.75);
+    margin-bottom: 28px;
     max-width: 52ch;
   }
 
-  .volver-link {
-    display: inline-block;
-    margin-top: 8px;
-    font-family: var(--font-sans);
-    font-size: 0.6875rem;
-    color: var(--mora);
-    text-decoration: none;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border-bottom: 1px solid var(--mora);
-    padding-bottom: 2px;
-    transition: color 0.12s, border-color 0.12s;
+  .suscripcion-ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
   }
 
-  .volver-link:hover {
-    color: var(--rojo);
-    border-color: var(--rojo);
+  .cta-btn {
+    display: inline-block;
+    background: var(--rojo);
+    color: var(--pergamino);
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 14px 28px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+
+  .cta-btn:hover { background: var(--rojo-deep); }
+
+  .cta-btn--ghost {
+    background: transparent;
+    color: var(--pergamino);
+    border: 1px solid rgba(246,241,232,0.3);
+  }
+
+  .cta-btn--ghost:hover {
+    border-color: var(--pergamino);
+  }
+
+  @media (max-width: 767px) {
+    .suscripcion-banner {
+      margin-left: -24px;
+      margin-right: -24px;
+      padding: 48px 24px;
+    }
+
+    .artefactos-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .artefacto {
+      padding: 28px 24px;
+    }
   }
 </style>
