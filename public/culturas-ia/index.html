@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Quiz Cultura de IA: descubre si tu organización es AI Follower, AI Forward, AI First o AI Native</title>
+<meta name="description" content="Responde 10 preguntas y descubre qué cultura de IA domina en tu organización." />
+
+<!-- Open Graph / compartir -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="¿Qué cultura de IA domina en tu organización?" />
+<meta property="og:description" content="Responde 10 preguntas y descubre si tu organización es AI Follower, AI Forward, AI First o AI Native." />
+<meta property="og:url" content="https://eduardotoledo.com/culturas-ia/" />
+<meta property="og:image" content="https://eduardotoledo.com/culturas-ia/og.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="¿Qué cultura de IA domina en tu organización?" />
+<meta name="twitter:description" content="Responde 10 preguntas y descubre tu cultura de IA: Follower, Forward, First o Native." />
+<meta name="twitter:image" content="https://eduardotoledo.com/culturas-ia/og.png" />
+<link rel="canonical" href="https://eduardotoledo.com/culturas-ia/" />
+
+<!-- Tipografía -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+/* ===========================================================================
+   AI Culture Quiz — estilo editorial ETCOM (paleta del PRD)
+   =========================================================================== */
+:root{
+  /* Paleta «Explorer + Sage · Disruptiva» (moodboard) */
+  --paper:#F6F1E8;        /* pergamino cálido */
+  --surface:#FCFAF4;      /* superficie elevada crema */
+  --lavender-pale:#E7E3F2;/* niebla lunar */
+  --lavender:#B9AFD8;     /* lavanda mineral */
+  --quartz:#D8D2E3;       /* cuarzo humo */
+  --border:#E6DFD0;       /* ribete sutil */
+  --border-lav:#D8D2E3;
+
+  --text:#26242E;         /* tinta cálida */
+  --muted:#6E6A78;        /* gris malva */
+  --mora:#3B1E54;         /* mora profunda (bloques de impacto) */
+  --navy:#3B1E54;         /* alias: dominante oscuro = mora */
+  --void:#26242E;         /* tinta cálida (impacto más oscuro) */
+
+  --coral:#D94F2A;        /* rojo energía (acento principal / CTA) */
+  --coral-deep:#B23B1A;   /* hover rojo */
+  --coral-pale:#F7E0D7;   /* rojo pálido (tags) */
+
+  --lime:#C7FF3C;         /* lima eléctrica (señal / progreso) */
+  --lime-deep:#5E7A10;    /* lima profunda (texto sobre pálido) */
+  --lime-pale:#ECF8C9;    /* lima pálida */
+
+  --mint:#C7FF3C;         /* alias señal → lima */
+  --mint-deep:#0E7A62;    /* verde positivo (viñetas fortalezas) */
+  --mint-pale:#EDEAF6;    /* alias suave lavanda para cajas */
+
+  --font-display:"Fraunces", "Cormorant Garamond", Georgia, serif;
+  --font-body:"Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font-ui:"Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+
+  --radius:8px;
+  --radius-btn:7px;
+  --maxw:1100px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--paper); color:var(--text);
+  font-family:var(--font-body); font-size:18px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--coral-deep); outline-offset:2px; border-radius:2px}
+
+h1,h2,h3{
+  font-family:var(--font-display); font-weight:600; line-height:1.04; color:var(--mora);
+  margin:0 0 .4em; letter-spacing:-.01em;
+  font-variation-settings:"opsz" 96, "SOFT" 0, "WONK" 0;
+}
+h1{font-size:clamp(2.5rem,6.2vw,4.6rem)}
+h2{font-size:clamp(1.9rem,4vw,2.9rem)}
+h3{font-size:clamp(1.3rem,2.5vw,1.7rem)}
+.italic{font-style:italic; font-variation-settings:"opsz" 72, "SOFT" 40}
+
+.eyebrow{
+  font-family:var(--font-ui); text-transform:uppercase; letter-spacing:.16em;
+  font-size:.72rem; font-weight:600; color:var(--coral); display:inline-flex; align-items:center; gap:.5rem;
+}
+.eyebrow::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--coral); display:inline-block}
+.muted{color:var(--muted)}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 clamp(1.1rem,4vw,2.5rem)}
+
+/* ---- Botones ---- */
+.btn{
+  font-family:var(--font-ui); font-weight:600; font-size:.95rem;
+  border-radius:var(--radius-btn); border:1.5px solid transparent; cursor:pointer;
+  padding:.85rem 1.5rem; display:inline-flex; align-items:center; gap:.5rem;
+  text-decoration:none; transition:transform .12s ease, background .15s ease, box-shadow .15s ease;
+  line-height:1;
+}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--coral); color:#fff; box-shadow:0 8px 18px -10px rgba(217,79,42,.7)}
+.btn-primary:hover{background:var(--coral-deep); color:#fff}
+.btn-secondary{background:transparent; color:var(--mora); border-color:var(--border-lav)}
+.btn-secondary:hover{background:var(--lavender-pale); border-color:var(--lavender)}
+.btn-ghost{background:transparent; color:var(--text); padding:.5rem .8rem}
+.btn-ghost:hover{background:var(--surface)}
+.btn:disabled{opacity:.45; cursor:not-allowed}
+.btn-sm{padding:.6rem 1.05rem; font-size:.85rem}
+
+/* ---- Header ---- */
+header.site{
+  position:sticky; top:0; z-index:30; background:rgba(246,241,232,.9);
+  backdrop-filter:blur(8px); border-bottom:1px solid var(--border);
+}
+.site .wrap{display:flex; align-items:center; justify-content:space-between; height:62px}
+.brand{font-family:var(--font-ui); font-weight:600; letter-spacing:.02em; font-size:1rem; text-decoration:none}
+.brand b{color:var(--coral-deep)}
+nav.main{display:flex; align-items:center; gap:.35rem}
+nav.main a{font-family:var(--font-ui); font-size:.9rem; text-decoration:none; color:var(--muted); padding:.5rem .7rem; border-radius:var(--radius)}
+nav.main a:hover{color:var(--text); background:var(--surface)}
+.nav-toggle{display:none}
+
+/* ---- Vistas ---- */
+.view{display:none; animation:fade .35s ease}
+.view.active{display:block}
+@keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+
+/* ---- Hero ---- */
+.hero{padding:clamp(2.5rem,6vw,4.5rem) 0 clamp(2rem,4vw,3rem)}
+.hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(1.5rem,4vw,3rem); align-items:center}
+.hero h1{margin-top:.5rem}
+.hero p.lead{font-size:1.15rem; color:#3a3a44; max-width:34ch}
+.hero .cta-row{display:flex; flex-wrap:wrap; gap:.8rem; margin-top:1.5rem}
+.hero .timenote{font-family:var(--font-ui); font-size:.82rem; color:var(--muted); margin-top:1.1rem; letter-spacing:.02em}
+
+/* Hero visual (placeholder SVG — sustituir por imagen real, ver README) */
+.hero-art{
+  border:1px solid var(--border); border-radius:8px; overflow:hidden;
+  background:var(--surface); aspect-ratio:5/4; box-shadow:0 18px 40px -28px rgba(15,17,23,.5);
+}
+.hero-art svg{width:100%; height:100%; display:block}
+
+/* ---- Sección mini-tarjetas culturas ---- */
+.section{padding:clamp(2.2rem,5vw,3.6rem) 0; border-top:1px solid var(--border)}
+.section .kicker{margin-bottom:1.6rem}
+.cards{display:grid; grid-template-columns:repeat(4,1fr); gap:1rem}
+.card{
+  background:var(--surface); border:1px solid var(--border); border-radius:8px;
+  padding:1.3rem 1.2rem; transition:transform .15s ease, box-shadow .15s ease;
+}
+.card:hover{transform:translateY(-3px); box-shadow:0 14px 30px -22px rgba(15,17,23,.5)}
+.card .tag{
+  font-family:var(--font-ui); font-size:.7rem; font-weight:600; text-transform:uppercase;
+  letter-spacing:.12em; padding:.25rem .55rem; border-radius:999px; display:inline-block; margin-bottom:.7rem;
+}
+.tag.follower{background:var(--coral-pale); color:var(--coral-deep)}
+.tag.forward{background:var(--lavender-pale); color:var(--mora)}
+.tag.first{background:var(--lime-pale); color:var(--lime-deep)}
+.tag.native{background:var(--mora); color:#fff}
+.card h3{font-size:1.25rem; margin-bottom:.25rem}
+.card p{font-size:.98rem; color:var(--muted); margin:0}
+
+/* ---- Bloque metodología (void) ---- */
+.impact{background:var(--void); color:#EDEAE3; border-radius:12px; padding:clamp(1.8rem,4vw,3rem); margin:1rem 0}
+.impact h2{color:#fff}
+.impact p{color:#c7c4bd; max-width:62ch}
+.impact .grid4{display:grid; grid-template-columns:repeat(4,1fr); gap:1.2rem; margin-top:1.6rem}
+.impact .grid4 div{border-top:2px solid var(--coral); padding-top:.7rem}
+.impact .grid4 strong{font-family:var(--font-display); font-size:1.3rem; display:block}
+.impact .grid4 span{font-family:var(--font-ui); font-size:.85rem; color:#a9a6a0}
+
+/* ---- Quiz ---- */
+.quiz-shell{max-width:760px; margin:0 auto; padding:clamp(2rem,5vw,3.5rem) 0}
+.progress{display:flex; align-items:center; gap:1rem; margin-bottom:1.4rem}
+.progress .meta{font-family:var(--font-ui); font-size:.8rem; letter-spacing:.04em; color:var(--muted); white-space:nowrap}
+.bar{flex:1; height:6px; background:var(--border); border-radius:999px; overflow:hidden}
+.bar i{display:block; height:100%; width:0; background:var(--mint); border-radius:999px; transition:width .3s ease}
+.qcard{background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:clamp(1.4rem,4vw,2.2rem)}
+.qcard h2{font-size:clamp(1.5rem,3.5vw,2.1rem); margin-bottom:.3rem}
+.micro{font-family:var(--font-ui); font-size:.82rem; color:var(--muted); margin:0 0 1.3rem}
+.answers{display:flex; flex-direction:column; gap:.7rem}
+.answer{
+  display:flex; gap:.9rem; align-items:flex-start; text-align:left; width:100%;
+  background:var(--paper); border:1.5px solid var(--border); border-radius:8px;
+  padding:1rem 1.1rem; cursor:pointer; font-family:var(--font-body); font-size:1.02rem;
+  color:var(--text); transition:border-color .14s ease, background .14s ease;
+}
+.answer:hover{border-color:var(--muted); background:var(--surface)}
+.answer .letter{
+  font-family:var(--font-ui); font-weight:600; font-size:.85rem; flex:none;
+  width:28px; height:28px; border-radius:50%; display:grid; place-items:center;
+  background:var(--surface); border:1.5px solid var(--border); color:var(--muted);
+}
+.answer[aria-pressed="true"]{border-color:var(--coral); background:var(--coral-pale)}
+.answer[aria-pressed="true"] .letter{background:var(--coral); border-color:var(--coral); color:#2a1408}
+.quiz-nav{display:flex; justify-content:space-between; margin-top:1.5rem; gap:1rem}
+
+/* ---- Resultado ---- */
+.result-shell{max-width:820px; margin:0 auto; padding:clamp(2rem,5vw,3.2rem) 0}
+.result-hero{background:var(--navy); color:#fff; border-radius:12px; padding:clamp(1.8rem,4vw,2.8rem)}
+.result-hero .eyebrow{color:var(--mint)}
+.result-hero h1{color:#fff; margin:.3rem 0 .2rem}
+.result-hero .subtitle{font-family:var(--font-display); font-style:italic; font-size:1.5rem; color:var(--lime)}
+.result-hero .summary{color:#dcdae6; font-size:1.12rem; max-width:54ch; margin-top:.8rem}
+.transit{display:inline-block; margin-top:1rem; font-family:var(--font-ui); font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; background:rgba(255,255,255,.12); padding:.35rem .7rem; border-radius:999px}
+
+.block{background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:clamp(1.3rem,3vw,1.8rem); margin-top:1.2rem}
+.block h3{display:flex; align-items:center; gap:.5rem; font-size:1.3rem}
+.cols{display:grid; grid-template-columns:1fr 1fr; gap:1.2rem}
+.lst{list-style:none; margin:.3rem 0 0; padding:0}
+.lst li{position:relative; padding-left:1.4rem; margin-bottom:.5rem; font-size:1rem}
+.lst li::before{content:""; position:absolute; left:0; top:.62em; width:7px; height:7px; border-radius:50%}
+.lst.pos li::before{background:var(--mint-deep)}
+.lst.neg li::before{background:var(--coral-deep)}
+.nextmove{border-left:4px solid var(--coral); background:var(--coral-pale); padding:1rem 1.2rem; border-radius:0 8px 8px 0}
+.closing{font-family:var(--font-display); font-style:italic; font-size:1.5rem; line-height:1.3; color:var(--navy); margin-top:1.4rem; text-align:center; padding:0 1rem}
+
+/* distribución */
+.dist{display:flex; flex-direction:column; gap:.7rem; margin-top:.6rem}
+.dist .row{display:grid; grid-template-columns:130px 1fr 44px; align-items:center; gap:.8rem}
+.dist .name{font-family:var(--font-ui); font-size:.82rem; color:var(--text)}
+.dist .track{height:14px; background:var(--paper); border:1px solid var(--border); border-radius:999px; overflow:hidden}
+.dist .fill{display:block; height:100%; width:0; border-radius:999px; transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.dist .val{font-family:var(--font-ui); font-size:.82rem; text-align:right; color:var(--muted)}
+.fill.follower{background:var(--coral)}
+.fill.forward{background:var(--lavender)}
+.fill.first{background:var(--lime)}
+.fill.native{background:var(--mora)}
+.dist .row.win .name{font-weight:600}
+
+.result-actions{display:flex; flex-wrap:wrap; gap:.8rem; margin-top:1.6rem; justify-content:center}
+
+/* email */
+.email{margin-top:1.2rem; background:var(--lavender-pale); border:1px solid var(--border-lav); border-radius:10px; padding:1.3rem 1.4rem}
+.email h3{color:var(--mora)}
+.email form{display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.6rem}
+.email input[type=email]{flex:1; min-width:220px; font-family:var(--font-ui); font-size:.95rem; padding:.75rem .9rem; border:1px solid var(--border); border-radius:var(--radius); background:#fff}
+.email .news-opt{display:flex; align-items:flex-start; gap:.5rem; font-family:var(--font-ui); font-size:.85rem; color:var(--text); margin:.7rem 0 0; cursor:pointer}
+.email .news-opt input{margin-top:.15rem; accent-color:var(--coral)}
+.email .privacy{font-family:var(--font-ui); font-size:.74rem; color:var(--muted); margin:.6rem 0 0}
+.email .done{font-family:var(--font-ui); color:var(--mint-deep); font-weight:600; margin-top:.4rem}
+
+/* ---- Las 4 culturas (vista) ---- */
+.cultures-shell{padding:clamp(2rem,5vw,3.4rem) 0}
+.big-cards{display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin-top:1.6rem}
+.big-card{background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:1.5rem}
+.big-card h3{font-size:1.5rem; margin-bottom:.1rem}
+.big-card .sub{font-family:var(--font-display); font-style:italic; font-size:1.15rem; color:var(--muted); margin-bottom:.6rem}
+.big-card .mini{font-family:var(--font-ui); font-size:.78rem; font-weight:600; text-transform:uppercase; letter-spacing:.1em; color:var(--text); margin:.9rem 0 .3rem}
+.matrix{margin-top:2rem; background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:1.6rem}
+.matrix-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:.8rem; margin-top:1rem; position:relative}
+.matrix-grid .q{border:1px dashed var(--border); border-radius:8px; padding:1rem; background:var(--paper)}
+.matrix-grid .q b{font-family:var(--font-display); font-size:1.2rem; display:block}
+.matrix-grid .q span{font-family:var(--font-ui); font-size:.8rem; color:var(--muted)}
+.axis{font-family:var(--font-ui); font-size:.74rem; text-transform:uppercase; letter-spacing:.1em; color:var(--muted)}
+
+/* ---- Footer ---- */
+footer.site{border-top:1px solid var(--border); margin-top:2rem; padding:2rem 0; color:var(--muted)}
+footer.site .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; font-family:var(--font-ui); font-size:.85rem}
+footer.site a{color:var(--muted); text-decoration:none}
+footer.site a:hover{color:var(--text)}
+
+.center{text-align:center}
+.mt2{margin-top:2rem}
+
+/* ---- Responsive ---- */
+@media (max-width:880px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-art{order:-1; aspect-ratio:16/9}
+  .cards{grid-template-columns:1fr 1fr}
+  .impact .grid4{grid-template-columns:1fr 1fr}
+  .big-cards{grid-template-columns:1fr}
+  nav.main{display:none; position:absolute; top:62px; left:0; right:0; flex-direction:column; align-items:stretch; background:var(--surface); border-bottom:1px solid var(--border); padding:.6rem}
+  nav.main.open{display:flex}
+  nav.main a{padding:.8rem}
+  .nav-toggle{display:inline-flex}
+}
+@media (max-width:560px){
+  body{font-size:17px}
+  .cards{grid-template-columns:1fr}
+  .cols{grid-template-columns:1fr}
+  .impact .grid4{grid-template-columns:1fr}
+  .dist .row{grid-template-columns:96px 1fr 40px}
+  .result-actions{flex-direction:column}
+  .result-actions .btn{justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important; scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#landing" data-view="landing">AI&nbsp;Culture&nbsp;<b>Quiz</b></a>
+    <button class="btn btn-ghost btn-sm nav-toggle" aria-expanded="false" aria-controls="mainnav" aria-label="Abrir menú">☰ Menú</button>
+    <nav class="main" id="mainnav">
+      <a href="#quiz" data-view="quiz">Quiz</a>
+      <a href="#culturas" data-view="cultures">Culturas</a>
+      <a href="#metodologia">Metodología</a>
+      <a class="btn btn-primary btn-sm" href="#quiz" data-view="quiz" data-start="1">Empezar</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ===================== VISTA: LANDING ===================== -->
+<section class="view active" id="view-landing" aria-label="Inicio">
+  <div class="wrap hero">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Diagnóstico de cultura IA</span>
+        <h1>¿Qué cultura de IA <span class="italic">domina</span> en tu organización?</h1>
+        <p class="lead">Responde 10 preguntas y descubre si tu organización actúa como AI Follower, AI Forward, AI First o AI Native.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#quiz" data-view="quiz" data-start="1">Empezar quiz →</a>
+          <a class="btn btn-secondary" href="#culturas" data-view="cultures">Ver las 4 culturas</a>
+        </div>
+        <p class="timenote">3 minutos · 10 preguntas · resultado inmediato</p>
+      </div>
+      <!-- HERO VISUAL: placeholder SVG (montañas en capas, estilo moodboard).
+           Sustituir por <img src="hero.jpg" alt="Diagnóstico de cultura de IA"> (ver README). -->
+      <div class="hero-art" role="img" aria-label="Diagnóstico de cultura de IA">
+        <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#F1ECF7"/><stop offset="1" stop-color="#E7E3F2"/>
+            </linearGradient>
+          </defs>
+          <rect width="500" height="400" fill="url(#sky)"/>
+          <!-- líneas topográficas suaves -->
+          <g fill="none" stroke="#D8D2E3" stroke-width="1" opacity=".7">
+            <path d="M-20 70 C120 40 260 60 540 30"/><path d="M-20 95 C120 65 260 85 540 55"/>
+            <path d="M-20 120 C140 95 280 110 540 85"/>
+          </g>
+          <!-- sol/luna -->
+          <circle cx="372" cy="92" r="34" fill="#C7FF3C"/>
+          <!-- capas de montaña, de fondo (lavanda) a frente (mora) -->
+          <path d="M0 250 L90 175 L170 230 L250 165 L330 225 L420 160 L500 215 L500 400 L0 400 Z" fill="#B9AFD8"/>
+          <path d="M0 300 L80 240 L165 295 L250 225 L345 290 L430 235 L500 285 L500 400 L0 400 Z" fill="#7D6BA6"/>
+          <path d="M0 360 L110 285 L210 350 L300 290 L390 350 L500 300 L500 400 L0 400 Z" fill="#3B1E54"/>
+          <!-- sendero -->
+          <path d="M250 225 C235 270 270 300 250 360" fill="none" stroke="#F6F1E8" stroke-width="2.4" stroke-dasharray="2 8" stroke-linecap="round" opacity=".8"/>
+          <!-- figura exploradora en la cresta -->
+          <g fill="#26242E">
+            <circle cx="250" cy="210" r="5"/>
+            <rect x="247" y="215" width="6" height="14" rx="3"/>
+            <path d="M250 229 l-6 13 M250 229 l6 13" stroke="#26242E" stroke-width="3" stroke-linecap="round"/>
+            <path d="M244 220 l12 -3" stroke="#26242E" stroke-width="3" stroke-linecap="round"/>
+          </g>
+          <!-- semicírculo lima de acento -->
+          <path d="M40 400 a40 40 0 0 1 80 0 Z" fill="#C7FF3C" opacity=".9"/>
+          <!-- rejilla de puntos -->
+          <g fill="#3B1E54" opacity=".5">
+            <circle cx="448" cy="150" r="2.4"/><circle cx="462" cy="150" r="2.4"/><circle cx="476" cy="150" r="2.4"/>
+            <circle cx="448" cy="164" r="2.4"/><circle cx="462" cy="164" r="2.4"/><circle cx="476" cy="164" r="2.4"/>
+            <circle cx="448" cy="178" r="2.4"/><circle cx="462" cy="178" r="2.4"/><circle cx="476" cy="178" r="2.4"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sección breve: 4 mini tarjetas -->
+  <div class="wrap section">
+    <div class="kicker">
+      <span class="eyebrow">Cuatro lógicas</span>
+      <h2>No todas las organizaciones usan IA desde la misma lógica.</h2>
+    </div>
+    <div class="cards" id="mini-cards"><!-- inyectado por JS --></div>
+  </div>
+
+  <!-- Metodología (bloque void) -->
+  <div class="wrap" id="metodologia">
+    <div class="impact">
+      <span class="eyebrow" style="color:var(--mint)">Metodología</span>
+      <h2>Basado en las cuatro culturas de IA de <span class="italic">Infinite</span></h2>
+      <p>El marco proviene de <em>Infinite</em>, de Brian Solis y Dave Wright. Cada una de las 10 preguntas reparte un punto entre cuatro culturas. La cultura con más puntos define tu resultado; los empates se resuelven mostrando la cultura más avanzada «en transición» o, si las lógicas son contradictorias, una «cultura híbrida». No es una auditoría: es una puerta de entrada para conversar sobre madurez, liderazgo y rediseño organizativo.</p>
+      <div class="grid4">
+        <div><strong>10</strong><span>preguntas de opción múltiple</span></div>
+        <div><strong>4</strong><span>culturas de IA</span></div>
+        <div><strong>~3 min</strong><span>para completarlo</span></div>
+        <div><strong>0</strong><span>datos obligatorios</span></div>
+      </div>
+      <div class="cta-row" style="margin-top:1.6rem">
+        <a class="btn btn-primary" href="#quiz" data-view="quiz" data-start="1">Empezar quiz →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VISTA: QUIZ ===================== -->
+<section class="view" id="view-quiz" aria-label="Quiz">
+  <div class="wrap quiz-shell">
+    <div class="progress">
+      <div class="bar"><i id="bar-fill"></i></div>
+      <div class="meta" id="q-counter">Pregunta 1 de 10</div>
+    </div>
+    <div class="qcard">
+      <span class="eyebrow" id="q-eyebrow">Pregunta 1</span>
+      <h2 id="q-text">—</h2>
+      <p class="micro">Elige la respuesta que más se parece a tu organización hoy, no la que te gustaría que fuera.</p>
+      <div class="answers" id="answers" role="group" aria-label="Opciones de respuesta"></div>
+    </div>
+    <div class="quiz-nav">
+      <button class="btn btn-secondary" id="btn-prev">← Anterior</button>
+      <button class="btn btn-primary" id="btn-next" disabled>Siguiente →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VISTA: RESULTADO ===================== -->
+<section class="view" id="view-result" aria-label="Resultado">
+  <div class="wrap result-shell">
+    <div class="result-hero">
+      <span class="eyebrow">Tu resultado</span>
+      <h1 id="r-title">—</h1>
+      <div class="subtitle" id="r-subtitle">—</div>
+      <p class="summary" id="r-summary">—</p>
+      <span class="transit" id="r-transit" hidden></span>
+    </div>
+
+    <div class="block">
+      <h3>Qué significa</h3>
+      <p id="r-desc" style="margin:0"></p>
+    </div>
+
+    <div class="block">
+      <div class="cols">
+        <div>
+          <h3>Fortalezas</h3>
+          <ul class="lst pos" id="r-strengths"></ul>
+        </div>
+        <div>
+          <h3>Riesgos</h3>
+          <ul class="lst neg" id="r-risks"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h3>Siguiente movimiento recomendado</h3>
+      <div class="nextmove" id="r-next" style="margin-top:.4rem"></div>
+    </div>
+
+    <div class="block">
+      <h3>Distribución de tu puntuación</h3>
+      <div class="dist" id="r-dist"></div>
+    </div>
+
+    <p class="closing" id="r-closing"></p>
+
+    <!-- Email opcional -->
+    <div class="email" id="email-box">
+      <h3>Recibir ficha completa por email</h3>
+      <p style="margin:.2rem 0 0; font-size:.98rem">Déjanos tu email (opcional) y te enviamos la ficha ampliada de tu cultura de IA y próximos pasos.</p>
+      <form id="email-form" novalidate>
+        <input type="email" id="email-input" placeholder="tu@email.com" aria-label="Tu email" required />
+        <button class="btn btn-primary" type="submit">Enviar ficha</button>
+      </form>
+      <label class="news-opt"><input type="checkbox" id="email-news" /> Quiero recibir también la newsletter de Eduardo Toledo.</label>
+      <p class="privacy">No bloquea tu resultado. No compartimos tu email. Puedes hacer el quiz sin dejar ningún dato.</p>
+      <p class="done" id="email-done" hidden>¡Gracias! Si todo está configurado, recibirás tu ficha en unos minutos. Revisa también spam.</p>
+    </div>
+
+    <div class="result-actions">
+      <button class="btn btn-secondary" id="btn-restart">↻ Repetir quiz</button>
+      <button class="btn btn-primary" id="btn-share">↗ Compartir resultado</button>
+      <a class="btn btn-ghost" href="#culturas" data-view="cultures">Ver las 4 culturas</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VISTA: CULTURAS ===================== -->
+<section class="view" id="view-cultures" aria-label="Las cuatro culturas">
+  <div class="wrap cultures-shell">
+    <span class="eyebrow">Las cuatro culturas</span>
+    <h1>Cuatro formas de incorporar la IA</h1>
+    <p class="muted" style="max-width:60ch">De la adopción prudente al diseño nativo. La mayoría de organizaciones conviven entre dos lógicas: reconocer la dominante ayuda a decidir el siguiente movimiento.</p>
+
+    <div class="big-cards" id="big-cards"><!-- inyectado por JS --></div>
+
+    <!-- Matriz 2x2 -->
+    <div class="matrix">
+      <span class="eyebrow">Matriz 2×2</span>
+      <h3 style="margin-top:.3rem">Madurez de adopción × centralidad de la IA</h3>
+      <p class="axis">Eje horizontal: la IA como herramienta → la IA como arquitectura · Eje vertical: prudencia → ambición</p>
+      <div class="matrix-grid">
+        <div class="q"><b>AI Forward</b><span>Colabora: humano en el bucle, adopción gradual.</span></div>
+        <div class="q"><b>AI Native</b><span>Diseña desde IA: producto y modelo operativo nativos.</span></div>
+        <div class="q"><b>AI Follower</b><span>Espera: ROI probado, seguridad, mejores prácticas.</span></div>
+        <div class="q"><b>AI First</b><span>Invierte la pregunta: IA como opción por defecto.</span></div>
+      </div>
+    </div>
+
+    <div class="center mt2">
+      <a class="btn btn-primary" href="#quiz" data-view="quiz" data-start="1">Haz el quiz →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site">
+  <div class="wrap">
+    <span>AI Culture Quiz · Marco basado en <em>Infinite</em> (Solis &amp; Wright)</span>
+    <span><a href="https://eduardotoledo.com">eduardotoledo.com</a> · Eduardo Toledo</span>
+  </div>
+</footer>
+
+<script>
+/* ===========================================================================
+   DATOS — preguntas y resultados (modelo del PRD §15).
+   A = ai_follower · B = ai_forward · C = ai_first · D = ai_native
+   =========================================================================== */
+const QUIZ_DATA = {
+  cultureOrder: ["ai_follower","ai_forward","ai_first","ai_native"],
+  cultureKey: { ai_follower:"follower", ai_forward:"forward", ai_first:"first", ai_native:"native" },
+  questions: [
+    { id:1, text:"Cuando tu organización se plantea usar IA, ¿cuál suele ser la reacción dominante?", answers:[
+      {label:"A", text:"Esperamos a ver casos probados, ROI claro y mejores prácticas.", culture:"ai_follower"},
+      {label:"B", text:"Probamos con pilotos seguros donde las personas siguen en control.", culture:"ai_forward"},
+      {label:"C", text:"Primero miramos si la IA puede resolverlo antes de diseñar otra solución.", culture:"ai_first"},
+      {label:"D", text:"Diseñamos el producto, el servicio o el flujo pensando desde IA desde el inicio.", culture:"ai_native"} ]},
+    { id:2, text:"¿Cómo se toman decisiones sobre nuevas tareas o necesidades de trabajo?", answers:[
+      {label:"A", text:"Se asignan a un equipo o se contrata a alguien si hace falta.", culture:"ai_follower"},
+      {label:"B", text:"Se combina trabajo humano con herramientas de IA para ganar capacidad.", culture:"ai_forward"},
+      {label:"C", text:"Se pregunta primero: «¿Puede hacerlo una IA o un agente?».", culture:"ai_first"},
+      {label:"D", text:"Se diseña una arquitectura de agentes, datos y humanos desde el principio.", culture:"ai_native"} ]},
+    { id:3, text:"¿Cuál es la principal preocupación cuando aparece una nueva herramienta de IA?", answers:[
+      {label:"A", text:"Seguridad, cumplimiento, riesgos y estabilidad del proveedor.", culture:"ai_follower"},
+      {label:"B", text:"Adopción interna, confianza y acompañamiento de las personas.", culture:"ai_forward"},
+      {label:"C", text:"Velocidad, escalabilidad y reducción de trabajo manual.", culture:"ai_first"},
+      {label:"D", text:"Reinventar el modelo operativo o crear una categoría nueva.", culture:"ai_native"} ]},
+    { id:4, text:"¿Qué lenguaje se usa más en tu organización al hablar de IA?", answers:[
+      {label:"A", text:"Mejores prácticas, casos de uso, eficiencia, ROI.", culture:"ai_follower"},
+      {label:"B", text:"Colaboración humano-IA, inteligencia aumentada, copilotos.", culture:"ai_forward"},
+      {label:"C", text:"Agentes, automatización avanzada, IA por defecto, workflows inteligentes.", culture:"ai_first"},
+      {label:"D", text:"IA nativa, modelo operativo, escalabilidad exponencial, negocio agentic.", culture:"ai_native"} ]},
+    { id:5, text:"¿Cómo se experimenta con IA?", answers:[
+      {label:"A", text:"Solo cuando hay una justificación clara y poco riesgo.", culture:"ai_follower"},
+      {label:"B", text:"Con pilotos estructurados, centros de excelencia o equipos de innovación.", culture:"ai_forward"},
+      {label:"C", text:"En muchos flujos de trabajo, buscando sustituir pasos manuales por IA.", culture:"ai_first"},
+      {label:"D", text:"Como forma de descubrir productos, servicios o modelos que antes no eran posibles.", culture:"ai_native"} ]},
+    { id:6, text:"¿Qué papel tienen las personas en el sistema de IA?", answers:[
+      {label:"A", text:"Usan herramientas aprobadas para trabajar algo más rápido.", culture:"ai_follower"},
+      {label:"B", text:"Siguen en el centro, supervisando y colaborando con la IA.", culture:"ai_forward"},
+      {label:"C", text:"Se concentran en juicio, creatividad, estrategia y supervisión.", culture:"ai_first"},
+      {label:"D", text:"Orquestan ecosistemas de agentes, datos, clientes y decisiones.", culture:"ai_native"} ]},
+    { id:7, text:"¿Qué tipo de valor se espera de la IA?", answers:[
+      {label:"A", text:"Reducción de costes y mejora de productividad.", culture:"ai_follower"},
+      {label:"B", text:"Aumento de capacidades y mejora de la experiencia de empleados/clientes.", culture:"ai_forward"},
+      {label:"C", text:"Rediseño de procesos y liberación de tiempo humano.", culture:"ai_first"},
+      {label:"D", text:"Creación de nuevos modelos de negocio o ventajas estructurales.", culture:"ai_native"} ]},
+    { id:8, text:"¿Cómo se organiza la adopción de IA?", answers:[
+      {label:"A", text:"Desde IT, proveedores, compliance o áreas concretas.", culture:"ai_follower"},
+      {label:"B", text:"Con programas de cambio, formación y adopción progresiva.", culture:"ai_forward"},
+      {label:"C", text:"Rediseñando dominios completos de trabajo con IA como motor.", culture:"ai_first"},
+      {label:"D", text:"Construyendo la empresa alrededor de IA, datos, agentes y gobernanza desde el inicio.", culture:"ai_native"} ]},
+    { id:9, text:"¿Qué ocurre cuando la IA falla o genera incertidumbre?", answers:[
+      {label:"A", text:"Se frena el despliegue hasta tener más garantías.", culture:"ai_follower"},
+      {label:"B", text:"Se mantiene al humano en el bucle para corregir y aprender.", culture:"ai_forward"},
+      {label:"C", text:"Se ajustan datos, guardrails y procesos para escalar con seguridad.", culture:"ai_first"},
+      {label:"D", text:"Se rediseña el sistema para que el aprendizaje sea parte del modelo operativo.", culture:"ai_native"} ]},
+    { id:10, text:"¿Qué frase representa mejor la ambición de tu organización con IA?", answers:[
+      {label:"A", text:"«Queremos usar IA de forma segura y rentable.»", culture:"ai_follower"},
+      {label:"B", text:"«Queremos que las personas trabajen mejor con IA.»", culture:"ai_forward"},
+      {label:"C", text:"«Queremos que la IA sea la opción por defecto en muchos flujos.»", culture:"ai_first"},
+      {label:"D", text:"«Queremos rediseñar lo que la organización puede llegar a ser.»", culture:"ai_native"} ]}
+  ],
+  results: {
+    ai_follower: {
+      title:"AI Follower",
+      subtitle:"La IA como herramienta segura.",
+      summary:"Tu organización adopta IA con prudencia: primero pruebas, casos claros y seguridad.",
+      description:"Tu organización tiende a adoptar IA con prudencia. Antes de avanzar, necesita pruebas, casos de uso claros, ROI, cumplimiento, seguridad y estabilidad. No ignora la IA, pero prefiere esperar a que el mercado reduzca la incertidumbre.",
+      strengths:["Buena gestión del riesgo.","Sensibilidad a compliance y gobernanza.","Capacidad para evitar modas pasajeras.","Procesos sólidos de evaluación."],
+      risks:["Llegar tarde.","Optimizar procesos antiguos sin cuestionarlos.","Depender demasiado de proveedores.","Convertir la IA en una herramienta más, no en una transformación."],
+      nextMove:"Seleccionar un workflow concreto y hacer un piloto seguro, pero no solo para ahorrar tiempo: también para preguntar qué parte del trabajo debería rediseñarse.",
+      closing:"No necesitas correr hacia la IA. Pero sí necesitas dejar de esperar a que otros definan el camino por ti.",
+      share:"Me ha salido AI Follower en el AI Culture Quiz. Mi organización adopta IA con prudencia: ahora toca pasar de esperar a pilotar con intención."
+    },
+    ai_forward: {
+      title:"AI Forward",
+      subtitle:"La IA como compañera de trabajo.",
+      summary:"Tu organización está aprendiendo a avanzar con IA sin dejar atrás a las personas.",
+      description:"Tu organización ya está avanzando. Integra IA junto a las personas, busca confianza, formación y adopción gradual. La IA no reemplaza de entrada: acompaña, aumenta capacidades y reduce fricciones.",
+      strengths:["Buena base cultural.","Foco en adopción y confianza.","Human-in-the-loop.","Capacidad para aprender sin romper la organización."],
+      risks:["Quedarse en pilotos.","Confundir adopción con transformación.","Usar IA solo como asistente.","No rediseñar el modelo operativo."],
+      nextMove:"Pasar de pilotos aislados a rediseñar un flujo completo de extremo a extremo, midiendo valor, fricción, confianza y nueva capacidad creada.",
+      closing:"Tu organización ya se mueve. Ahora necesita convertir aprendizaje en rediseño.",
+      share:"Me ha salido AI Forward en el AI Culture Quiz. Mi organización avanza con IA, pero todavía necesita pasar de la adopción segura al rediseño real del trabajo."
+    },
+    ai_first: {
+      title:"AI First",
+      subtitle:"La IA como opción por defecto.",
+      summary:"Tu organización empieza a invertir la pregunta: ¿puede la IA resolver parte del trabajo?",
+      description:"Tu organización empieza a invertir la pregunta: antes de contratar, añadir procesos o crear más coordinación humana, se pregunta si la IA puede resolver parte del trabajo. La IA pasa de ser una ayuda a ser el motor de rediseño.",
+      strengths:["Velocidad.","Escalabilidad.","Mentalidad de rediseño.","Mejor uso del tiempo humano.","Capacidad para crear workflows más inteligentes."],
+      risks:["Automatizar sin suficiente contexto.","Subestimar el juicio humano.","Crear dependencia tecnológica sin gobernanza.","Ir demasiado rápido para la cultura existente."],
+      nextMove:"Definir guardrails, métricas de calidad y criterios claros para decidir qué hace la IA, qué supervisa el humano y qué decisiones no deben automatizarse.",
+      closing:"La pregunta ya no es dónde usar IA. La pregunta es qué trabajo merece seguir siendo diseñado como antes.",
+      share:"Me ha salido AI First en el AI Culture Quiz. En mi organización la IA empieza a ser la opción por defecto para rediseñar el trabajo."
+    },
+    ai_native: {
+      title:"AI Native",
+      subtitle:"La IA como arquitectura del negocio.",
+      summary:"Tu organización piensa desde IA desde el origen: diseña producto y modelo con IA en el núcleo.",
+      description:"Tu organización piensa desde IA desde el origen. No se limita a incorporar herramientas: diseña productos, flujos, equipos y modelos operativos donde la IA es parte central del sistema. La ventaja no está solo en hacer más rápido, sino en hacer posible algo que antes no existía.",
+      strengths:["Escalabilidad radical.","Nuevos modelos de negocio.","Menor dependencia de estructuras tradicionales.","Velocidad de aprendizaje.","Capacidad para crear categorías nuevas."],
+      risks:["Fragilidad si falta gobernanza.","Desconexión cultural con clientes o empleados.","Riesgos reputacionales si la autonomía no está bien diseñada.","Dificultad para explicar el modelo a organizaciones tradicionales."],
+      nextMove:"Convertir la ventaja técnica en confianza: trazabilidad, explicabilidad, límites claros, gobernanza y narrativa estratégica.",
+      closing:"Tu reto no es adoptar IA. Es demostrar que una organización diseñada desde IA puede seguir siendo confiable, humana y relevante.",
+      share:"Me ha salido AI Native en el AI Culture Quiz. Mi organización está diseñada desde IA: el reto ahora es gobernanza y confianza."
+    }
+  },
+  miniCards: [
+    {key:"follower", title:"AI Follower", text:"Seguridad y ROI antes de avanzar."},
+    {key:"forward",  title:"AI Forward",  text:"Colaboración humano-IA, personas en el bucle."},
+    {key:"first",    title:"AI First",    text:"La IA como opción por defecto."},
+    {key:"native",   title:"AI Native",   text:"La IA como arquitectura del negocio."}
+  ]
+};
+
+/* ===========================================================================
+   ANALÍTICA — stub anónimo. Si hay dataLayer (GTM) empuja eventos; si no, no-op.
+   =========================================================================== */
+function track(event, props){
+  try{
+    var payload = Object.assign({event:event}, props||{});
+    if (window.dataLayer && window.dataLayer.push) window.dataLayer.push(payload);
+    // console.debug('[track]', payload);
+  }catch(e){}
+}
+
+/* ===========================================================================
+   BACKEND (Supabase) — estadísticas anónimas + envío de ficha por email.
+   La anon key es pública por diseño: RLS solo permite INSERT en quiz_responses
+   y no permite ninguna lectura. Si dejas SUPABASE_URL vacío, la app sigue
+   funcionando sin backend (no guarda estadística ni envía email).
+   =========================================================================== */
+const SUPABASE_URL = "https://fyjdtpmabbggctvddomn.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ5amR0cG1hYmJnZ2N0dmRkb21uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIzMDQ5OTUsImV4cCI6MjA5Nzg4MDk5NX0.WYjgeNt0-w6TgwxvfMw1wgOXDYD7_CD-fDvkEC4qWGI";
+
+// Guarda la respuesta (anónima) para estadística agregada.
+function saveResponse(res){
+  if(!SUPABASE_URL) return;
+  try{
+    fetch(SUPABASE_URL+"/rest/v1/quiz_responses", {
+      method:"POST",
+      headers:{ "apikey":SUPABASE_ANON_KEY, "Authorization":"Bearer "+SUPABASE_ANON_KEY,
+                "Content-Type":"application/json", "Prefer":"return=minimal" },
+      body: JSON.stringify({
+        result_culture: res.primary, mode: res.mode, transit: res.transit,
+        scores: res.scores, answers: state.answers,
+        device: deviceType(), source: location.host || null
+      })
+    }).catch(function(){});
+  }catch(e){}
+}
+
+/* ===========================================================================
+   ESTADO + LÓGICA
+   =========================================================================== */
+const state = { current:0, answers:new Array(QUIZ_DATA.questions.length).fill(null), startedAt:null };
+const VIEWS = ["landing","quiz","result","cultures"];
+
+function $(sel,root){ return (root||document).querySelector(sel); }
+function el(tag,attrs,html){ const n=document.createElement(tag); if(attrs) for(const k in attrs) n.setAttribute(k,attrs[k]); if(html!=null) n.innerHTML=html; return n; }
+
+/* ---- Routing entre vistas ---- */
+function showView(view, push){
+  if(VIEWS.indexOf(view)<0) view="landing";
+  VIEWS.forEach(v=>$("#view-"+v).classList.toggle("active", v===view));
+  window.scrollTo({top:0, behavior:"instant" in window ? "instant" : "auto"});
+  if(push!==false){ const hash = view==="landing" ? "#landing" : (view==="cultures"?"#culturas":"#"+view); history.replaceState(null,"",hash); }
+  $("#mainnav").classList.remove("open");
+}
+
+/* ---- Render mini-cards y big-cards ---- */
+function renderCards(){
+  const mini = $("#mini-cards");
+  QUIZ_DATA.miniCards.forEach(c=>{
+    const card = el("div",{class:"card"});
+    card.innerHTML = '<span class="tag '+c.key+'">'+c.title+'</span><h3>'+c.title+'</h3><p>'+c.text+'</p>';
+    mini.appendChild(card);
+  });
+  const big = $("#big-cards");
+  QUIZ_DATA.cultureOrder.forEach(id=>{
+    const r=QUIZ_DATA.results[id], k=QUIZ_DATA.cultureKey[id];
+    const card = el("div",{class:"big-card"});
+    card.innerHTML =
+      '<span class="tag '+k+'">'+r.title+'</span>'+
+      '<h3>'+r.title+'</h3><div class="sub">'+r.subtitle+'</div>'+
+      '<p style="margin:.2rem 0 0">'+r.description+'</p>'+
+      '<div class="mini">Fortalezas</div><ul class="lst pos">'+r.strengths.map(s=>'<li>'+s+'</li>').join('')+'</ul>'+
+      '<div class="mini">Riesgos</div><ul class="lst neg">'+r.risks.map(s=>'<li>'+s+'</li>').join('')+'</ul>'+
+      '<div class="mini">Siguiente movimiento</div><p style="margin:.2rem 0 0">'+r.nextMove+'</p>';
+    big.appendChild(card);
+  });
+}
+
+/* ---- Render pregunta actual ---- */
+function renderQuestion(){
+  const i = state.current, q = QUIZ_DATA.questions[i], total = QUIZ_DATA.questions.length;
+  $("#q-eyebrow").textContent = "Pregunta "+(i+1);
+  $("#q-counter").textContent = "Pregunta "+(i+1)+" de "+total;
+  $("#q-text").textContent = q.text;
+  $("#bar-fill").style.width = ((i+1)/total*100)+"%";
+
+  const wrap = $("#answers"); wrap.innerHTML="";
+  q.answers.forEach(a=>{
+    const sel = state.answers[i]===a.culture;
+    const btn = el("button",{class:"answer", type:"button", "aria-pressed":sel?"true":"false", "data-culture":a.culture});
+    btn.innerHTML = '<span class="letter">'+a.label+'</span><span>'+a.text+'</span>';
+    btn.addEventListener("click",()=>selectAnswer(a.culture));
+    wrap.appendChild(btn);
+  });
+
+  $("#btn-prev").disabled = i===0;
+  $("#btn-next").disabled = state.answers[i]===null;
+  $("#btn-next").textContent = i===total-1 ? "Ver resultado →" : "Siguiente →";
+}
+
+function selectAnswer(culture){
+  const i=state.current, first = state.answers[i]===null;
+  state.answers[i]=culture;
+  [].forEach.call($("#answers").children, b=>b.setAttribute("aria-pressed", b.getAttribute("data-culture")===culture?"true":"false"));
+  $("#btn-next").disabled=false;
+  track("question_answered", {question:i+1, culture:culture, changed:!first});
+}
+
+function nextQuestion(){
+  if(state.answers[state.current]===null) return;
+  if(state.current < QUIZ_DATA.questions.length-1){ state.current++; renderQuestion(); }
+  else { finishQuiz(); }
+}
+function prevQuestion(){ if(state.current>0){ state.current--; renderQuestion(); } }
+
+/* ---- Cálculo de resultado + desempate (PRD §8) ---- */
+function computeResult(){
+  const order = QUIZ_DATA.cultureOrder;
+  const scores = {ai_follower:0, ai_forward:0, ai_first:0, ai_native:0};
+  state.answers.forEach(c=>{ if(c) scores[c]++; });
+
+  const max = Math.max.apply(null, order.map(k=>scores[k]));
+  const winners = order.filter(k=>scores[k]===max);
+
+  let primary, transit=null, mode="dominant";
+
+  if(winners.length===1){
+    primary = winners[0];
+  } else if(winners.length===2){
+    const i0=order.indexOf(winners[0]), i1=order.indexOf(winners[1]);
+    if(Math.abs(i0-i1)===1){
+      // adyacentes → cultura más avanzada «en transición desde…»
+      const adv = i0>i1?winners[0]:winners[1];
+      const from = i0>i1?winners[1]:winners[0];
+      primary = adv; mode="transition";
+      transit = "En transición desde "+QUIZ_DATA.results[from].title;
+    } else {
+      // no adyacentes → híbrida
+      primary = i0>i1?winners[0]:winners[1]; mode="hybrid";
+    }
+  } else {
+    // 3 o 4 empatadas → sin cultura dominante
+    primary = winners[winners.length-1]; mode="none";
+  }
+  return {scores, max, winners, primary, transit, mode};
+}
+
+function finishQuiz(){
+  const res = computeResult();
+  renderResult(res);
+  showView("result");
+  const secs = state.startedAt ? Math.round((nowMs()-state.startedAt)/1000) : null;
+  track("quiz_completed", {result:res.primary, mode:res.mode, scores:res.scores, seconds:secs, device:deviceType()});
+  track("result_viewed", {result:res.primary, mode:res.mode});
+  saveResponse(res);
+}
+
+function renderResult(res){
+  const r = QUIZ_DATA.results[res.primary];
+  const k = QUIZ_DATA.cultureKey[res.primary];
+
+  // Encabezado según modo
+  if(res.mode==="hybrid"){
+    $("#r-title").textContent = "Cultura híbrida";
+    $("#r-subtitle").textContent = "Lógicas de IA contradictorias conviviendo.";
+    $("#r-summary").textContent = "Tu organización combina culturas de IA no contiguas. Conviene revisar las contradicciones internas: probablemente hay áreas muy avanzadas junto a otras muy prudentes.";
+  } else if(res.mode==="none"){
+    $("#r-title").textContent = "Sin cultura dominante";
+    $("#r-subtitle").textContent = "Conviven varias lógicas a la vez.";
+    $("#r-summary").textContent = "Tu organización no tiene una cultura de IA dominante. Probablemente conviven varias lógicas a la vez. La referencia más alta es "+r.title+".";
+  } else {
+    $("#r-title").textContent = r.title;
+    $("#r-subtitle").textContent = r.subtitle;
+    $("#r-summary").textContent = r.summary;
+  }
+
+  const t=$("#r-transit");
+  if(res.transit){ t.textContent=res.transit; t.hidden=false; } else { t.hidden=true; }
+
+  // Ficha (siempre la de la cultura primaria/de referencia)
+  $("#r-desc").textContent = r.description;
+  $("#r-strengths").innerHTML = r.strengths.map(s=>'<li>'+s+'</li>').join('');
+  $("#r-risks").innerHTML = r.risks.map(s=>'<li>'+s+'</li>').join('');
+  $("#r-next").textContent = r.nextMove;
+  $("#r-closing").textContent = '“'+r.closing+'”';
+
+  // Distribución
+  const dist=$("#r-dist"); dist.innerHTML="";
+  const total = QUIZ_DATA.questions.length;
+  QUIZ_DATA.cultureOrder.forEach(id=>{
+    const sc=res.scores[id], kk=QUIZ_DATA.cultureKey[id], win = id===res.primary && res.mode!=="hybrid" && res.mode!=="none";
+    const row=el("div",{class:"row"+(win?" win":"")});
+    row.innerHTML =
+      '<span class="name">'+QUIZ_DATA.results[id].title+'</span>'+
+      '<span class="track"><span class="fill '+kk+'" style="width:0"></span></span>'+
+      '<span class="val">'+sc+'/'+total+'</span>';
+    dist.appendChild(row);
+    requestAnimationFrame(()=>{ $(".fill",row).style.width = (sc/total*100)+"%"; });
+  });
+
+  // reset email
+  $("#email-form").hidden=false; $("#email-done").hidden=true; $("#email-input").value="";
+  // guarda para compartir
+  state.lastResult = {res, share:r.share};
+}
+
+/* ---- Compartir ---- */
+function shareResult(){
+  const data = state.lastResult;
+  const base = data ? data.share : "Acabo de hacer el AI Culture Quiz.";
+  const url = "https://eduardotoledo.com/culturas-ia/";
+  const text = base+"\n\nHaz el quiz y descubre tu cultura de IA: "+url;
+  track("share_clicked", {result:data?data.res.primary:null});
+  if(navigator.share){
+    navigator.share({title:"AI Culture Quiz", text:base+"\n\nHaz el quiz y descubre tu cultura de IA.", url:url}).catch(()=>{});
+  } else if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(()=>flashShare("Texto copiado al portapapeles")).catch(()=>fallbackShare(url));
+  } else { fallbackShare(url); }
+}
+function fallbackShare(url){
+  window.open("https://twitter.com/intent/tweet?text="+encodeURIComponent((state.lastResult?state.lastResult.share:"")+" Haz el quiz:")+"&url="+encodeURIComponent(url),"_blank","noopener");
+}
+function flashShare(msg){
+  const b=$("#btn-share"), old=b.textContent; b.textContent="✓ "+msg; b.disabled=true;
+  setTimeout(()=>{ b.textContent=old; b.disabled=false; }, 2200);
+}
+
+/* ---- Email opcional ---- */
+// Envía la ficha por email vía la Edge Function de Supabase (enviar-ficha).
+// El envío real del correo requiere configurar RESEND_API_KEY + dominio (ver README).
+// Aunque el correo no salga, el lead queda guardado y el formulario muestra el "gracias".
+function handleEmail(e){
+  e.preventDefault();
+  const input=$("#email-input"), val=(input.value||"").trim().toLowerCase();
+  if(!val || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(val)){ input.focus(); input.reportValidity && input.reportValidity(); return; }
+  const wantsNews = !!($("#email-news") && $("#email-news").checked);
+  const culture = state.lastResult ? state.lastResult.res.primary : null;
+  track("email_submitted", {result:culture, newsletter:wantsNews});
+  const reveal=()=>{ $("#email-form").hidden=true; $("#email-news").parentNode.style.display="none"; $("#email-done").hidden=false; };
+  if(SUPABASE_URL){
+    fetch(SUPABASE_URL+"/functions/v1/enviar-ficha", {
+      method:"POST",
+      headers:{ "apikey":SUPABASE_ANON_KEY, "Authorization":"Bearer "+SUPABASE_ANON_KEY, "Content-Type":"application/json" },
+      body: JSON.stringify({ email:val, result_culture:culture,
+        scores: state.lastResult?state.lastResult.res.scores:null, wants_newsletter:wantsNews })
+    }).then(reveal).catch(reveal);
+  } else { reveal(); }
+}
+
+/* ---- Reinicio ---- */
+function restart(){
+  state.current=0; state.answers=new Array(QUIZ_DATA.questions.length).fill(null); state.startedAt=nowMs();
+  track("restart_clicked",{});
+  renderQuestion(); showView("quiz");
+}
+
+/* ---- Empezar quiz ---- */
+function startQuiz(){
+  if(!state.startedAt || state.answers.every(a=>a===null)){ state.startedAt=nowMs(); track("quiz_started",{device:deviceType()}); }
+  renderQuestion(); showView("quiz");
+}
+
+/* ---- utilidades ---- */
+function nowMs(){ return (window.performance && performance.now) ? performance.now() : (+new Date()); }
+function deviceType(){ const w=window.innerWidth; return w<560?"mobile":(w<880?"tablet":"desktop"); }
+
+/* ===========================================================================
+   INIT
+   =========================================================================== */
+function init(){
+  renderCards();
+  renderQuestion();
+
+  // navegación por data-view
+  document.body.addEventListener("click", function(e){
+    const link = e.target.closest("[data-view]");
+    if(link){
+      e.preventDefault();
+      const v = link.getAttribute("data-view");
+      if(v==="quiz" && link.getAttribute("data-start")==="1"){ startQuiz(); }
+      else { showView(v); if(v==="quiz"){ renderQuestion(); if(!state.startedAt){state.startedAt=nowMs(); track("quiz_started",{device:deviceType()});} } }
+    }
+  });
+
+  $("#btn-next").addEventListener("click", nextQuestion);
+  $("#btn-prev").addEventListener("click", prevQuestion);
+  $("#btn-restart").addEventListener("click", restart);
+  $("#btn-share").addEventListener("click", shareResult);
+  $("#email-form").addEventListener("submit", handleEmail);
+  $(".nav-toggle").addEventListener("click", function(){
+    const n=$("#mainnav"), open=n.classList.toggle("open"); this.setAttribute("aria-expanded", open?"true":"false");
+  });
+
+  // teclado en quiz: 1-4 / A-D seleccionan, flechas navegan
+  document.addEventListener("keydown", function(e){
+    if(!$("#view-quiz").classList.contains("active")) return;
+    const map={"1":0,"2":1,"3":2,"4":3,"a":0,"b":1,"c":2,"d":3};
+    const k=e.key.toLowerCase();
+    if(map[k]!=null){ const opt=$("#answers").children[map[k]]; if(opt){ opt.click(); opt.focus(); } }
+    else if(e.key==="ArrowRight" || e.key==="Enter"){ if(!$("#btn-next").disabled) nextQuestion(); }
+    else if(e.key==="ArrowLeft"){ if(!$("#btn-prev").disabled) prevQuestion(); }
+  });
+
+  // hash inicial
+  const h=(location.hash||"").replace("#","");
+  if(h==="culturas") showView("cultures",false);
+  else if(h==="quiz") { showView("landing",false); } // no autoarrancar el quiz al recargar
+  else showView("landing",false);
+}
+
+if(document.readyState!=="loading") init(); else document.addEventListener("DOMContentLoaded", init);
+</script>
+</body>
+</html>
